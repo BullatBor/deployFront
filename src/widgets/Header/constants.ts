@@ -1,9 +1,25 @@
-export const HEADER_LINKS = [
-  'RESEARCH',
-  'PIBLICATIONS',
-  'EDUCATION',
-  'ABOUT US',
-  'MORE',
+export interface HeaderProps {
+  title: string;
+  menu?: string[];
+}
+
+export const HEADER_LINKS: HeaderProps[] = [
+  {
+    title: 'RESEARCH',
+  },
+  {
+    title: 'PUBLICATIONS',
+  },
+  {
+    title: 'EDUCATION',
+  },
+  {
+    title: 'ABOUT US',
+  },
+  {
+    title: 'MORE',
+    menu: ['lk', 'COLLABORATIONS', 'RESOURCES'],
+  },
 ];
 
 export const HEADER_TITLE_TOP = `Molecular Systems`;

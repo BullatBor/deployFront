@@ -33,7 +33,9 @@ export const Header = () => {
           <div className={styles['title']}>{HEADER_TITLE_BOTTOM}</div>
         </div>
         <div className={styles['links']}>
-          <HeaderLinks links={HEADER_LINKS} />
+          {HEADER_LINKS.map((link) => (
+            <HeaderLinks key={link.title} link={link.title} menu={link.menu} />
+          ))}
           <LanguageButtons />
         </div>
       </div>
