@@ -22,7 +22,7 @@ const Links: FC<Props> = ({ link, menu }) => {
       {isVisible && menu && (
         <div className={styles['dropdown']}>
           {menu.map((item) => (
-            <div className={styles['item']}>
+            <div key={item} className={styles['item']}>
               <div>{t(`header.${item}`)}</div>
             </div>
           ))}
