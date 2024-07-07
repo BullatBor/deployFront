@@ -1,0 +1,44 @@
+.wrapper {
+  background-color: #230093;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 220px 110px 50px;
+  gap: 30px;
+}
+
+.title {
+  line-height: 110px;
+  font-size: 110px;
+  color: #dfe1e3;
+  font-size: 120px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -8px;
+  text-align: left;
+}
+.descriptions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px #bfbfbf solid;
+}
+
+.description {
+  font-weight: 700;
+  color: #afafaf;
+  font-size: 20px;
+  line-height: 24px;
+  width: 460px;
+  text-align: left;
+  padding-top: 20px;
+  position: relative;
+  margin-left: 98px;
+}
+
+.ru_style {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  width: 315px;
+}

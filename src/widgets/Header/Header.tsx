@@ -32,10 +32,16 @@ export const Header = () => {
           <div className={styles['title']}>{HEADER_TITLE_TOP}</div>
           <div className={styles['title']}>{HEADER_TITLE_BOTTOM}</div>
         </div>
-        <div className={styles['links']}>
-          {HEADER_LINKS.map((link) => (
-            <HeaderLinks key={link.title} link={link.title} menu={link.menu} />
-          ))}
+        <div className={styles['nav']}>
+          <div className={styles['links']}>
+            {HEADER_LINKS.map((link) => (
+              <HeaderLinks
+                key={link.title}
+                link={link.title}
+                menu={link.menu}
+              />
+            ))}
+          </div>
           <LanguageButtons />
         </div>
       </div>

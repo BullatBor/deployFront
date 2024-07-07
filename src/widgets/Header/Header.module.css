@@ -21,9 +21,14 @@
   max-width: 1200px;
 }
 
-.links {
+.nav {
   display: flex;
   gap: 51px;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
 }
 
 .sticky {

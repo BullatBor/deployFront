@@ -1,12 +1,12 @@
 import './App.css';
 import { Header } from './widgets/Header';
-import styles from './test.module.css';
+import { MainBoard } from './shared';
 
 function App() {
   return (
     <>
       <Header />
-      <div className={styles['back']}></div>
+      <MainBoard />
     </>
   );
 }

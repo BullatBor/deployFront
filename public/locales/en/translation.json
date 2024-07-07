@@ -8,5 +8,8 @@
     "lk": "PERSONAL ACCOUNT",
     "COLLABORATIONS": "COLLABORATIONS",
     "RESOURCES": "RESOURCES"
+  },
+  "main": {
+    "description": "Combination of computational and experimental methods for the development of novel molecular systems and chemical reactions."
   }
 }
