@@ -4,7 +4,7 @@ import App from './App.tsx';
 import './index.css';
 import './i18';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Suspense fallback={<div>...Loading</div>}>
       <App />
