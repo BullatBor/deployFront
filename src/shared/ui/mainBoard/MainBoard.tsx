@@ -1,5 +1,4 @@
-import React from 'react';
-import styles from './MainBoard.module.css';
+import styles from './MainBoard.module.scss';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 

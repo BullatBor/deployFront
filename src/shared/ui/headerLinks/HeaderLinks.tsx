@@ -1,5 +1,5 @@
 import { FC, memo, useState } from 'react';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
@@ -14,6 +14,7 @@ const Links: FC<Props> = ({ link, menu }) => {
   return (
     <div
       key={link}
+      onClick={() => link !== 'MORE' && (document.title = link)}
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
       className={styles['wrapper']}
@@ -22,7 +23,7 @@ const Links: FC<Props> = ({ link, menu }) => {
       {isVisible && menu && (
         <div className={styles['dropdown']}>
           {menu.map((item) => (
-            <div key={item} className={styles['item']}>
+            <div key={item} className={styles['item']} onClick={() => (document.title = item)}>
               <div>{t(`header.${item}`)}</div>
             </div>
           ))}

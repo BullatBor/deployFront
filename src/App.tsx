@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { Header } from './widgets/Header';
 import { MainBoard } from './shared';
 
