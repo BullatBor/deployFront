@@ -1,12 +1,12 @@
 import './App.css';
 import { Header } from './widgets/Header';
-import { MainBoard } from './shared';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <>
       <Header />
-      <MainBoard />
+      <Outlet />
     </>
   );
 }

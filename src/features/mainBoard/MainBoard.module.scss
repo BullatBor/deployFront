@@ -1,0 +1,158 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  &__main {
+    background-color: $bg_primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 220px 230px 50px;
+    gap: 30px;
+  }
+
+  &__title {
+    line-height: 110px;
+    font-size: 110px;
+    color: $text_white;
+    font-size: 120px;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -8px;
+    text-align: left;
+  }
+
+  &__descriptions {
+    border-top: 1px $gray solid;
+  }
+
+  &__description {
+    font-weight: 700;
+    color: #afafaf;
+    font-size: map-get($font-size, M);
+    line-height: 24px;
+    text-align: left;
+    padding-top: 20px;
+    position: relative;
+  }
+}
+
+.block_wrapper {
+  padding: 50px 230px;
+  color: $text_primary;
+}
+
+.variant {
+  font-size: map-get($font-size, XS);
+  font-weight: 400;
+  text-align: left;
+  display: flex;
+  align-items: end;
+}
+
+.block_title {
+  border-bottom: 1px $text_primary solid;
+  padding: 10px 0;
+}
+
+.title_text {
+  font-size: map-get($font-size, XL);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -1px;
+  text-align: left;
+}
+
+.title {
+  line-height: 110px;
+  font-size: 110px;
+  color: $text_white;
+  font-size: 120px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -8px;
+  text-align: left;
+}
+.descriptions {
+  display: flex;
+  align-items: center;
+  border-top: 1px $gray solid;
+}
+
+.description {
+  font-weight: 700;
+  color: $text_gray;
+  font-size: 20px;
+  line-height: 24px;
+  width: 460px;
+  text-align: left;
+  padding-top: 20px;
+  position: relative;
+  margin-left: 380px;
+}
+
+.info_text {
+  font-size: map-get($font-size, XS);
+  color: $text_primary;
+  line-height: 1.3;
+  font-weight: 400;
+  text-align: left;
+  display: block;
+}
+
+.info_block {
+  display: flex;
+  padding: 30px 0 0;
+  position: relative;
+  flex-direction: column;
+}
+
+.info_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ru_style {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.newsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.student_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.student {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 8px;
+}
+
+.leftImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.left_image_wrapper {
+  position: relative;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.two_column {
+  grid-column: span 2;
+}

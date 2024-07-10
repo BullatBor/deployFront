@@ -1,3 +1,5 @@
 export * from './headerLinks';
 export * from './languageButtons';
-export * from './mainBoard';
+export * from './button';
+export * from './icon';
+export * from './text';

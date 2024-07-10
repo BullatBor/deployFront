@@ -9,6 +9,7 @@
   right: 0;
   left: 0;
   color: white;
+  z-index: 2;
 }
 
 .container {
@@ -41,4 +42,5 @@
   font-size: 20px;
   line-height: 22px;
   text-align: left;
+  font-weight: 400;
 }
