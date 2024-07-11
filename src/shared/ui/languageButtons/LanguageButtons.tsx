@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import styles from './LanguageButtons.module.css';
+import styles from './LanguageButtons.module.scss';
 import { useTranslation } from 'react-i18next';
 
 const Buttons = () => {

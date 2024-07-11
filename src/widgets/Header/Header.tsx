@@ -1,11 +1,7 @@
 import { useEffect, useState } from 'react';
 import { HeaderLinks, LanguageButtons } from '../../shared';
-import {
-  HEADER_LINKS,
-  HEADER_TITLE_BOTTOM,
-  HEADER_TITLE_TOP,
-} from './constants';
-import styles from './Header.module.css';
+import { HEADER_LINKS, HEADER_TITLE_BOTTOM, HEADER_TITLE_TOP } from './constants';
+import styles from './Header.module.scss';
 import cn from 'classnames';
 
 export const Header = () => {
@@ -35,11 +31,7 @@ export const Header = () => {
         <div className={styles['nav']}>
           <div className={styles['links']}>
             {HEADER_LINKS.map((link) => (
-              <HeaderLinks
-                key={link.title}
-                link={link.title}
-                menu={link.menu}
-              />
+              <HeaderLinks key={link.title} link={link.title} menu={link.menu} />
             ))}
           </div>
           <LanguageButtons />
