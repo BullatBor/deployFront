@@ -1,4 +1,3 @@
-export * from './EducationBlock';
 export * from './NewsBlock';
 export * from './ResearchBlock';
 export * from './Students';

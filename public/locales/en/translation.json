@@ -17,6 +17,11 @@
     "students": "For undergraduate and graduate students",
     "university": "We work on the basis of universities:"
   },
+  "education": {
+    "education": "Educational",
+    "resources": "resources",
+    "chemicalCourses": "Online course on chemical reaction modeling"
+  },
   "button": {
     "more": "Learn more",
     "writeUs": "Write to us"

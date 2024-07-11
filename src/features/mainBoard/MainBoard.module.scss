@@ -7,8 +7,13 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 220px 230px 50px;
+    padding: 220px 230px 80px;
     gap: 30px;
+  }
+
+  &__titles {
+    border-bottom: 1px $gray solid;
+    padding-bottom: 40px;
   }
 
   &__title {
@@ -22,10 +27,6 @@
     text-align: left;
   }
 
-  &__descriptions {
-    border-top: 1px $gray solid;
-  }
-
   &__description {
     font-weight: 700;
     color: #afafaf;
@@ -35,6 +36,17 @@
     padding-top: 20px;
     position: relative;
   }
+
+  &__bottom_title {
+    margin-top: -10px;
+  }
+
+  &__resources_title {
+    position: relative;
+    width: min-content;
+    left: calc(50% - 600px + 421px);
+    margin-top: -20px;
+  }
 }
 
 .block_wrapper {
@@ -43,9 +55,6 @@
 }
 
 .variant {
-  font-size: map-get($font-size, XS);
-  font-weight: 400;
-  text-align: left;
   display: flex;
   align-items: end;
 }
@@ -73,31 +82,9 @@
   letter-spacing: -8px;
   text-align: left;
 }
-.descriptions {
-  display: flex;
-  align-items: center;
-  border-top: 1px $gray solid;
-}
-
-.description {
-  font-weight: 700;
-  color: $text_gray;
-  font-size: 20px;
-  line-height: 24px;
-  width: 460px;
-  text-align: left;
-  padding-top: 20px;
-  position: relative;
-  margin-left: 380px;
-}
 
 .info_text {
-  font-size: map-get($font-size, XS);
-  color: $text_primary;
-  line-height: 1.3;
-  font-weight: 400;
   text-align: left;
-  display: block;
 }
 
 .info_block {

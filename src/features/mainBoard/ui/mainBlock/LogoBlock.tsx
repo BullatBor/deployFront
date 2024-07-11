@@ -7,12 +7,26 @@ export const LogoBlock = () => {
   return (
     <div className='wrapper'>
       <div className={styles['wrapper__main']}>
-        <div>
+        <div className={styles['wrapper__titles']}>
           <div className={styles['wrapper__title']}>Molecular</div>
-          <div className={styles['wrapper__title']}>Systems Design &</div>
-          <div className={styles['wrapper__title']}>Engineering Group</div>
+          <div
+            className={cn(
+              styles['wrapper__title'],
+              styles['wrapper__bottom_title'],
+            )}
+          >
+            Systems Design &
+          </div>
+          <div
+            className={cn(
+              styles['wrapper__title'],
+              styles['wrapper__bottom_title'],
+            )}
+          >
+            Engineering Group
+          </div>
         </div>
-        <div className={styles['wrapper__descriptions']}>
+        <div>
           <div className={styles['row']}>
             <div></div>
             <div
