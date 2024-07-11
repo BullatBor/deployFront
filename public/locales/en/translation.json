@@ -10,6 +10,15 @@
     "RESOURCES": "RESOURCES"
   },
   "main": {
-    "description": "Combination of computational and experimental methods for the development of novel molecular systems and chemical reactions."
+    "description": "Combination of computational and experimental methods for the development of novel molecular systems and chemical reactions.",
+    "research": "Research",
+    "education": "Educational Resources",
+    "news": "News",
+    "students": "For undergraduate and graduate students",
+    "university": "We work on the basis of universities:"
+  },
+  "button": {
+    "more": "Learn more",
+    "writeUs": "Write to us"
   }
 }

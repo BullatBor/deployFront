@@ -1,12 +1,16 @@
+import { Suspense } from 'react';
 import './App.scss';
 import { Header } from './widgets/Header';
-import { MainBoard } from './shared';
+import { Outlet } from 'react-router-dom';
+import './i18';
 
 function App() {
   return (
     <>
-      <Header />
-      <MainBoard />
+      <Suspense fallback={<div>...Loading</div>}>
+        <Header />
+        <Outlet />
+      </Suspense>
     </>
   );
 }
