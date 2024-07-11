@@ -5,19 +5,25 @@
 }
 
 .link {
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 400;
-  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
   padding: 5px 0;
   letter-spacing: 0.12em;
+}
+
+.activeLink {
+  font-weight: 500 !important;
+  padding: 5px 0;
+  letter-spacing: 0.12em;
+  color: $text_primary;
+  text-decoration: underline;
 }
 
 .link:hover {
   transition:
     color 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
-  color: #2542a0;
+  color: $text_primary;
   text-decoration: underline;
 }
 
@@ -33,7 +39,7 @@
   flex-direction: column;
   gap: 12px;
   transform: translateX(-38%);
-  top: 40px;
+  top: 75px;
 }
 
 .dropdown::after {

@@ -56,6 +56,11 @@
     line-height: map-get($line-height, XSS);
   }
 
+  &_xxs {
+    font-size: map-get($font-size, XXS);
+    line-height: map-get($line-height, XSS);
+  }
+
   &_s {
     font-size: map-get($font-size, S);
     line-height: map-get($line-height, S);

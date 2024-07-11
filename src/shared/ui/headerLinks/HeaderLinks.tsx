@@ -1,24 +1,34 @@
 import { FC, memo, useState } from 'react';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 import { useTranslation } from 'react-i18next';
+import { Text } from '../text';
+import { NavLink } from 'react-router-dom';
 
 interface Props {
+  title: string;
   link: string;
   menu?: string[];
 }
 
-const Links: FC<Props> = ({ link, menu }) => {
+const Links: FC<Props> = ({ link, title, menu }) => {
   const [isVisible, setVisible] = useState(false);
   const { t } = useTranslation();
 
   return (
     <div
-      key={link}
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
-      className={styles['wrapper']}
     >
-      <span className={styles['link']}>{t(`header.${link}`)}</span>
+      <NavLink
+        to={link}
+        className={({ isActive }) =>
+          isActive ? styles['activeLink'] : styles['link']
+        }
+      >
+        <Text tag='span' size='xxs' weight='semibold'>
+          {t(`header.${title}`)}
+        </Text>
+      </NavLink>
       {isVisible && menu && (
         <div className={styles['dropdown']}>
           {menu.map((item) => (

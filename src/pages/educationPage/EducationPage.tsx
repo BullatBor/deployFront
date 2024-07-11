@@ -1,18 +1,10 @@
-import {
-  LogoBlock,
-  NewsBlock,
-  ResearchBlock,
-  Students,
-  Universitys,
-  CourseBlock,
-} from '../../features';
-import { EDUCATION_DATA } from './constant';
+import { CourseBlock, EducationResource } from '../../features';
+import { EDUCATION_DATA } from './constants';
 
-export const MainPage = () => {
+const EducationPage = () => {
   return (
     <div>
-      <LogoBlock />
-      <ResearchBlock />
+      <EducationResource />
       <CourseBlock
         sectionName={EDUCATION_DATA.sectionName}
         descriptionTitle={EDUCATION_DATA.descriptionTitle}
@@ -21,9 +13,8 @@ export const MainPage = () => {
         rightDescription={EDUCATION_DATA.rightDescription}
         listValues={EDUCATION_DATA.listValues}
       />
-      <NewsBlock />
-      <Students />
-      <Universitys />
     </div>
   );
 };
+
+export default EducationPage;

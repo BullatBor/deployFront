@@ -5,7 +5,7 @@ import {
   HEADER_TITLE_BOTTOM,
   HEADER_TITLE_TOP,
 } from './constants';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 import cn from 'classnames';
 
 export const Header = () => {
@@ -37,7 +37,8 @@ export const Header = () => {
             {HEADER_LINKS.map((link) => (
               <HeaderLinks
                 key={link.title}
-                link={link.title}
+                title={link.title}
+                link={link.link}
                 menu={link.menu}
               />
             ))}
