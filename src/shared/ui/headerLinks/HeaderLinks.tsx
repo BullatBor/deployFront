@@ -16,14 +16,13 @@ const Links: FC<Props> = ({ link, title, menu }) => {
 
   return (
     <div
+      onClick={() => link !== 'MORE' && (document.title = link)}
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
     >
       <NavLink
-        to={link}
-        className={({ isActive }) =>
-          isActive ? styles['activeLink'] : styles['link']
-        }
+        to={`/${link}`}
+        className={({ isActive }) => (isActive ? styles['activeLink'] : styles['link'])}
       >
         <Text tag='span' size='xxs' weight='semibold'>
           {t(`header.${title}`)}
@@ -32,7 +31,7 @@ const Links: FC<Props> = ({ link, title, menu }) => {
       {isVisible && menu && (
         <div className={styles['dropdown']}>
           {menu.map((item) => (
-            <div key={item} className={styles['item']}>
+            <div key={item} className={styles['item']} onClick={() => (document.title = item)}>
               <div>{t(`header.${item}`)}</div>
             </div>
           ))}

@@ -7,23 +7,23 @@ export interface HeaderProps {
 export const HEADER_LINKS: HeaderProps[] = [
   {
     title: 'RESEARCH',
-    link: '/research',
+    link: 'research',
   },
   {
     title: 'PUBLICATIONS',
-    link: '/publications',
+    link: 'publications',
   },
   {
     title: 'EDUCATION',
-    link: '/education',
+    link: 'education',
   },
   {
     title: 'ABOUT US',
-    link: '/aboutUs',
+    link: 'aboutUs',
   },
   {
     title: 'MORE',
-    link: '/more',
+    link: 'more',
     menu: ['lk', 'COLLABORATIONS', 'RESOURCES'],
   },
 ];
