@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+PS3 = 'Вы предварительно обновили проект?'
+
+select answer in "yes" "no"
+do
+  case $answer in 
+    "yes"
+      echo "Хорошая работа, коллега ;-)"
+      exit 0
+    "no"
+      echo "Обновите проект до последней версии"
+      exit 1
+  esac
+done
