@@ -135,6 +135,28 @@
   position: relative;
 }
 
+.margin_top {
+  margin-top: 70px;
+}
+
+.research {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  &__cards {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 30px;
+    border-bottom: 1px $gray solid;
+  }
+
+  &__card {
+    display: flex;
+    align-items: end;
+    gap: 15px;
+  }
+}
+
 .row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
