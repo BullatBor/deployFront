@@ -25,12 +25,7 @@ export const NewsCard: FC<Props> = ({ title, date, description }) => {
             </Text>
           </div>
           <div className={styles['news__date']}>
-            <Text
-              tag='span'
-              size='sxs'
-              weight='medium'
-              className={styles['date_text']}
-            >
+            <Text tag='span' size='sxs' weight='medium' className={styles['date_text']}>
               {date}
             </Text>
           </div>

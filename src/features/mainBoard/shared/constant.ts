@@ -7,7 +7,7 @@ interface NEWS_PROPS {
   description: string;
 }
 
-interface UNIVERSITY_TYPES {
+interface CARD_TYPES {
   img: TAllImages;
   description: string;
 }
@@ -30,7 +30,7 @@ export const NEWS_DATA: NEWS_PROPS[] = [
   },
 ];
 
-export const UNIVERSITY_DATA: UNIVERSITY_TYPES[] = [
+export const UNIVERSITY_DATA: CARD_TYPES[] = [
   {
     img: 'SP-University',
     description: 'Кафедра медицинской химии',
@@ -42,5 +42,20 @@ export const UNIVERSITY_DATA: UNIVERSITY_TYPES[] = [
   {
     img: 'NII-Smor',
     description: 'Лаборатория разработки молекулярно-диагностических систем',
+  },
+];
+
+export const RESEARCH_CARD: CARD_TYPES[] = [
+  {
+    img: 'default',
+    description: 'DEVELOPMENT OF NEW GENETICALLY ENCODED TOOLS FOR BRAIN AND HEART RESEARCH.',
+  },
+  {
+    img: 'default',
+    description: 'DEVELOPMENT OF METHODS FOR COMPUTER MODELING AND DESIGN OF CHEMICAL REACTIONS.',
+  },
+  {
+    img: 'default',
+    description: 'DEVELOPMENT OF NEW FORCE FIELDS USING MACHINE LEARNING METHODS.',
   },
 ];

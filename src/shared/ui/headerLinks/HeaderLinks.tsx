@@ -24,7 +24,7 @@ const Links: FC<Props> = ({ link, title, menu }) => {
         to={`/${link}`}
         className={({ isActive }) => (isActive ? styles['activeLink'] : styles['link'])}
       >
-        <Text tag='span' size='xxs' weight='semibold'>
+        <Text tag='span' size='xxs' weight='regular'>
           {t(`header.${title}`)}
         </Text>
       </NavLink>
