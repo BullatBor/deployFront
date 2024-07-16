@@ -1,11 +1,13 @@
 import { FC, SVGProps } from 'react';
 import { IIconProps, TIcons } from '.';
-import NewIconSVG from './assets/icons/news-icon.svg?react';
-import ArrowRightSVG from './assets/icons/arrow-right.svg?react';
+import NewIconSVG from './assets/icons/news-icon.svg';
+import ArrowRightSVG from './assets/icons/arrow-right.svg';
+import ArrowUpSVG from './assets/icons/arrow-up.svg';
 
 export const SVGIcons: TIcons = {
   'news-icon': NewIconSVG,
   'arrow-right': ArrowRightSVG,
+  'arrow-up': ArrowUpSVG,
 };
 
 export const Icon: FC<IIconProps> = (props) => {
