@@ -1,5 +1,5 @@
 import { FC, memo, useState } from 'react';
-import styles from './Header.module.scss';
+import styles from './HeaderLinks.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Text } from '../text';
 import { NavLink } from 'react-router-dom';
@@ -24,7 +24,7 @@ const Links: FC<Props> = ({ link, title, menu }) => {
         to={`/${link}`}
         className={({ isActive }) => (isActive ? styles['activeLink'] : styles['link'])}
       >
-        <Text tag='span' size='xxs' weight='regular'>
+        <Text tag='span' size='xxs' weight='semibold'>
           {t(`header.${title}`)}
         </Text>
       </NavLink>

@@ -1,7 +1,7 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { MainPage } from '../pages';
-import App from '../App';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
+import { MainLayout } from './layouts/MainLayout';
 const EducationPage = lazy(() => import('../pages/educationPage/EducationPage'));
 const ResearchPage = lazy(() => import('../pages/researchPage/ResearchPage'));
 
@@ -9,10 +9,18 @@ export const appRouter = () =>
   createBrowserRouter([
     {
       path: '/',
-      element: <App />,
+      element: (
+        <Suspense fallback={<div>...Loading</div>}>
+          <MainLayout />
+        </Suspense>
+      ),
       children: [
         {
-          path: '/',
+          index: true,
+          element: <Navigate to='/main' replace />,
+        },
+        {
+          path: '/main',
           element: <MainPage />,
         },
         {

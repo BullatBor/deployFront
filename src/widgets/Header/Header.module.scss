@@ -39,8 +39,12 @@
 }
 
 .title {
-  font-size: 20px;
-  line-height: 22px;
-  text-align: left;
-  font-weight: 600;
+  cursor: pointer;
+  & > div {
+    font-size: 20px;
+    line-height: 22px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
 }
