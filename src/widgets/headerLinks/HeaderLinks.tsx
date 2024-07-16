@@ -22,6 +22,13 @@ const Links: FC<Props> = ({ link, title, menu }) => {
     >
       <NavLink
         to={`/${link}`}
+        onClick={() =>
+          scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+          })
+        }
         className={({ isActive }) => (isActive ? styles['activeLink'] : styles['link'])}
       >
         <Text tag='span' size='xxs' weight='semibold'>

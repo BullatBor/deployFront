@@ -12,6 +12,11 @@ export const Header = () => {
   const handleClick = useCallback(() => {
     document.title = 'MSDE Group';
     navigate('/main');
+    scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }, [navigate]);
 
   useEffect(() => {
