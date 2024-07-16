@@ -22,9 +22,7 @@ export const Image: FC<IImageProps> = (props) => {
     return size;
   };
 
-  const sizeStyle = widthAndHeight
-    ? { width: widthAndHeight, height: widthAndHeight }
-    : getSize();
+  const sizeStyle = widthAndHeight ? { width: widthAndHeight, height: widthAndHeight } : getSize();
 
   return (
     <img

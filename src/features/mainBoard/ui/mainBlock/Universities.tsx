@@ -4,7 +4,7 @@ import { UniversityCard } from '../../../universityCard/UniversityCard';
 import { UNIVERSITY_DATA } from '../../shared/constant';
 import { useTranslation } from 'react-i18next';
 
-export const Universitys = () => {
+export const Universities = () => {
   const { t } = useTranslation();
   return (
     <div className={styles['block_wrapper']}>

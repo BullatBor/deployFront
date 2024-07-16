@@ -20,9 +20,7 @@ export const CourseBlock: FC<EducationProps> = ({
           <Text tag='span' size='xss' weight='regular'>
             {`${listValues}.`}
           </Text>
-          <div className={cn(styles['title_text'], styles['two_column'])}>
-            {t(sectionName)}
-          </div>
+          <div className={cn(styles['title_text'], styles['two_column'])}>{t(sectionName)}</div>
         </div>
       </div>
       <div className={cn(styles['info_block'], styles['info_wrapper'])}>

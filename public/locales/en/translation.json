@@ -5,7 +5,7 @@
     "EDUCATION": "EDUCATION",
     "ABOUT US": "ABOUT US",
     "MORE": "MORE",
-    "lk": "PERSONAL ACCOUNT",
+    "ACCOUNT": "PERSONAL ACCOUNT",
     "COLLABORATIONS": "COLLABORATIONS",
     "RESOURCES": "RESOURCES"
   },
@@ -28,5 +28,17 @@
   "button": {
     "more": "Learn more",
     "writeUs": "Write to us"
+  },
+  "footer": {
+    "TEXT": "Write to us for any questions: ",
+    "RIGHTS": "All rights reserved. 2024",
+    "Main": "Main",
+    "Research": "Research",
+    "Publications": "Publications",
+    "Education": "Education",
+    "About": "About us",
+    "Resources": "Resources",
+    "Collaborations": "Collaborations",
+    "Personal Account": "Personal Account"
   }
 }

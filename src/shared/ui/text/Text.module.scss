@@ -81,6 +81,11 @@
     line-height: map-get($line-height, XL);
   }
 
+  &_xxl {
+    font-size: map-get($font-size, XXL);
+    line-height: map-get($line-height, XXL);
+  }
+
   &_ml {
     font-size: map-get($font-size, M);
     line-height: map-get($line-height, L);

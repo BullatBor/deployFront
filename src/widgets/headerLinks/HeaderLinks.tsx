@@ -1,7 +1,7 @@
 import { FC, memo, useState } from 'react';
 import styles from './HeaderLinks.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Text } from '../text';
+import { Text } from '../../shared/ui/text';
 import { NavLink } from 'react-router-dom';
 
 interface Props {
@@ -31,7 +31,7 @@ const Links: FC<Props> = ({ link, title, menu }) => {
       {isVisible && menu && (
         <div className={styles['dropdown']}>
           {menu.map((item) => (
-            <div key={item} className={styles['item']} onClick={() => (document.title = item)}>
+            <div key={item} className={styles['item']} onClick={() => (document.title = '#')}>
               <div>{t(`header.${item}`)}</div>
             </div>
           ))}

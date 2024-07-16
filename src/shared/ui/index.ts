@@ -1,4 +1,4 @@
-export * from './headerLinks';
+export * from '../../widgets/headerLinks';
 export * from './languageButtons';
 export * from './button';
 export * from './icon';

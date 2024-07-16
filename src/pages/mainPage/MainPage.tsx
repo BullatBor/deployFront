@@ -3,7 +3,7 @@ import {
   NewsBlock,
   ResearchBlock,
   Students,
-  Universitys,
+  Universities,
   CourseBlock,
 } from '../../features';
 import { EDUCATION_DATA } from './constant';
@@ -23,7 +23,7 @@ export const MainPage = () => {
       />
       <NewsBlock />
       <Students />
-      <Universitys />
+      <Universities />
     </div>
   );
 };

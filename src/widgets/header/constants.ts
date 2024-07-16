@@ -19,12 +19,12 @@ export const HEADER_LINKS: HeaderProps[] = [
   },
   {
     title: 'ABOUT US',
-    link: 'aboutUs',
+    link: 'about',
   },
   {
     title: 'MORE',
     link: 'more',
-    menu: ['lk', 'COLLABORATIONS', 'RESOURCES'],
+    menu: ['ACCOUNT', 'COLLABORATIONS', 'RESOURCES'],
   },
 ];
 

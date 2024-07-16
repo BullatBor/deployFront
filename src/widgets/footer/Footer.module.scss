@@ -1,0 +1,67 @@
+.footer {
+  background-color: $bg-secondary;
+  color: $text_white;
+  display: flex;
+  justify-content: center;
+  padding: 40px 30px;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-basis: 1000px;
+  }
+
+  &__leftBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 550px;
+  }
+
+  &__paragraph {
+    margin: 0;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__mail {
+    text-decoration: none;
+    color: $text_white;
+  }
+
+  &__rightBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    & > ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      & > span > a {
+        text-decoration: none;
+        color: $text_white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .footer__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30px;
+  }
+}

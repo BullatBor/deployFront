@@ -10,9 +10,7 @@ export const ResearchBlock = () => {
       <div className={styles['block_title']}>
         <div className={styles['row']}>
           <div className={styles['variant']}>a.</div>
-          <div className={cn(styles['title_text'], styles['two_column'])}>
-            {t('main.research')}
-          </div>
+          <div className={cn(styles['title_text'], styles['two_column'])}>{t('main.research')}</div>
         </div>
       </div>
       <div className={styles['info_block']}>
@@ -20,14 +18,12 @@ export const ResearchBlock = () => {
           <Image image='default' width='309px' height='324px' />
           <div className={cn(styles['info_wrapper'])}>
             <div className={styles['info_text']}>
-              В нашей группе мы уделяем особое внимание разработке
-              вычислительных методов и общих стратегий проектирования и
-              оптимизации молекулярных инструментов и процессов.
+              В нашей группе мы уделяем особое внимание разработке вычислительных методов и общих
+              стратегий проектирования и оптимизации молекулярных инструментов и процессов.
             </div>
             <div className={styles['info_text']}>
-              Мы также применяем эти методологии для разработки новых
-              молекулярных и биомолекулярных систем, которые будут
-              использоваться в биомедицинских исследованиях и фармакологии.
+              Мы также применяем эти методологии для разработки новых молекулярных и биомолекулярных
+              систем, которые будут использоваться в биомедицинских исследованиях и фармакологии.
             </div>
             <Button theme='primary' tName='more'>
               Подробнее

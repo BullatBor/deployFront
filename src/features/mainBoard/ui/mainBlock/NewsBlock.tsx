@@ -11,9 +11,7 @@ export const NewsBlock = () => {
       <div className={styles['block_title']}>
         <div className={styles['row']}>
           <div className={styles['variant']}>c.</div>
-          <div className={cn(styles['title_text'], styles['two_column'])}>
-            {t('main.news')}
-          </div>
+          <div className={cn(styles['title_text'], styles['two_column'])}>{t('main.news')}</div>
         </div>
       </div>
       <div className={styles['info_block']}>

@@ -10,7 +10,7 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const handleClick = useCallback(() => {
-    document.title = 'Main';
+    document.title = 'MSDE Group';
     navigate('/main');
   }, [navigate]);
 

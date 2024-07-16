@@ -9,9 +9,7 @@ export const EducationResource = () => {
         <div className={styles['wrapper__titles']}>
           <div className={styles['wrapper__title']}>
             <div>{t('education.education')}</div>
-            <div className={styles['wrapper__resources_title']}>
-              {t('education.resources')}
-            </div>
+            <div className={styles['wrapper__resources_title']}>{t('education.resources')}</div>
           </div>
         </div>
       </div>
