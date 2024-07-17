@@ -1,9 +1,10 @@
 import { CourseBlock, EducationResource } from '../../features';
 import { EDUCATION_DATA } from './constants';
+import styles from './Education.module.scss';
 
 const EducationPage = () => {
   return (
-    <div>
+    <div className={styles['body']}>
       <EducationResource />
       <CourseBlock
         sectionName={EDUCATION_DATA.sectionName}

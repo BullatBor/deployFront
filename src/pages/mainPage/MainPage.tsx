@@ -7,10 +7,11 @@ import {
   CourseBlock,
 } from '../../features';
 import { EDUCATION_DATA } from './constant';
+import styles from './mainPage.module.scss';
 
 export const MainPage = () => {
   return (
-    <div>
+    <div className={styles['body']}>
       <LogoBlock />
       <ResearchBlock />
       <CourseBlock

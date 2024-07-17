@@ -1,9 +1,9 @@
 import { ResearchAreas } from '@/features';
-import React from 'react';
+import styles from './ResearchPage.module.scss';
 
 const ResearchPage = () => {
   return (
-    <div>
+    <div className={styles['body']}>
       <ResearchAreas />
     </div>
   );
