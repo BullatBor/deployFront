@@ -1,4 +1,4 @@
-import { AboutDesc, AboutResearch } from '@/widgets';
+import { AboutDesc, AboutResearch, AboutStudents, AboutTree } from '@/widgets';
 import styles from './AboutPage.module.scss';
 
 const AboutPage = () => {
@@ -6,6 +6,8 @@ const AboutPage = () => {
     <div className={styles['body']}>
       <AboutDesc />
       <AboutResearch />
+      <AboutStudents />
+      <AboutTree />
     </div>
   );
 };

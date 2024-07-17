@@ -55,6 +55,38 @@
       }
     ]
   },
+  "aboutStudents": {
+    "heading": "Undergraduate and postgraduate students",
+    "students": [
+      {
+        "name": "DOMSKY NIKITA",
+        "grade": "Graduate Student"
+      },
+      {
+        "name": "KVASHNIN YAROSLAV",
+        "grade": "Student"
+      },
+      {
+        "name": "METELKINA EKATERINA",
+        "grade": "Student"
+      },
+      {
+        "name": "SHANTUROV MIKHAIL",
+        "grade": "Student"
+      },
+      {
+        "name": "DEMIDOV NIKITA",
+        "grade": "Student"
+      },
+      {
+        "name": "PANKRATOV DANIL",
+        "grade": "Student"
+      }
+    ]
+  },
+  "aboutTree": {
+    "heading": "Academic tree"
+  },
   "footer": {
     "TEXT": "Write to us for any questions: ",
     "RIGHTS": "All rights reserved. 2024",

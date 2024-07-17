@@ -34,7 +34,7 @@ export const AboutResearch = () => {
                   <Text tag='h4' weight='medium'>
                     {t(`aboutResearch.researchers.${i}.name`)}
                   </Text>
-                  <Text tag='h5' weight='medium'>
+                  <Text tag='h5' weight='regular'>
                     {t(`aboutResearch.researchers.${i}.profession`)}
                   </Text>
                 </div>
