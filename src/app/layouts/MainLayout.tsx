@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom';
 import { Header, Footer } from '@/widgets';
 import { Suspense, useEffect, useState } from 'react';
 import { ScrollUpBtn } from '@/shared';
-import styles from './MainLayout.module.scss';
 
 export const MainLayout = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -26,9 +25,7 @@ export const MainLayout = () => {
     <div>
       <Header />
       <Suspense fallback={<div>...Loading</div>}>
-        <div className={styles['wrapper']}>
-          <Outlet />
-        </div>
+        <Outlet />
       </Suspense>
       <Footer />
       {scrolled && <ScrollUpBtn />}

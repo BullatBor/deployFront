@@ -4,7 +4,7 @@ import styles from '../../MainBoard.module.scss';
 export const EducationResource = () => {
   const { t } = useTranslation();
   return (
-    <div className='wrapper'>
+    <div className={styles['wrapper']}>
       <div className={styles['wrapper__main']}>
         <div className={styles['wrapper__titles']}>
           <div className={styles['wrapper__title']}>

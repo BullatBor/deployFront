@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   &__main {
     background-color: $bg_primary;
@@ -50,8 +51,9 @@
 }
 
 .block_wrapper {
-  padding: 50px 230px;
+  padding: 50px 90px;
   color: $text_primary;
+  max-width: 1200px;
 }
 
 .variant {
