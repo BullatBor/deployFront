@@ -7,9 +7,10 @@
 
   &__wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
-    flex-basis: 1000px;
+    gap: 200px;
+    flex-basis: 1200px;
   }
 
   &__leftBlock {
