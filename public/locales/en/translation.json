@@ -29,6 +29,10 @@
     "more": "Learn more",
     "writeUs": "Write to us"
   },
+  "aboutDesc": {
+    "heading": "SCIENTIFIC GROUP",
+    "text": "In our group, we focus on the development of computational methods and general strategies for the design and optimization of molecular tools and processes."
+  },
   "footer": {
     "TEXT": "Write to us for any questions: ",
     "RIGHTS": "All rights reserved. 2024",

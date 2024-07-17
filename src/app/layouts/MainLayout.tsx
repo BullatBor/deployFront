@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Header } from '@/widgets/header';
-import { Footer } from '@/widgets/footer';
+import { Header, Footer } from '@/widgets';
 import { useEffect, useState } from 'react';
 import { ScrollUpBtn } from '@/shared';
 

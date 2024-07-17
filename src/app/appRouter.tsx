@@ -2,8 +2,10 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { MainPage } from '../pages';
 import { lazy, Suspense } from 'react';
 import { MainLayout } from './layouts/MainLayout';
+
 const EducationPage = lazy(() => import('../pages/educationPage/EducationPage'));
 const ResearchPage = lazy(() => import('../pages/researchPage/ResearchPage'));
+const AboutPage = lazy(() => import('../pages/aboutPage/AboutPage'));
 
 export const appRouter = () =>
   createBrowserRouter([
@@ -30,6 +32,10 @@ export const appRouter = () =>
         {
           path: '/research',
           element: <ResearchPage />,
+        },
+        {
+          path: '/about',
+          element: <AboutPage />,
         },
       ],
     },

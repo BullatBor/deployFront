@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
-import { HeaderLinks, LanguageButtons } from '../../shared';
+import { LanguageButtons } from '../../shared';
 import { HEADER_LINKS, HEADER_TITLE_BOTTOM, HEADER_TITLE_TOP } from './constants';
 import styles from './Header.module.scss';
 import cn from 'classnames';
 import { useNavigate } from 'react-router-dom';
+import { HeaderLinks } from '@/widgets';
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
