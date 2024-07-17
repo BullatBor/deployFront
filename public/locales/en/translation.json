@@ -33,6 +33,28 @@
     "heading": "SCIENTIFIC GROUP",
     "text": "In our group, we focus on the development of computational methods and general strategies for the design and optimization of molecular tools and processes."
   },
+  "aboutResearch": {
+    "heading": "Researchers",
+    "addition": "We also apply these methodologies to develop new molecular and biomolecular systems for use in biomedical research and pharmacology.",
+    "researchers": [
+      {
+        "name": "RYAZANTSEV MIKHAIL NIKOLAEVICH",
+        "profession": "Head of the scientific group, PHD, Associate Professor"
+      },
+      {
+        "name": "PANOV MAXIM SERGEEVICH",
+        "profession": "Researcher, PHD"
+      },
+      {
+        "name": "NIKOLAEV DMITRY MIKHAILOVICH",
+        "profession": "Researcher"
+      },
+      {
+        "name": "SHTYROV ANDREY ANDREEVICH",
+        "profession": "Researcher"
+      }
+    ]
+  },
   "footer": {
     "TEXT": "Write to us for any questions: ",
     "RIGHTS": "All rights reserved. 2024",
