@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { MainPage } from '../pages';
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { MainLayout } from './layouts/MainLayout';
 
 const EducationPage = lazy(() => import('../pages/educationPage/EducationPage'));
@@ -11,11 +11,7 @@ export const appRouter = () =>
   createBrowserRouter([
     {
       path: '/',
-      element: (
-        <Suspense fallback={<div>...Loading</div>}>
-          <MainLayout />
-        </Suspense>
-      ),
+      element: <MainLayout />,
       children: [
         {
           index: true,
