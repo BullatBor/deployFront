@@ -1,0 +1,37 @@
+.tree {
+  display: flex;
+  justify-content: center;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-basis: 1100px;
+    padding: 0 20px;
+  }
+
+  &__heading {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 16px;
+    align-items: end;
+    border-bottom: 1px solid $gray;
+    letter-spacing: -1px;
+
+    & > h1,
+    & > h5 {
+      line-height: 1;
+      margin: 0;
+      padding: 5px 0;
+      color: $text_primary;
+    }
+  }
+
+  &__image {
+    max-width: 1200px;
+    & > img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
