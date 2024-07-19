@@ -1,7 +1,6 @@
 export interface HeaderProps {
   title: string;
   link: string;
-  menu?: { title: string; link: string }[];
 }
 
 export const HEADER_LINKS: HeaderProps[] = [
@@ -21,15 +20,12 @@ export const HEADER_LINKS: HeaderProps[] = [
     title: 'ABOUT US',
     link: 'about',
   },
-  {
-    title: 'MORE',
-    link: 'more',
-    menu: [
-      { title: 'ACCOUNT', link: 'account' },
-      { title: 'COLLABORATIONS', link: 'collaborations' },
-      { title: 'RESOURCES', link: 'resources' },
-    ],
-  },
+];
+
+export const NAV_LIST: HeaderProps[] = [
+  { title: 'ACCOUNT', link: 'account' },
+  { title: 'COLLABORATIONS', link: 'collaborations' },
+  { title: 'RESOURCES', link: 'resources' },
 ];
 
 export const HEADER_TITLE_TOP = `Molecular Systems`;

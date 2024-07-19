@@ -1,15 +1,24 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Icon, LanguageButtons } from '../../shared';
-import { HEADER_LINKS, HEADER_TITLE_BOTTOM, HEADER_TITLE_TOP, HeaderProps } from './constants';
+import {
+  HEADER_LINKS,
+  HEADER_TITLE_BOTTOM,
+  HEADER_TITLE_TOP,
+  HeaderProps,
+  NAV_LIST,
+} from './constants';
 import styles from './Header.module.scss';
 import cn from 'classnames';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { HeaderLink } from '@/features';
+import { Text } from '../../shared/ui/text';
 import { useTranslation } from 'react-i18next';
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [IsSelected, setIsSelected] = useState<boolean>(false);
+  const [isVisible, setVisible] = useState(false);
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -25,15 +34,13 @@ export const Header = () => {
 
   const handleLinkClick = useCallback(
     (item: HeaderProps) => {
-      if (item.link !== 'more') {
-        document.title = item.link;
-        scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'smooth',
-        });
-        setIsOpen(false);
-      }
+      document.title = item.link;
+      scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+      setIsOpen(false);
     },
     [setIsOpen],
   );
@@ -71,10 +78,32 @@ export const Header = () => {
           <div>{HEADER_TITLE_BOTTOM}</div>
         </div>
         <div className={styles['nav']}>
-          <div className={styles['links']}>
+          <div className={styles['nav__links']}>
             {HEADER_LINKS.map((link) => (
-              <HeaderLink key={link.title} title={link.title} link={link.link} menu={link.menu} />
+              <HeaderLink key={link.title} title={link.title} link={link.link} />
             ))}
+            <div
+              className={styles['nav__link']}
+              onMouseEnter={() => setVisible(true)}
+              onMouseLeave={() => setVisible(false)}
+            >
+              <Text tag='span' size='xxs' weight='semibold'>
+                {t('header.MORE')}
+              </Text>
+              {isVisible && (
+                <div className={styles['dropdown']}>
+                  {NAV_LIST.map((item) => (
+                    <div
+                      key={item.title}
+                      className={styles['dropdown__item']}
+                      onClick={() => (document.title = '#')}
+                    >
+                      <div>{t(`header.${item.title}`)}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
           <LanguageButtons />
         </div>
@@ -92,6 +121,27 @@ export const Header = () => {
               {t(`header.${link.title}`)}
             </NavLink>
           ))}
+          <div className={styles['boxLinks__link']} onClick={() => setIsSelected((prev) => !prev)}>
+            {t('header.MORE')}
+          </div>
+          <ul
+            className={cn(styles['boxLinks__sublist'], {
+              [styles['boxLinks__sublist_selected']]: IsSelected,
+            })}
+          >
+            {NAV_LIST.map((item) => (
+              <NavLink
+                to={`/${item.link}`}
+                className={({ isActive }) =>
+                  cn(styles['boxLinks__sublink'], {
+                    [styles['boxLinks__sublink_active']]: isActive,
+                  })
+                }
+              >
+                {t(`header.${item.title}`)}
+              </NavLink>
+            ))}
+          </ul>
         </ul>
       </nav>
     </div>

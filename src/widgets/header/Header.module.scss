@@ -24,15 +24,71 @@
 .nav {
   display: flex;
   gap: 51px;
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__link {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px 0;
+    letter-spacing: 0.12em;
+  }
+}
+
+.dropdown {
+  padding: 18px 20px;
+  position: absolute;
+  z-index: 6000000;
+  max-width: 150px;
+  background-color: #fff;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transform: translateX(-38%);
+  top: 75px;
+}
+
+.dropdown::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  border-width: 10px;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+  top: -20px;
+  border-bottom-color: #fff;
+}
+
+.dropdown__item {
+  font-size: 10px;
+  color: #c0c6e1;
+  font-family: 'Inter';
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 600;
+
+  &:hover {
+    transition:
+      color 0.3s ease-in-out,
+      text-decoration 0.3s ease-in-out;
+    color: $text_primary;
+    text-decoration: underline;
+  }
 }
 
 .menu {
   display: none;
-}
-
-.links {
-  display: flex;
-  gap: 20px;
 }
 
 .sticky {
@@ -96,6 +152,37 @@
     transition:
       color 0.3s ease-in-out,
       opacity 0.3s ease-in-out;
+
+    &_active {
+      font-weight: 500 !important;
+      opacity: 0.7;
+      color: $text_primary;
+    }
+  }
+
+  &__sublist {
+    height: 0;
+    opacity: 0;
+    list-style: none;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: opacity 0.3s ease-in-out;
+
+    &_selected {
+      height: 73px;
+      opacity: 1;
+    }
+  }
+
+  &__sublink {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 10px;
+    color: $gray;
+    letter-spacing: 0.3em;
 
     &_active {
       font-weight: 500 !important;
