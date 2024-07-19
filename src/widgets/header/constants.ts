@@ -1,7 +1,7 @@
 export interface HeaderProps {
   title: string;
   link: string;
-  menu?: string[];
+  menu?: { title: string; link: string }[];
 }
 
 export const HEADER_LINKS: HeaderProps[] = [
@@ -24,7 +24,11 @@ export const HEADER_LINKS: HeaderProps[] = [
   {
     title: 'MORE',
     link: 'more',
-    menu: ['ACCOUNT', 'COLLABORATIONS', 'RESOURCES'],
+    menu: [
+      { title: 'ACCOUNT', link: 'account' },
+      { title: 'COLLABORATIONS', link: 'collaborations' },
+      { title: 'RESOURCES', link: 'resources' },
+    ],
   },
 ];
 

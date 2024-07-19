@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 interface Props {
   title: string;
   link: string;
-  menu?: string[];
+  menu?: { title: string; link: string }[];
 }
 
 const Links: FC<Props> = ({ link, title, menu }) => {
@@ -16,12 +16,12 @@ const Links: FC<Props> = ({ link, title, menu }) => {
 
   return (
     <div
-      onClick={() => link !== 'MORE' && (document.title = link)}
+      onClick={() => link !== 'more' && (document.title = link)}
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
     >
       <NavLink
-        to={`/${link}`}
+        to={link !== 'more' ? `/${link}` : ''}
         onClick={() =>
           scrollTo({
             top: 0,
@@ -38,8 +38,8 @@ const Links: FC<Props> = ({ link, title, menu }) => {
       {isVisible && menu && (
         <div className={styles['dropdown']}>
           {menu.map((item) => (
-            <div key={item} className={styles['item']} onClick={() => (document.title = '#')}>
-              <div>{t(`header.${item}`)}</div>
+            <div key={item.title} className={styles['item']} onClick={() => (document.title = '#')}>
+              <div>{t(`header.${item.title}`)}</div>
             </div>
           ))}
         </div>
@@ -48,4 +48,4 @@ const Links: FC<Props> = ({ link, title, menu }) => {
   );
 };
 
-export const HeaderLinks = memo(Links);
+export const HeaderLink = memo(Links);
