@@ -3,8 +3,9 @@ import { MainPage } from '../pages';
 import { lazy } from 'react';
 import { MainLayout } from './layouts/MainLayout';
 
-const EducationPage = lazy(() => import('../pages/educationPage/EducationPage'));
 const ResearchPage = lazy(() => import('../pages/researchPage/ResearchPage'));
+const PublicationsPage = lazy(() => import('../pages/publicationsPage/PublicationsPage'));
+const EducationPage = lazy(() => import('../pages/educationPage/EducationPage'));
 const AboutPage = lazy(() => import('../pages/aboutPage/AboutPage'));
 
 export const appRouter = () =>
@@ -22,12 +23,16 @@ export const appRouter = () =>
           element: <MainPage />,
         },
         {
-          path: '/education',
-          element: <EducationPage />,
-        },
-        {
           path: '/research',
           element: <ResearchPage />,
+        },
+        {
+          path: '/publications',
+          element: <PublicationsPage />,
+        },
+        {
+          path: '/education',
+          element: <EducationPage />,
         },
         {
           path: '/about',

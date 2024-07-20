@@ -4,34 +4,34 @@ export const MAIL = 'msdegroup@gmail.com';
 export const FOOTER_LINKS: Record<'title' | 'path', string>[] = [
   {
     title: 'Main',
-    path: 'main',
+    path: '/main',
   },
   {
     title: 'Research',
-    path: 'research',
+    path: '/research',
   },
   {
     title: 'Publications',
-    path: 'publications',
+    path: '/publications',
   },
   {
     title: 'Education',
-    path: 'education',
+    path: '/education',
   },
   {
     title: 'About',
-    path: 'about',
+    path: '/about',
   },
   {
     title: 'Resources',
-    path: '#',
+    path: '/resources',
   },
   {
     title: 'Collaborations',
-    path: '#',
+    path: '/collaborations',
   },
   {
     title: 'Personal Account',
-    path: '#',
+    path: '/account',
   },
 ];
