@@ -16,18 +16,15 @@ export const LogoBlock = () => {
             Engineering Group
           </div>
         </div>
-        <div>
-          <div className={styles['row']}>
-            <div></div>
-            <div
-              className={cn(styles['wrapper__description'], {
-                [styles['ru_style']]: i18n.language === 'ru',
-              })}
-            >
-              {t('main.description')}
-            </div>
-          </div>
+        <div className={styles['row']}>
           <div></div>
+          <div
+            className={cn(styles['wrapper__description'], {
+              [styles['ru_style']]: i18n.language === 'ru',
+            })}
+          >
+            {t('main.description')}
+          </div>
         </div>
       </div>
     </div>

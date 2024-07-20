@@ -9,9 +9,9 @@ export const ResearchAreas = () => {
   return (
     <div className={cn(styles['block_wrapper'], styles['info_text'], styles['margin_top'])}>
       <div className={styles['block_title']}>
-        <div className={cn(styles['row'], styles['variant'])}>
+        <div className={cn(styles['row'], styles['section_title'])}>
           <Text tag='span' size='xss' weight='regular'>
-            a
+            a.
           </Text>
           <div className={cn(styles['title_text'], styles['two_column'])}>
             {t('research.research')}
@@ -25,7 +25,7 @@ export const ResearchAreas = () => {
             {RESEARCH_CARD.map((item) => (
               <div className={styles['research__cards']}>
                 <div>
-                  <Image image={item.img} width='360px' height='200px' />
+                  <Image image={item.img} classNames={styles['research__researchCardImage']} />
                 </div>
                 <div className={styles['research__card']}>
                   <div>

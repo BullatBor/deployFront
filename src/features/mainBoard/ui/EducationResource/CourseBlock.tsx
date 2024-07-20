@@ -16,7 +16,7 @@ export const CourseBlock: FC<EducationProps> = ({
   return (
     <div className={cn(styles['block_wrapper'], styles['info_text'])}>
       <div className={styles['block_title']}>
-        <div className={cn(styles['row'], styles['variant'])}>
+        <div className={cn(styles['row'], styles['variant'], styles['section_title'])}>
           <Text tag='span' size='xss' weight='regular'>
             {`${listValues}.`}
           </Text>
@@ -27,7 +27,12 @@ export const CourseBlock: FC<EducationProps> = ({
         <div className={styles['row']}>
           <div></div>
           <div className={styles['two_column']}>
-            <Image image={img} width='740px' height='373px' />
+            <Image
+              image={img}
+              width='740px'
+              height='373px'
+              classNames={styles['education__bigImage']}
+            />
           </div>
         </div>
         <div className={styles['row']}>
@@ -44,13 +49,17 @@ export const CourseBlock: FC<EducationProps> = ({
             <Text tag='span' size='xs' weight='regular'>
               {leftDescription}
             </Text>
-            <Button theme='primary' tName='more'>
-              Learn more
-            </Button>
           </div>
           <Text tag='span' size='xs' weight='regular'>
             {rightDescription}
           </Text>
+        </div>
+        <div className={styles['row']}>
+          <div></div>
+          <Button theme='primary' tName='more'>
+            Learn more
+          </Button>
+          <div></div>
         </div>
       </div>
     </div>

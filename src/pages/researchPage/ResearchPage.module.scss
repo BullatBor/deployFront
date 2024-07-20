@@ -1,6 +1,15 @@
 .body {
-  padding: 120px 90px;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 20px;
+}
+
+.section_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 30px;
+  gap: 50px;
+  padding-bottom: 50px;
 }

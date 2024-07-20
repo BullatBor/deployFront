@@ -4,7 +4,9 @@ import styles from './ResearchPage.module.scss';
 const ResearchPage = () => {
   return (
     <div className={styles['body']}>
-      <ResearchAreas />
+      <div className={styles['section_wrapper']}>
+        <ResearchAreas />
+      </div>
     </div>
   );
 };

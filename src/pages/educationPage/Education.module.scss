@@ -4,3 +4,19 @@
   align-items: center;
   gap: 100px;
 }
+
+.section_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 30px;
+  gap: 50px;
+  padding-bottom: 50px;
+}
+
+@media screen and (max-width: 785px) {
+  .body {
+    gap: 20px;
+  }
+}

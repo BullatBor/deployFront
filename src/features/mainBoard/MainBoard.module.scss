@@ -8,7 +8,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 220px 230px 80px;
+    align-items: center;
+    padding: 220px 0px 80px;
     gap: 30px;
   }
 
@@ -21,7 +22,6 @@
     line-height: 110px;
     font-size: 110px;
     color: $text_white;
-    font-size: 120px;
     line-height: 1;
     font-weight: 400;
     letter-spacing: -8px;
@@ -51,14 +51,9 @@
 }
 
 .block_wrapper {
-  padding: 50px 90px;
   color: $text_primary;
-  max-width: 1200px;
-}
 
-.variant {
-  display: flex;
-  align-items: end;
+  max-width: 1200px;
 }
 
 .block_title {
@@ -71,17 +66,6 @@
   line-height: 1;
   font-weight: 400;
   letter-spacing: -1px;
-  text-align: left;
-}
-
-.title {
-  line-height: 110px;
-  font-size: 110px;
-  color: $text_white;
-  font-size: 120px;
-  line-height: 1;
-  font-weight: 400;
-  letter-spacing: -8px;
   text-align: left;
 }
 
@@ -128,6 +112,8 @@
 }
 
 .leftImage {
+  width: 190px;
+  height: 239px;
   position: absolute;
   left: 0;
   top: 0;
@@ -157,6 +143,32 @@
     align-items: end;
     gap: 15px;
   }
+
+  &__smallImage {
+    width: 150px;
+    height: 90px;
+  }
+
+  &__bigImage {
+    width: 100%;
+    height: 324px;
+  }
+
+  &__visibleOn900 {
+    display: none;
+  }
+
+  &__researchCardImage {
+    width: 360px;
+    height: 200px;
+  }
+}
+
+.education {
+  &__bigImage {
+    width: 100%;
+    height: 373px;
+  }
 }
 
 .row {
@@ -166,4 +178,156 @@
 }
 .two_column {
   grid-column: span 2;
+}
+
+.visibleOn900 {
+  display: none;
+}
+
+.researchImages {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.section_title {
+  span {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+@media screen and (min-width: 630px) and (max-width: 955px) {
+  .wrapper {
+    &__title {
+      font-size: 75px;
+      line-height: 75px;
+      letter-spacing: -4px;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 630px) {
+  .wrapper {
+    &__title {
+      font-size: 60px;
+      line-height: 60px;
+      letter-spacing: -6px;
+    }
+    &__description {
+      padding: 0 50px 0 60px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    &__title {
+      font-size: 42px;
+      line-height: 55px;
+      letter-spacing: -4px;
+    }
+    &__description {
+      padding: 0 50px 0 130px;
+    }
+  }
+  .title_text {
+    font-size: map-get($font-size, M);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    &__main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 220px 0px 80px;
+      gap: 0px;
+    }
+    &__titles {
+      padding-bottom: 20px;
+    }
+
+    &__resources_title {
+      position: relative;
+      width: 100%;
+      left: 0;
+      text-align: right;
+    }
+  }
+  .section_title {
+    display: flex;
+    justify-content: space-between;
+  }
+  .research {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    &__cards {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 30px;
+      border-bottom: 1px $gray solid;
+    }
+
+    &__card {
+      display: flex;
+      align-items: end;
+      gap: 15px;
+    }
+
+    &__smallImage {
+      width: 60px;
+      height: 77px;
+    }
+
+    &__bigImage {
+      width: 220px;
+      height: 125px;
+    }
+
+    &__hideBlock {
+      display: none;
+    }
+    &__visibleOn900 {
+      display: block;
+    }
+
+    &__researchCardImage {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  .education {
+    &__bigImage {
+      width: 100%;
+      height: 142px;
+    }
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .two_column {
+    grid-column: 1 / span 1;
+  }
+
+  .two_column ~ .two_column {
+    grid-row: 2;
+    grid-column: 1 / span 1;
+  }
+
+  .leftImage {
+    position: static;
+    width: 100%;
+    height: 155px;
+  }
+
+  .title_text {
+    text-align: right;
+  }
 }

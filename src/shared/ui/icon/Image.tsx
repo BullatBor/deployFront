@@ -13,7 +13,7 @@ export const SVGImages: TImages = {
 };
 
 export const Image: FC<IImageProps> = (props) => {
-  const { image, height, width, widthAndHeight, ...rest } = props;
+  const { image, height, width, widthAndHeight, classNames, ...rest } = props;
 
   const getSize = (): CSSProperties => {
     const size: CSSProperties = {};
@@ -23,13 +23,13 @@ export const Image: FC<IImageProps> = (props) => {
   };
 
   const sizeStyle = widthAndHeight ? { width: widthAndHeight, height: widthAndHeight } : getSize();
-
   return (
     <img
       src={SVGImages[image]}
       alt={rest?.alt || image}
+      className={classNames}
       data-testid={`image-${image}`}
-      style={{ ...sizeStyle }}
+      style={classNames ? {} : { ...sizeStyle }}
       {...rest}
     />
   );

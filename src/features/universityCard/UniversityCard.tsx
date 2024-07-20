@@ -11,7 +11,7 @@ interface Props {
 export const UniversityCard: FC<Props> = ({ image, description }) => {
   return (
     <div className={styles['wrapper']}>
-      <Image image={image} width='360px' height='140px' />
+      <Image image={image} classNames={styles['wrapper__logo']} />
       <Text tag='span' size='xs' weight='regular'>
         {description}
       </Text>

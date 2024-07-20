@@ -12,6 +12,7 @@ interface IProps {
   width?: string;
   height?: string;
   widthAndHeight?: string;
+  classNames?: string;
 }
 
 export type IIconProps = {
