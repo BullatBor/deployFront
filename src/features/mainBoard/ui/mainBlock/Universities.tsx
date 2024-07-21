@@ -21,8 +21,8 @@ export const Universities = () => {
       </div>
       <div className={cn(styles['info_block'], styles['student_wrapper'])}>
         <div className={styles['row']}>
-          {UNIVERSITY_DATA.map((item) => (
-            <UniversityCard image={item.img} description={item.description} />
+          {UNIVERSITY_DATA.map((item, index) => (
+            <UniversityCard key={index} image={item.img} description={item.description} />
           ))}
         </div>
       </div>

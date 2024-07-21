@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  padding: 150px 50px;
+  height: 500px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    padding: 10px;
+  }
+}
