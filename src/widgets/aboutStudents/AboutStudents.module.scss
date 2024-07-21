@@ -58,3 +58,56 @@
     }
   }
 }
+
+@media screen and (min-width: 721px) and (max-width: 850px) {
+  .students {
+    &__heading > h1 {
+      width: max-content;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .students {
+    &__heading {
+      display: flex;
+      justify-content: space-between;
+
+      & > h1 {
+        text-align: end;
+      }
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: 0 1fr 1fr;
+    }
+
+    &__name {
+      margin: 0;
+
+      & > h4 {
+        width: max-content;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .students {
+    &__list {
+      & > h5 {
+        font-size: 12px;
+      }
+    }
+
+    &__heading > h1 {
+      font-size: 20px;
+      text-align: end;
+    }
+
+    &__name > h4 {
+      font-size: 14px;
+    }
+  }
+}

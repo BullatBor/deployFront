@@ -16,11 +16,28 @@ export const AboutDesc = () => {
             <Text tag='h5' weight='regular' className={styles['desc__text']}>
               {t('aboutDesc.text')}
             </Text>
-            <img src='src/shared/ui/icon/assets/images/default.png' alt='image' />
+            <div>
+              <img
+                src='src/shared/ui/icon/assets/images/default.png'
+                alt='image'
+                className={styles['desc__leftImage']}
+              />
+              <div className={styles['desc__bubble']}>
+                <img
+                  src='src/shared/ui/icon/assets/images/default.png'
+                  alt='image'
+                  className={styles['desc__rightImage']}
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div className={styles['desc__rightBlock']}>
-          <img src='src/shared/ui/icon/assets/images/default.png' alt='image' />
+          <img
+            src='src/shared/ui/icon/assets/images/default.png'
+            alt='image'
+            className={styles['desc__rightImage']}
+          />
         </div>
       </div>
     </div>

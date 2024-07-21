@@ -30,6 +30,7 @@ export const Header = () => {
       left: 0,
       behavior: 'smooth',
     });
+    setIsOpen(false);
   }, [navigate]);
 
   const handleLinkClick = useCallback(

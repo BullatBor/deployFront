@@ -216,7 +216,7 @@
     }
   }
 
-  .links {
+  .nav__links {
     display: none;
   }
 
@@ -224,5 +224,12 @@
     margin-left: 20px;
     font-size: 14px;
     font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .title > div {
+    font-size: 12px;
+    margin: 0;
   }
 }
