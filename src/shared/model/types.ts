@@ -8,3 +8,9 @@ export interface EducationProps {
   rightDescription: string;
   listValues: string;
 }
+
+export interface ISidebar_items {
+  id: number;
+  title: string;
+  url: string;
+}

@@ -1,0 +1,19 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 0;
+    background-color: $white;
+    color: $text_primary;
+    &:hover {
+      background-color: $gray;
+    }
+  }
+}
+
+.active {
+  border-right: 3px $text_primary solid;
+}

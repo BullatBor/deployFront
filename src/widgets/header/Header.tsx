@@ -60,6 +60,11 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const accountHandle = () => {
+    document.title = 'personalAccount';
+    navigate('admin');
+  };
+
   return (
     <div
       className={cn(styles['wrapper'], {
@@ -96,7 +101,7 @@ export const Header = () => {
                     <div
                       key={item.title}
                       className={styles['dropdown__item']}
-                      onClick={() => (document.title = '#')}
+                      onClick={accountHandle}
                     >
                       <div>{t(`header.${item.title}`)}</div>
                     </div>
