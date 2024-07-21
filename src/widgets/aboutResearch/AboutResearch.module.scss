@@ -20,6 +20,7 @@
 
     & > h1,
     & > h5 {
+      width: max-content;
       line-height: 1;
       margin: 0;
       padding: 5px 0;
@@ -27,12 +28,20 @@
     }
   }
 
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
   &__addition {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: '. text .';
     gap: 30px;
 
     & > p {
+      grid-area: text;
       margin: 0;
       padding: 0;
       color: $text_primary;
@@ -88,6 +97,76 @@
       color: $text_primary;
       opacity: 0.5;
       max-width: 220px;
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .research {
+    &__heading {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__addition {
+      display: block;
+
+      & > p {
+        min-width: 100%;
+      }
+    }
+
+    &__img {
+      width: 350px;
+      height: 350px;
+
+      & > img {
+        object-fit: cover;
+        width: 350px;
+        height: 350px;
+      }
+    }
+
+    &__hero {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .research {
+    &__hero {
+      align-items: center;
+    }
+
+    &__content {
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .research {
+    &__heading > h1 {
+      font-size: 20px;
+    }
+
+    &__body {
+      width: 260px;
+      height: 140px;
+    }
+
+    &__img {
+      width: 300px;
+      height: 300px;
+
+      & > img {
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
+      }
     }
   }
 }
