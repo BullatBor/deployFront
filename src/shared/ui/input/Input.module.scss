@@ -1,0 +1,108 @@
+.wrapper {
+  background-color: $bg_base;
+  border-radius: $borderRadiusM;
+  padding-right: 5px;
+  display: flex;
+  align-items: center;
+  box-shadow:
+    rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  input {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: $bg_base;
+    outline: none;
+    border: 0;
+    border-radius: $borderRadiusM;
+    padding: 10px 10px;
+    width: 100%;
+  }
+
+  &__clear {
+    cursor: pointer;
+  }
+
+  &_max {
+    width: 100%;
+  }
+
+  &_s {
+    width: 150px;
+    font-size: map-get($font-size, S);
+    line-height: map-get($line-height, S);
+  }
+
+  &_l {
+    width: 250px;
+    font-size: map-get($font-size, L);
+    line-height: map-get($line-height, L);
+  }
+  &_xs {
+    font-size: map-get($font-size, XS);
+    line-height: map-get($line-height, XS);
+  }
+
+  &_xss {
+    font-size: map-get($font-size, XS);
+    line-height: map-get($line-height, XSS);
+  }
+
+  &_xxs {
+    font-size: map-get($font-size, XXS);
+    line-height: map-get($line-height, XSS);
+  }
+
+  &_m {
+    font-size: map-get($font-size, M);
+    line-height: map-get($line-height, M);
+  }
+
+  &_xl {
+    font-size: map-get($font-size, XL);
+    line-height: map-get($line-height, XL);
+  }
+
+  &_xxl {
+    font-size: map-get($font-size, XXL);
+    line-height: map-get($line-height, XXL);
+  }
+
+  &_ml {
+    font-size: map-get($font-size, M);
+    line-height: map-get($line-height, L);
+  }
+
+  &_sxs {
+    font-size: map-get($font-size, S);
+    line-height: map-get($line-height, XS);
+  }
+
+  &_sm {
+    font-size: map-get($font-size, S);
+    line-height: map-get($line-height, M);
+  }
+
+  &_lsm {
+    font-size: map-get($font-size, L);
+    line-height: map-get($line-height, SM);
+  }
+
+  &_light {
+    font-weight: map-get($font-weight, L);
+  }
+
+  &_regular {
+    font-weight: map-get($font-weight, R);
+  }
+
+  &_medium {
+    font-weight: map-get($font-weight, M);
+  }
+
+  &_semibold {
+    font-weight: map-get($font-weight, SB);
+  }
+
+  &_bold {
+    font-weight: map-get($font-weight, B);
+  }
+}

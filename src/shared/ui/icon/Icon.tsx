@@ -6,6 +6,7 @@ import ArrowUpSVG from './assets/icons/arrow-up.svg';
 import DnaSVG from './assets/icons/dna.svg';
 import MenuSVG from './assets/icons/menu.svg';
 import CrossSVG from './assets/icons/cross.svg';
+import CloseSVG from './assets/icons/clear.svg';
 
 export const SVGIcons: TIcons = {
   'news-icon': NewIconSVG,
@@ -14,6 +15,7 @@ export const SVGIcons: TIcons = {
   'dna': DnaSVG,
   'menu': MenuSVG,
   'cross': CrossSVG,
+  'clear': CloseSVG,
 };
 
 export const Icon: FC<IIconProps> = (props) => {

@@ -14,3 +14,10 @@ export interface ISidebar_items {
   title: string;
   url: string;
 }
+
+export interface ICourseCard {
+  id: number;
+  title: string;
+  img: TAllImages;
+  researchArea?: string;
+}

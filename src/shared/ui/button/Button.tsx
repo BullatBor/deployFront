@@ -14,7 +14,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   showDisabledClass?: boolean;
   className?: string;
-  width?: 'auto' | 'max';
+  width?: 'auto' | 'max' | 'content';
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 

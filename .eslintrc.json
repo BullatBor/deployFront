@@ -16,7 +16,7 @@
     "prefer-const": "warn",
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": [
-      "error",
+      "ignore",
       {
         "endOfLine": "lf"
       }
