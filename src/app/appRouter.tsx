@@ -3,6 +3,7 @@ import { MainPage } from '@/pages';
 import { lazy } from 'react';
 import { MainLayout } from './layouts/MainLayout';
 
+const ErrorPage = lazy(() => import('../pages/errorPage/ErrorPage'));
 const PublicationsPage = lazy(() => import('../pages/publicationsPage/PublicationsPage'));
 const EducationPage = lazy(() => import('@/pages/educationPage/EducationPage'));
 const ResearchPage = lazy(() => import('@/pages/researchPage/ResearchPage'));
@@ -17,6 +18,7 @@ export const appRouter = () =>
     {
       path: '/',
       element: <MainLayout />,
+      errorElement: <ErrorPage />,
       children: [
         {
           index: true,

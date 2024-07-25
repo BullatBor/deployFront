@@ -4,12 +4,14 @@ import SPSULogo from './assets/images/SPSU.png';
 import PolyTech from './assets/images/Polytech.png';
 import NiiSmor from './assets/images/NII-Smor.png';
 import defaultPng from './assets/images/default.png';
+import errorElement from './assets/images/errorElement.png';
 
 export const SVGImages: TImages = {
   'SP-University': SPSULogo,
   Polytech: PolyTech,
   'NII-Smor': NiiSmor,
   default: defaultPng,
+  errorElement: errorElement,
 };
 
 export const Image: FC<IImageProps> = (props) => {
