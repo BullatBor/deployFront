@@ -18,6 +18,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    exclude: ['jest', 'testing-library'],
+  },
   plugins: [
     react(),
     vitePluginSvgr({
