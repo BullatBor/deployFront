@@ -1,5 +1,5 @@
 import styles from './AboutResearch.module.scss';
-import { Icon, Text } from '../../shared';
+import { Icon, SubHeading, Text } from '../../shared';
 import { useTranslation } from 'react-i18next';
 
 export const AboutResearch = () => {
@@ -8,14 +8,7 @@ export const AboutResearch = () => {
   return (
     <div className={styles['research']}>
       <div className={styles['research__wrapper']}>
-        <div className={styles['research__heading']}>
-          <Text tag='h5' weight='regular'>
-            {'a.'}
-          </Text>
-          <Text tag='h1' weight='regular'>
-            {t('aboutResearch.heading')}
-          </Text>
-        </div>
+        <SubHeading leftText={'a.'} rightText={t('aboutResearch.heading')} />
         <div className={styles['research__box']}>
           <div className={styles['research__addition']}>
             <Text tag='p' size='xs' weight='regular'>

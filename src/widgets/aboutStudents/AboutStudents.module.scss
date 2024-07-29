@@ -9,23 +9,6 @@
     padding: 0 20px;
   }
 
-  &__heading {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 16px;
-    align-items: end;
-    border-bottom: 1px solid $gray;
-    letter-spacing: -1px;
-
-    & > h1,
-    & > h5 {
-      line-height: 1;
-      margin: 0;
-      padding: 5px 0;
-      color: $text_primary;
-    }
-  }
-
   &__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -59,25 +42,8 @@
   }
 }
 
-@media screen and (min-width: 721px) and (max-width: 850px) {
-  .students {
-    &__heading > h1 {
-      width: max-content;
-    }
-  }
-}
-
 @media screen and (max-width: 720px) {
   .students {
-    &__heading {
-      display: flex;
-      justify-content: space-between;
-
-      & > h1 {
-        text-align: end;
-      }
-    }
-
     &__list {
       display: grid;
       grid-template-columns: 0 1fr 1fr;
@@ -99,11 +65,6 @@
       & > h5 {
         font-size: 12px;
       }
-    }
-
-    &__heading > h1 {
-      font-size: 20px;
-      text-align: end;
     }
 
     &__name > h4 {

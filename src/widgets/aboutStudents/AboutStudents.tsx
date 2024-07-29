@@ -1,5 +1,5 @@
 import styles from './AboutStudents.module.scss';
-import { Text } from '../../shared';
+import { SubHeading, Text } from '../../shared';
 import { useTranslation } from 'react-i18next';
 
 export const AboutStudents = () => {
@@ -8,14 +8,7 @@ export const AboutStudents = () => {
   return (
     <div className={styles['students']}>
       <div className={styles['students__wrapper']}>
-        <div className={styles['students__heading']}>
-          <Text tag='h5' weight='regular'>
-            {'b.'}
-          </Text>
-          <Text tag='h1' weight='regular'>
-            {t('aboutStudents.heading')}
-          </Text>
-        </div>
+        <SubHeading leftText={'b.'} rightText={t('aboutStudents.heading')} />
         <div className={styles['students__list']}>
           {Array.from({ length: 6 }, () => '').map((_, i) => (
             <>

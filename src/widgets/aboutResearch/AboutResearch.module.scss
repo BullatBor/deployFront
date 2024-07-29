@@ -10,24 +10,6 @@
     padding: 0 20px;
   }
 
-  &__heading {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    align-items: end;
-    border-bottom: 1px solid $gray;
-    letter-spacing: -1px;
-
-    & > h1,
-    & > h5 {
-      width: max-content;
-      line-height: 1;
-      margin: 0;
-      padding: 5px 0;
-      color: $text_primary;
-    }
-  }
-
   &__box {
     display: flex;
     flex-direction: column;
@@ -103,11 +85,6 @@
 
 @media screen and (max-width: 780px) {
   .research {
-    &__heading {
-      display: flex;
-      justify-content: space-between;
-    }
-
     &__addition {
       display: block;
 
@@ -149,10 +126,6 @@
 
 @media screen and (max-width: 390px) {
   .research {
-    &__heading > h1 {
-      font-size: 20px;
-    }
-
     &__body {
       width: 260px;
       height: 140px;

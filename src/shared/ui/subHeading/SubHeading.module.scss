@@ -1,0 +1,34 @@
+.subHeading {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px;
+  align-items: end;
+  border-bottom: 1px solid $gray;
+  letter-spacing: -1px;
+  scroll-behavior: smooth;
+
+  & > h1,
+  & > h5 {
+    line-height: 1;
+    margin: 0;
+    padding: 10px 0;
+    color: $text_primary;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .subHeading {
+    display: flex;
+    justify-content: space-between;
+
+    & > h1 {
+      text-align: right;
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .subHeading > h1 {
+    font-size: 20px;
+  }
+}

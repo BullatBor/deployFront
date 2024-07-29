@@ -1,20 +1,13 @@
 import styles from '../../MainBoard.module.scss';
 import cn from 'classnames';
-import { Button, Image, Text } from '../../../../shared';
+import { Button, Image, SubHeading } from '../../../../shared';
 import { useTranslation } from 'react-i18next';
 
 export const ResearchBlock = () => {
   const { t } = useTranslation();
   return (
     <div className={styles['block_wrapper']}>
-      <div className={styles['block_title']}>
-        <div className={cn(styles['row'], styles['section_title'])}>
-          <Text tag='span' size='xss' weight='regular'>
-            {`a.`}
-          </Text>
-          <div className={cn(styles['title_text'], styles['two_column'])}>{t('main.research')}</div>
-        </div>
-      </div>
+      <SubHeading leftText={'a.'} rightText={t('main.research')} />
       <div className={styles['info_block']}>
         <div className={styles['row']}>
           <div className={styles['researchImages']}>

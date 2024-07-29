@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import styles from './PublicationsPage.module.scss';
 import { Link } from 'react-router-dom';
-import { Text } from '../../shared';
+import { SubHeading } from '../../shared';
 import { PublicationsDto } from './constants';
 
 const PublicationsPage = () => {
@@ -31,14 +31,7 @@ const PublicationsPage = () => {
       </div>
       {PublicationsDto.map((block) => (
         <div className={styles['publications__list']}>
-          <div className={styles['publications__title']} id={`${block.year}`}>
-            <Text tag='h5' weight='regular'>
-              {'year.'}
-            </Text>
-            <Text tag='h1' weight='regular'>
-              {`${block.year}`}
-            </Text>
-          </div>
+          <SubHeading leftText={'year.'} rightText={block.year.toString()} />
           {block.publications.map((publication) => (
             <div className={styles['publications__info']}>
               <p className={styles['publications__authors']}>{publication.authors}</p>
