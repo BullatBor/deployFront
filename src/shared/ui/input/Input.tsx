@@ -12,6 +12,8 @@ interface INPUT_PROPS {
   width?: string;
   isClearable?: boolean;
   required?: boolean;
+  type?: string;
+  step?: string;
 }
 
 export const Input: FC<INPUT_PROPS> = (props) => {
@@ -24,6 +26,8 @@ export const Input: FC<INPUT_PROPS> = (props) => {
     width = 'max',
     isClearable,
     required = false,
+    type = 'text',
+    step,
   } = props;
 
   const inputHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,10 +41,11 @@ export const Input: FC<INPUT_PROPS> = (props) => {
   return (
     <div className={cn(styles['wrapper'])}>
       <input
-        type='text'
+        type={type}
         value={value}
         onChange={inputHandle}
         placeholder={placeholder}
+        step={step}
         className={cn(
           styles[`wrapper_${size}`],
           styles[`wrapper_${weight}`],

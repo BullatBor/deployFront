@@ -11,4 +11,9 @@ export const SIDEBAR_ITEMS: ISidebar_items[] = [
     title: 'Publications',
     url: 'publications',
   },
+  {
+    id: 3,
+    title: 'News',
+    url: 'news',
+  },
 ];

@@ -74,6 +74,10 @@ export const appRouter = () =>
               path: '/admin/publications',
               element: <PublicationsPanel />,
             },
+            {
+              path: '/admin/news',
+              element: <PublicationsPanel />,
+            },
           ],
         },
       ],

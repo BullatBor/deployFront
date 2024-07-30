@@ -8,7 +8,7 @@ const EditCourse = () => {
       <Text tag='span' size='l' weight='semibold'>
         Редактирование курса
       </Text>
-      <CourseForm />
+      <CourseForm isCreateType={false} />
     </div>
   );
 };
