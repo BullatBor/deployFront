@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import vitePluginSvgr from 'vite-plugin-svgr';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   server: {
     watch: {
@@ -11,7 +10,6 @@ export default defineConfig({
     },
     host: true,
     strictPort: true,
-    port: 80,
   },
   resolve: {
     alias: {
