@@ -32,7 +32,7 @@ export const CourseBlock: FC<EducationProps> = ({
           <div></div>
           <div className={styles['two_columns']}>
             <Text tag='span' size='sxs' weight='medium'>
-              {descriptionTitle}
+              {t(descriptionTitle)}
             </Text>
           </div>
         </div>
@@ -40,11 +40,11 @@ export const CourseBlock: FC<EducationProps> = ({
           <div></div>
           <div className={styles['info_wrapper']}>
             <Text tag='span' size='xs' weight='regular'>
-              {leftDescription}
+              {t(leftDescription)}
             </Text>
           </div>
           <Text tag='span' size='xs' weight='regular'>
-            {rightDescription}
+            {t(rightDescription)}
           </Text>
         </div>
         <div className={styles['row']}>

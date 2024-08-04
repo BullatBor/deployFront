@@ -10,6 +10,7 @@ interface NEWS_PROPS {
 interface CARD_TYPES {
   img: TAllImages;
   description: string;
+  link: string;
 }
 
 export const NEWS_DATA: NEWS_PROPS[] = [
@@ -30,18 +31,18 @@ export const NEWS_DATA: NEWS_PROPS[] = [
   },
 ];
 
-export const UNIVERSITY_DATA: CARD_TYPES[] = [
+export const UNIVERSITY_DATA: Omit<CARD_TYPES, 'link'>[] = [
   {
     img: 'SP-University',
-    description: 'Кафедра медицинской химии',
+    description: 'main.university1',
   },
   {
     img: 'Polytech',
-    description: 'Институт медицинских систем и биотехнологий',
+    description: 'main.university2',
   },
   {
     img: 'NII-Smor',
-    description: 'Лаборатория разработки молекулярно-диагностических систем',
+    description: 'main.university3',
   },
 ];
 
@@ -49,13 +50,16 @@ export const RESEARCH_CARD: CARD_TYPES[] = [
   {
     img: 'default',
     description: 'DEVELOPMENT OF NEW GENETICALLY ENCODED TOOLS FOR BRAIN AND HEART RESEARCH.',
+    link: 'research1',
   },
   {
     img: 'default',
     description: 'DEVELOPMENT OF METHODS FOR COMPUTER MODELING AND DESIGN OF CHEMICAL REACTIONS.',
+    link: 'research2',
   },
   {
     img: 'default',
     description: 'DEVELOPMENT OF NEW FORCE FIELDS USING MACHINE LEARNING METHODS.',
+    link: 'research3',
   },
 ];

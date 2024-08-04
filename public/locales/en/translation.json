@@ -12,10 +12,23 @@
   "main": {
     "description": "Combination of computational and experimental methods for the development of novel molecular systems and chemical reactions.",
     "research": "Research",
+    "researchDescr1": "In our group, we focus on the development of computational methods and general strategies for the design and optimization of molecular tools and processes.",
+    "researchDescr2": "We also apply these methodologies to develop new molecular and biomolecular systems for use in biomedical research and pharmacology.",
     "education": "Educational Resources",
+    "educationTitle": "ONLINE COURSE ON MODELING CHEMICAL REACTIONS.",
+    "educationDescr1": "As part of this 10-week course, students will learn to use quantum chemistry methods and calculate the properties of chemical substances and simulate chemical reactions, including using supercomputers.",
+    "educationDescr2": "The course has a strong practical focus and is based on calculations using widely used quantum chemical software packages ORCA and Molcas.",
     "news": "News",
     "students": "For undergraduate and graduate students",
-    "university": "We work on the basis of universities:"
+    "studentTitle": "WE ARE LOOKING FOR UNDERGRADUATE AND GRADUATE STUDENTS SPECIALIZING IN VARIOUS FIELDS OF PHYSICS, CHEMISTRY AND BIOLOGY WHO WANT TO CONDUCT RESEARCH IN THE AREAS OF:",
+    "studentDescr1": "Development of methods and software for computer-aided design of molecular systems",
+    "studentDescr2": "Biomolecular engineering – creation of sensor proteins and enzyme proteins with specified properties",
+    "studentDescr3": "Development of methods and software for modeling chemical reaction networks",
+    "studentDescr4": "Studying fuel combustion processes in order to develop new, more efficient types of fuels",
+    "university": "We work on the basis of universities:",
+    "university1": "Department of Medical Chemistry",
+    "university2": "Institute of Medical Systems and Biotechnologies",
+    "university3": "Laboratory for the development of molecular diagnostic systems"
   },
   "research": {
     "research": "Research areas",
