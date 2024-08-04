@@ -20,3 +20,10 @@ export interface IOtherStudies {
   description: string;
   link: string;
 }
+
+export interface ICourseCard {
+  id: number;
+  title: string;
+  img: TAllImages;
+  researchArea?: string;
+}

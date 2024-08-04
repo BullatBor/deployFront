@@ -1,9 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import { Header, Footer } from '@/widgets';
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { ScrollUpBtn } from '@/shared';
-
-const LoadingPage = lazy(() => import('../../pages/loadingPage/LoadingPage'));
+import LoadingPage from '@/pages/loadingPage/LoadingPage';
 
 export const MainLayout = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);

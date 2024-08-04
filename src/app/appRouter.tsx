@@ -12,9 +12,11 @@ const Research3 = lazy(() => import('@/pages/research3/Research3'));
 const AboutPage = lazy(() => import('@/pages/aboutPage/AboutPage'));
 const AdminPage = lazy(() => import('@/pages/adminPage/AdminPage'));
 const AdminCoursePanel = lazy(() => import('@/widgets/adminCoursePanel/AdminCoursePanel'));
-const AnaliticsPanel = lazy(() => import('@/widgets/analiticsPanel/AnaliticsPanel'));
-const CreateCourse = lazy(() => import('@/widgets/createCourse/CreateCourse'));
 const Research1Page = lazy(() => import('@/pages/research1Page/Research1Page'));
+const PublicationsPanel = lazy(() => import('@/widgets/publicationsPanel/PublicationsPanel'));
+const CreateCourse = lazy(() => import('@/features/createCourse/CreateCourse'));
+const EditCourse = lazy(() => import('@/features/editCourse/EditCourse'));
+const CoursesAdmin = lazy(() => import('@/features/coursesAdmin/CourseAdmin'));
 
 export const appRouter = () =>
   createBrowserRouter([
@@ -70,14 +72,33 @@ export const appRouter = () =>
             {
               path: '/admin/courses',
               element: <AdminCoursePanel />,
+              children: [
+                {
+                  index: true,
+                  element: <Navigate to='/admin/courses/all' replace />,
+                },
+                {
+                  path: '/admin/courses/all',
+                  element: <CoursesAdmin />,
+                  index: true,
+                },
+                {
+                  path: '/admin/courses/createCourse',
+                  element: <CreateCourse />,
+                },
+                {
+                  path: '/admin/courses/editCourse/:id',
+                  element: <EditCourse />,
+                },
+              ],
             },
             {
-              path: '/admin/analitics',
-              element: <AnaliticsPanel />,
+              path: '/admin/publications',
+              element: <PublicationsPanel />,
             },
             {
-              path: '/admin/createCourse',
-              element: <CreateCourse />,
+              path: '/admin/news',
+              element: <PublicationsPanel />,
             },
           ],
         },

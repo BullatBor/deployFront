@@ -2,7 +2,14 @@ import { ImgHTMLAttributes, SVGProps } from 'react';
 
 export type TPngImageNames = 'SP-University' | 'Polytech' | 'NII-Smor' | 'default' | 'errorElement';
 export type TSvgImageNames = 'SP-University';
-export type TSvgIconNames = 'news-icon' | 'arrow-right' | 'arrow-up' | 'dna' | 'menu' | 'cross';
+export type TSvgIconNames =
+  | 'news-icon'
+  | 'arrow-right'
+  | 'arrow-up'
+  | 'dna'
+  | 'menu'
+  | 'cross'
+  | 'clear';
 
 export type TAllImages = TSvgImageNames | TPngImageNames;
 export type TIcons = Record<TSvgIconNames, string | SVGProps<SVGSVGElement>>;

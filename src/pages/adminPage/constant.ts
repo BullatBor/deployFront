@@ -8,7 +8,12 @@ export const SIDEBAR_ITEMS: ISidebar_items[] = [
   },
   {
     id: 2,
-    title: 'Analitics',
-    url: 'analitics',
+    title: 'Publications',
+    url: 'publications',
+  },
+  {
+    id: 3,
+    title: 'News',
+    url: 'news',
   },
 ];
