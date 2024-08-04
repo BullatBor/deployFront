@@ -14,3 +14,9 @@ export interface ISidebar_items {
   title: string;
   url: string;
 }
+
+export interface IOtherStudies {
+  img: TAllImages;
+  description: string;
+  link: string;
+}

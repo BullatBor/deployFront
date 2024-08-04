@@ -15,6 +15,7 @@ const AdminPage = lazy(() => import('@/pages/adminPage/AdminPage'));
 const AdminCoursePanel = lazy(() => import('@/widgets/adminCoursePanel/AdminCoursePanel'));
 const AnaliticsPanel = lazy(() => import('@/widgets/analiticsPanel/AnaliticsPanel'));
 const CreateCourse = lazy(() => import('@/widgets/createCourse/CreateCourse'));
+const Research1Page = lazy(() => import('@/pages/research1Page/Research1Page'));
 
 export const appRouter = () =>
   createBrowserRouter([
@@ -80,6 +81,10 @@ export const appRouter = () =>
               element: <CreateCourse />,
             },
           ],
+        },
+        {
+          path: 'research1',
+          element: <Research1Page />,
         },
       ],
     },

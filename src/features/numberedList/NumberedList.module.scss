@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  gap: 20px;
+  &__container {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__columns {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+  }
+
+  &__oneColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__number {
+    color: $gray;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    flex-direction: column;
+
+    &__columns {
+      width: 100%;
+    }
+  }
+}

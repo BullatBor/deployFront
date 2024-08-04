@@ -12,13 +12,30 @@
   "main": {
     "description": "Combination of computational and experimental methods for the development of novel molecular systems and chemical reactions.",
     "research": "Research",
+    "researchDescr1": "In our group, we focus on the development of computational methods and general strategies for the design and optimization of molecular tools and processes.",
+    "researchDescr2": "We also apply these methodologies to develop new molecular and biomolecular systems for use in biomedical research and pharmacology.",
     "education": "Educational Resources",
+    "educationTitle": "ONLINE COURSE ON MODELING CHEMICAL REACTIONS.",
+    "educationDescr1": "As part of this 10-week course, students will learn to use quantum chemistry methods and calculate the properties of chemical substances and simulate chemical reactions, including using supercomputers.",
+    "educationDescr2": "The course has a strong practical focus and is based on calculations using widely used quantum chemical software packages ORCA and Molcas.",
     "news": "News",
     "students": "For undergraduate and graduate students",
-    "university": "We work on the basis of universities:"
+    "studentTitle": "WE ARE LOOKING FOR UNDERGRADUATE AND GRADUATE STUDENTS SPECIALIZING IN VARIOUS FIELDS OF PHYSICS, CHEMISTRY AND BIOLOGY WHO WANT TO CONDUCT RESEARCH IN THE AREAS OF:",
+    "studentDescr1": "Development of methods and software for computer-aided design of molecular systems",
+    "studentDescr2": "Biomolecular engineering – creation of sensor proteins and enzyme proteins with specified properties",
+    "studentDescr3": "Development of methods and software for modeling chemical reaction networks",
+    "studentDescr4": "Studying fuel combustion processes in order to develop new, more efficient types of fuels",
+    "university": "We work on the basis of universities:",
+    "university1": "Department of Medical Chemistry",
+    "university2": "Institute of Medical Systems and Biotechnologies",
+    "university3": "Laboratory for the development of molecular diagnostic systems"
   },
   "research": {
-    "research": "Research areas"
+    "research": "Research areas",
+    "research1": "DEVELOPMENT OF NEW GENETICALLY-ENODED TOOLS FOR BRAIN AND HEART RESEARCH",
+    "research2": "DEVELOPMENT OF METHODS FOR COMPUTER MODELING AND DESIGN OF CHEMICAL REACTIONS",
+    "research3": "DEVELOPMENT OF NEW FORCE FIELDS USING MACHINE LEARNING METHODS",
+    "otherStudies": "Other studies"
   },
   "education": {
     "education": "Educational",
@@ -89,6 +106,33 @@
   },
   "aboutTree": {
     "heading": "Academic tree"
+  },
+  "research1": {
+    "mainTitle1": "Development of new genetically encoded tools",
+    "mainTitle2": "for brain and heart research.",
+    "mainDescr": "Proteins from the rhodopsin family, the fluorescence intensity of which depends on the electrical potential of the cell, are a promising tool for biomedical research.",
+    "advantages": "Advantages",
+    "advLeftTitle": "Rhodopsins have already found use in studying the functioning of the brain, allowing real-time monitoring of neuronal activity using optical methods. The advantages of these molecular tools:",
+    "advDescr1": "Fast response time, allowing you to record even the fastest processes in neurons;",
+    "advDescr2": "Long-term photobleaching, which allows the use of rhodopsins in experiments that last for several hours;",
+    "advDescr3": "High sensitivity of fluorescence intensity to changes in electrical potential.",
+    "disadvantages": "Disadvantages",
+    "disAdvLeftTitle": "The main disadvantages of rhodopsin-based sensors developed to date:",
+    "disAdvDescr1": "Low fluorescent signal intensity (signal needs to be increased)",
+    "disAdvDescr2": "The absorption band is in a non-optimal range for biomedical research (it is necessary to shift the band to the region of the window of optical transparency of biological tissues, 650-900 nm)",
+    "ourTask": "Our goal",
+    "ourGoalTitle": "Our task is to develop improved versions of rhodopsins, devoid of these disadvantages, but retaining all the advantages already achieved.",
+    "combineTitle": "TO SOLVE THE PROBLEM, WE USE A COMBINED APPROACH:",
+    "combine1": "Directed evolution to generate large numbers of \"good\" and \"bad\" mutant forms",
+    "combine2": "Comparative analysis of \"bad\" and \"good\" proteins to determine the factors that separate the two classes",
+    "combine3": "Rational design - based on the identified factors, propose new amino acid substitutions that will lead to additional optimization of properties",
+    "experMethodsTitle": "WE USE BOTH EXPERIMENTAL METHODS AND COMPUTER MODELING METHODS, NAMELY:",
+    "experMethods1": "Genetic engineering methods for obtaining mutant forms of proteins",
+    "experMethods2": "Spectroscopy methods for studying the spectral and photophysical properties of proteins",
+    "experMethods3": "Computer modeling methods for studying the factors that determine the fluorescence intensity of proteins at the molecular level, including homology modeling methods, molecular dynamics, QM/MM",
+    "experMethods4": "Genetic algorithms for automatic search for proteins with increased fluorescence intensity in silico",
+    "results": "Results",
+    "resultsDescr": "TO DATE, WE HAVE ALREADY OBTAINED PROTEINS WITH AN ABSORPTION BAND MAXIMUM AT 640 NM - THE LONGEST WAVELENGTH OF THE ABSORPTION BAND MAXIMUM AMONG KNOWN RHODOPSIN-BASED SENSORS."
   },
   "footer": {
     "TEXT": "Write to us for any questions: ",

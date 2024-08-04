@@ -2,11 +2,9 @@ import { EducationProps } from '../../shared';
 
 export const EDUCATION_DATA: EducationProps = {
   sectionName: 'main.education',
-  descriptionTitle: 'ОНЛАЙН-КУРС ПО МОДЕЛИРОВАНИЮ ХИМИЧЕСКИХ РЕАКЦИЙ.',
+  descriptionTitle: 'main.educationTitle',
   img: 'default',
-  leftDescription:
-    'В рамках данного 10-недельного курса обучающиеся научатся использовать методы квантовой химии и проводить расчеты свойств химических веществ и моделирование химических реакций, в том числе с использованием суперкомпьютеров.',
-  rightDescription:
-    'Курс носит яркую практическую направленность и основан на проведении расчетов с использованием широко используемых квантово-химических программных пакетов ORCA и Molcas.',
+  leftDescription: 'main.educationDescr1',
+  rightDescription: 'main.educationDescr2',
   listValues: 'b',
 };
