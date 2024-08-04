@@ -3,12 +3,21 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import vitePluginSvgr from 'vite-plugin-svgr';
 
-// https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    watch: {
+      usePolling: true,
+    },
+    host: true,
+    strictPort: true,
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+  },
+  optimizeDeps: {
+    exclude: ['jest', 'testing-library'],
   },
   plugins: [
     react(),

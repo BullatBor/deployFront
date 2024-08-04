@@ -15,6 +15,12 @@ export interface ISidebar_items {
   url: string;
 }
 
+export interface IOtherStudies {
+  img: TAllImages;
+  description: string;
+  link: string;
+}
+
 export interface ICourseCard {
   id: number;
   title: string;

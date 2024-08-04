@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $text_primary;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
 body {
   margin: 0;
   padding: 0;

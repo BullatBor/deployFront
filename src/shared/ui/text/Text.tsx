@@ -5,7 +5,21 @@ import styles from './Text.module.scss';
 interface TextProps extends HTMLAttributes<HTMLElement> {
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
   children: ReactNode;
-  size?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'ml' | 'xss' | 'sxs' | 'sm' | 'lsm' | 'xxs';
+  size?:
+    | 'xs'
+    | 's'
+    | 'm'
+    | 'l'
+    | 'xl'
+    | 'xxl'
+    | 'ml'
+    | 'xss'
+    | 'sxs'
+    | 'sm'
+    | 'lsm'
+    | 'xxs'
+    | 'xxs2'
+    | 'ms';
   weight?: 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
   className?: string;
   'data-testid'?: string;

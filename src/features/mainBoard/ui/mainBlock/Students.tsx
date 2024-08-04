@@ -1,6 +1,6 @@
 import styles from '../../MainBoard.module.scss';
 import cn from 'classnames';
-import { Button, Text } from '../../../../shared';
+import { Button, SubHeading, Text } from '../../../../shared';
 import { useTranslation } from 'react-i18next';
 import { Image } from '../../../../shared/ui/icon/Image';
 
@@ -8,14 +8,7 @@ export const Students = () => {
   const { t } = useTranslation();
   return (
     <div className={styles['block_wrapper']}>
-      <div className={styles['block_title']}>
-        <div className={cn(styles['row'], styles['section_title'])}>
-          <Text tag='span' size='xss' weight='regular'>
-            d.
-          </Text>
-          <div className={cn(styles['title_text'], styles['two_column'])}>{t('main.students')}</div>
-        </div>
-      </div>
+      <SubHeading leftText={'d.'} rightText={t('main.students')} />
       <div className={cn(styles['info_block'], styles['student_wrapper'])}>
         <div className={styles['row']}>
           <div className={styles['left_image_wrapper']}>
@@ -23,8 +16,7 @@ export const Students = () => {
           </div>
           <div className={styles['student']}>
             <Text tag='span' size='sxs' weight='regular'>
-              МЫ ИЩЕМ СТУДЕНТОВ И АСПИРАНТОВ, СПЕЦИАЛИЗИРУЮЩИХСЯ В РАЗЛИЧНЫХ ОБЛАСТЯХ ФИЗИКИ, ХИМИИ
-              И БИОЛОГИИ, КОТОРЫЕ ХОТЯТ ПРОВОДИТЬ ИССЛЕДОВАНИЯ В ОБЛАСТИ:
+              {t('main.studentTitle')}
             </Text>
           </div>
         </div>
@@ -35,8 +27,7 @@ export const Students = () => {
               01/
             </Text>
             <Text tag='span' size='xs' weight='regular'>
-              Разработка методов и программного обеспечения для компьютерного дизайна молекулярных
-              систем
+              {t('main.studentDescr1')}
             </Text>
           </div>
           <div className={styles['student']}>
@@ -44,8 +35,7 @@ export const Students = () => {
               03/
             </Text>
             <Text tag='span' size='xs' weight='regular'>
-              Разработка методов и программного обеспечения для моделирования сетей химических
-              реакций
+              {t('main.studentDescr3')}
             </Text>
           </div>
         </div>
@@ -56,8 +46,7 @@ export const Students = () => {
               02/
             </Text>
             <Text tag='span' size='xs' weight='regular'>
-              Биомолекулярного инжиниринга – создания белков-сенсоров и белков-энзимов с заданными
-              свойствами
+              {t('main.studentDescr2')}
             </Text>
           </div>
           <div className={styles['student']}>
@@ -65,8 +54,7 @@ export const Students = () => {
               04/
             </Text>
             <Text tag='span' size='xs' weight='regular'>
-              Изучение процессов горения топлив с целью разработки новых более эффективных видов
-              топлив
+              {t('main.studentDescr4')}
             </Text>
           </div>
         </div>

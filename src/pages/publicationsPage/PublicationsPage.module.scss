@@ -1,0 +1,165 @@
+.publications {
+  padding: 130px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+
+  &__wrapper {
+    max-width: 1120px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: '. header';
+    gap: 10px;
+  }
+
+  &__header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__heading {
+    color: $text_primary;
+    font-size: 86px;
+    line-height: 86px;
+    font-weight: 500;
+    letter-spacing: -7px;
+  }
+
+  &__dates {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    gap: 9px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__date {
+    cursor: pointer;
+    width: 176px;
+    height: 28px;
+    border-radius: 30px;
+    border: 1px solid $bg-secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: $text_primary;
+    transition:
+      background-color 0.2s ease-in-out,
+      color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $bg-secondary;
+      color: $white;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    max-width: 1120px;
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 12px;
+    grid-template-areas: 'authors name';
+  }
+
+  &__authors {
+    grid-area: authors;
+    margin: 0;
+    padding: 30px 0;
+    width: 190px;
+    color: $gray;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+
+  &__name {
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid $gray;
+    padding: 30px 0;
+  }
+
+  &__text {
+    text-decoration: none;
+    color: $text_primary;
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 600;
+  }
+
+  &__addition {
+    color: $text_primary;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .publications {
+    padding: 130px 10px 80px;
+    gap: 60px;
+
+    &__wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    &__heading {
+      font-size: 49px;
+      letter-spacing: -5px;
+      text-align: end;
+    }
+
+    &__header {
+      width: 100%;
+      gap: 20px;
+    }
+
+    &__dates {
+      gap: 7px;
+    }
+
+    &__date {
+      width: 143px;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    &__authors {
+      width: 100%;
+      padding: 20px 0;
+      text-align: justify;
+    }
+
+    &__name {
+      text-align: justify;
+      padding: 0 0 20px;
+    }
+
+    &__text {
+      font-size: 14px;
+    }
+
+    &__addition {
+      font-size: 12px;
+    }
+  }
+}

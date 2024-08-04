@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Header, Footer } from '@/widgets';
 import { Suspense, useEffect, useState } from 'react';
 import { ScrollUpBtn } from '@/shared';
+import LoadingPage from '@/pages/loadingPage/LoadingPage';
 
 export const MainLayout = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -24,7 +25,7 @@ export const MainLayout = () => {
   return (
     <div>
       <Header />
-      <Suspense fallback={<div>...Loading</div>}>
+      <Suspense fallback={<LoadingPage />}>
         <Outlet />
       </Suspense>
       <Footer />
