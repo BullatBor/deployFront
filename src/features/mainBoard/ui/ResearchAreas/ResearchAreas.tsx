@@ -25,7 +25,7 @@ export const ResearchAreas = () => {
                 classNames={styles['research__researchCardImage']}
                 onClick={() => clickHandler(link)}
               />
-              <div className={styles['research__card']}>
+              <div className={styles['research__card']} onClick={() => clickHandler(link)}>
                 <div>
                   <Text tag='span' size='sxs' weight='medium'>
                     {description}

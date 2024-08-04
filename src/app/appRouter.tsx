@@ -7,7 +7,6 @@ const ErrorPage = lazy(() => import('../pages/errorPage/ErrorPage'));
 const PublicationsPage = lazy(() => import('../pages/publicationsPage/PublicationsPage'));
 const EducationPage = lazy(() => import('@/pages/educationPage/EducationPage'));
 const ResearchPage = lazy(() => import('@/pages/researchPage/ResearchPage'));
-const Research1 = lazy(() => import('@/pages/research1/Research1'));
 const Research2 = lazy(() => import('@/pages/research2/Research2'));
 const Research3 = lazy(() => import('@/pages/research3/Research3'));
 const AboutPage = lazy(() => import('@/pages/aboutPage/AboutPage'));
@@ -38,7 +37,7 @@ export const appRouter = () =>
         },
         {
           path: '/research1',
-          element: <Research1 />,
+          element: <Research1Page />,
         },
         {
           path: '/research2',
@@ -81,10 +80,6 @@ export const appRouter = () =>
               element: <CreateCourse />,
             },
           ],
-        },
-        {
-          path: 'research1',
-          element: <Research1Page />,
         },
       ],
     },
