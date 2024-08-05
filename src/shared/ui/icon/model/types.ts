@@ -1,6 +1,19 @@
 import { ImgHTMLAttributes, SVGProps } from 'react';
 
-export type TPngImageNames = 'SP-University' | 'Polytech' | 'NII-Smor' | 'default' | 'errorElement';
+export type TPngImageNames =
+  | 'SP-University'
+  | 'Polytech'
+  | 'NII-Smor'
+  | 'default'
+  | 'errorElement'
+  | 'academicTree'
+  | 'research1_main'
+  | 'research2_main'
+  | 'research3_main'
+  | 'research2'
+  | 'research2_1'
+  | 'research2_2'
+  | 'research2_3';
 export type TSvgImageNames = 'SP-University';
 export type TSvgIconNames =
   | 'news-icon'
