@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { FC, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import cn from 'classnames';
 import styles from './FileLoader.module.scss';
@@ -8,19 +8,23 @@ interface IFile extends File {
   preview: string;
 }
 
-export const FileLoader = () => {
+interface PROPS {
+  image: IFile | undefined;
+  onChange: (value: File) => void;
+}
+
+export const FileLoader: FC<PROPS> = ({ image, onChange }) => {
   const onDrop = useCallback((acceptedFile: File[]) => {
     const courseImage = Object.assign(acceptedFile[0], {
       preview: URL.createObjectURL(acceptedFile[0]),
     });
 
-    setFile(courseImage);
+    onChange(courseImage);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     multiple: false,
   });
-  const [file, setFile] = useState<IFile>();
 
   return (
     <div className={styles['wrapper']}>
@@ -42,13 +46,13 @@ export const FileLoader = () => {
           )}
         </div>
       </div>
-      {file && (
+      {image && (
         <div className={styles['preview']}>
           <div className={styles['preview__inner']}>
             <img
-              src={file.preview}
+              src={image.preview}
               onLoad={() => {
-                URL.revokeObjectURL(file.preview);
+                URL.revokeObjectURL(image.preview);
               }}
             />
           </div>

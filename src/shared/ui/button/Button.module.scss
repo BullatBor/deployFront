@@ -27,6 +27,22 @@
 .btn:hover {
   background-color: #0e2367;
 }
+
+.btn-disabled {
+  background-color: $gray;
+  color: $text_secondary;
+  &:disabled,
+  &[aria-disabled='true'] {
+    background-color: $ctrl_Liberty_secondary;
+  }
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+    cursor: default;
+    color: $text_secondary;
+  }
+}
+
 .theme {
   &_secondary {
     padding: 10px 20px;
