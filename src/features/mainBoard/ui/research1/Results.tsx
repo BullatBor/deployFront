@@ -15,10 +15,10 @@ export const Results = () => {
             <Text tag='span' size='sxs' weight='medium'>
               {t('research1.resultsDescr')}
             </Text>
-            <Image image='default' classNames={styles['research1__resultImage1']} />
+            <Image image='research1_4' classNames={styles['research1__resultImage1']} />
           </div>
           <div className={styles['research1__resultLeftImage']}>
-            <Image image='default' classNames={styles['research1__resultImage2']} />
+            <Image image='research1_5' classNames={styles['research1__resultImage2']} />
           </div>
         </div>
       </div>

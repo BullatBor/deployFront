@@ -17,13 +17,13 @@ export const OurTask = () => {
       <SubHeading leftText={'c.'} rightText={t('research1.ourTask')} />
       <div className={cn(styles['info_block'], styles['research1__ourTaskInfo'])}>
         <div className={styles['row']}>
-          <Image image='default' classNames={styles['research1__hideImg']} />
+          <Image image='research1_2' classNames={styles['research1__hideImg']} />
           <div className={cn(styles['two_column'], styles['research1__ourTask'])}>
             <Text tag='span' size='ms' weight='medium'>
               {t('research1.ourGoalTitle')}
             </Text>
             <div>
-              <Image image='default' classNames={styles['research1__taskImage']} />
+              <Image image='research1_3' classNames={styles['research1__taskImage']} />
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@ export const OurTask = () => {
             {t('research1.combineTitle')}
           </Text>
           <NumberedList leftColumnItems={leftColumnCombine} rightColumnItems={rightColumnCombine} />
-          <Image image='default' classNames={styles['research1__hideElem']} />
+          <Image image='research1_2' classNames={styles['research1__hideElem']} />
         </div>
         <div className={styles['row']}>
           <div></div>

@@ -14,7 +14,7 @@ export const OtherStudies: FC<IPROPS> = ({ studies }) => {
   };
   return (
     <div className={styles['block_wrapper']}>
-      <SubHeading leftText={'b.'} rightText={t('research.otherStudies')} />
+      <SubHeading leftText={'other.'} rightText={t('research.otherStudies')} />
       <div className={styles['info_block']}>
         <div className={styles['row']}>
           <div></div>

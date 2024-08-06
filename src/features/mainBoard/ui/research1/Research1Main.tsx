@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 export const Research1Main = () => {
   const { t } = useTranslation();
   return (
-    <div className={styles['wrapper__main']}>
+    <div className={cn(styles['wrapper__main'], styles['wrapper__main_res1'])}>
       <div className={styles['block_wrapper']}>
         <div className={cn(styles['wrapper__titles'], styles['research1'])}>
           <div className={cn(styles['wrapper__title'], styles['research1'])}>

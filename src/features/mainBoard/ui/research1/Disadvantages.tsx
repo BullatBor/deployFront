@@ -16,7 +16,7 @@ export const Disadvantages = () => {
             {t('research1.disAdvLeftTitle')}
           </Text>
           <div className={cn(styles['research1__rightColumn'])}>
-            <Image image='default' classNames={styles['research1__disAdvImg']} />
+            <Image image='research2_main' classNames={styles['research1__disAdvImg']} />
           </div>
           <NumberedList leftColumnItems={leftColumnDisadvantages} />
         </div>

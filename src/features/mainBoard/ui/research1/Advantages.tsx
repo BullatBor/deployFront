@@ -17,7 +17,7 @@ export const Advantages = () => {
             Преимущества этих молекулярных инструментов:
           </Text>
           <Image
-            image='default'
+            image='research1_1'
             width='280px'
             height='450px'
             classNames={styles['research1__disAdvImg']}

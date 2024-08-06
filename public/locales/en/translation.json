@@ -134,6 +134,33 @@
     "results": "Results",
     "resultsDescr": "TO DATE, WE HAVE ALREADY OBTAINED PROTEINS WITH AN ABSORPTION BAND MAXIMUM AT 640 NM - THE LONGEST WAVELENGTH OF THE ABSORPTION BAND MAXIMUM AMONG KNOWN RHODOPSIN-BASED SENSORS."
   },
+  "research2": {
+    "title1": "Development of methods for computer modeling and design",
+    "title2": "of chemical reactions",
+    "underline": "We are developing the ReaNet software package",
+    "mainTitle": "ReaNet functions",
+    "description1": "Automatic construction of a complete network of reactions occurring in the system. For complex networks of chemical reactions that occur in combustion, plasma.",
+    "description2": "Automatic search for reaction path and transition state for given products and reagents of a chemical reaction. Available for both thermal and photochemical reactions."
+  },
+  "research3": {
+    "title1": "Development of new force fields",
+    "title2": "methods using machine learning",
+    "underline": "Proteins from the rhodopsin family, the fluorescence intensity of which depends on the electrical potential of the cell, are a promising tool for biomedical research.",
+    "mainTitle1": "Molecular dynamics method",
+    "description1_1": "The molecular dynamics method is often used in physical and chemical research to study molecular processes, search for equilibrium conformation, and calculate the thermodynamic characteristics of a molecular system.",
+    "description1_2": "When calculating a molecular dynamics trajectory, at each step (usually the step is 1 fs), the forces acting on each atom of the system are calculated and the standard equations of motion from classical mechanics are solved.",
+    "mainTitle2": "Disadvantages",
+    "description2_1": "The most accurate method for calculating forces is quantum mechanics; at each step, the Schrödinger (or Kohn-Sham) equations for the molecular system are solved.",
+    "description2_2": "However, quantum mechanical calculations require significant computational resources and can only calculate trajectories over short time intervals for small systems.",
+    "mainTitle3": "Using the Empirical Function",
+    "description3": "An alternative approach is to use the empirical function U(q) (force field), which describes the dependence of the energy of the system on the coordinates of all atoms.",
+    "advantages": "advantages:",
+    "advantages1": "Using the empirical function U(q) significantly simplifies the problem - at each step it is necessary to calculate only the gradient of the analytical function. Obviously, the accuracy of the calculation will be determined by how well the force field describes the system.",
+    "advantages2": "For standard molecules - amino acids, nucleotides, solvents, the functional form and numerical parameters of the force field functions have been developed over 30 years, they have very high accuracy.",
+    "disadvantages": "disadvantages:",
+    "disadvantages1": "Complexity arises for non-standard molecules - ligands, polymers, chromophores. They require methods that allow you to quickly and automatically select a force field.",
+    "disadvantages2": "In our work, we develop methods for parameterizing force fields for systems of various sizes, from drug molecules to polymers."
+  },
   "footer": {
     "TEXT": "Write to us for any questions: ",
     "RIGHTS": "All rights reserved. 2024",

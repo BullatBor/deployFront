@@ -7,12 +7,12 @@ const ErrorPage = lazy(() => import('../pages/errorPage/ErrorPage'));
 const PublicationsPage = lazy(() => import('../pages/publicationsPage/PublicationsPage'));
 const EducationPage = lazy(() => import('@/pages/educationPage/EducationPage'));
 const ResearchPage = lazy(() => import('@/pages/researchPage/ResearchPage'));
-const Research2 = lazy(() => import('@/pages/research2/Research2'));
-const Research3 = lazy(() => import('@/pages/research3/Research3'));
 const AboutPage = lazy(() => import('@/pages/aboutPage/AboutPage'));
 const AdminPage = lazy(() => import('@/pages/adminPage/AdminPage'));
 const AdminCoursePanel = lazy(() => import('@/widgets/adminCoursePanel/AdminCoursePanel'));
 const Research1Page = lazy(() => import('@/pages/research1Page/Research1Page'));
+const Research2Page = lazy(() => import('@/pages/research2Page/Research2Page'));
+const Research3Page = lazy(() => import('@/pages/research3Page/Research3Page'));
 const PublicationsPanel = lazy(() => import('@/widgets/publicationsPanel/PublicationsPanel'));
 const CreateCourse = lazy(() => import('@/features/createCourse/CreateCourse'));
 const EditCourse = lazy(() => import('@/features/editCourse/EditCourse'));
@@ -43,11 +43,11 @@ export const appRouter = () =>
         },
         {
           path: '/research2',
-          element: <Research2 />,
+          element: <Research2Page />,
         },
         {
           path: '/research3',
-          element: <Research3 />,
+          element: <Research3Page />,
         },
         {
           path: '/publications',

@@ -10,10 +10,18 @@ export type TPngImageNames =
   | 'research1_main'
   | 'research2_main'
   | 'research3_main'
+  | 'research1'
+  | 'research1_1'
+  | 'research1_2'
+  | 'research1_3'
+  | 'research1_4'
+  | 'research1_5'
   | 'research2'
   | 'research2_1'
   | 'research2_2'
-  | 'research2_3';
+  | 'research2_3'
+  | 'research3'
+  | 'research3_1';
 export type TSvgImageNames = 'SP-University';
 export type TSvgIconNames =
   | 'news-icon'

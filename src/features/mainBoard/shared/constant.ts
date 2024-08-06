@@ -48,17 +48,17 @@ export const UNIVERSITY_DATA: Omit<CARD_TYPES, 'link'>[] = [
 
 export const RESEARCH_CARD: ({ link: string } & CARD_TYPES)[] = [
   {
-    img: 'default',
+    img: 'research1_main',
     description: 'DEVELOPMENT OF NEW GENETICALLY ENCODED TOOLS FOR BRAIN AND HEART RESEARCH.',
     link: 'research1',
   },
   {
-    img: 'default',
+    img: 'research2_main',
     description: 'DEVELOPMENT OF METHODS FOR COMPUTER MODELING AND DESIGN OF CHEMICAL REACTIONS.',
     link: 'research2',
   },
   {
-    img: 'default',
+    img: 'research3_main',
     description: 'DEVELOPMENT OF NEW FORCE FIELDS USING MACHINE LEARNING METHODS.',
     link: 'research3',
   },

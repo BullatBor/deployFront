@@ -1,0 +1,289 @@
+.research {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding-bottom: 100px;
+
+  &__header {
+    height: 710px;
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.6)),
+      url('../../shared/ui/icon/assets/images/research3.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    & > div {
+      max-width: 1120px;
+
+      color: $text_white;
+      position: relative;
+      top: 100px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: 0 20px;
+
+    & > span {
+      font-size: 75px;
+      line-height: 75px;
+      letter-spacing: -5px;
+    }
+  }
+
+  &__lastSpan {
+    max-width: 740px;
+  }
+
+  &__underline {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > p {
+      margin: 0;
+      padding: 0;
+      max-width: clamp(100px, 40vw, 350px);
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+
+    &_wrapper {
+      max-width: 1120px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: auto 540px 180px;
+    gap: 20px;
+    color: $text_primary;
+    margin-bottom: 70px;
+
+    & > p {
+      margin: 0;
+      padding: 0;
+      max-width: 300px;
+      font-size: clamp(10px, 2.5vw, 14px);
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    & > p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__img1 {
+    width: 190px;
+    height: 190px;
+  }
+
+  &__img2 {
+    width: 540px;
+    height: 342px;
+  }
+
+  &__img3 {
+    object-fit: cover;
+    width: 540px;
+    height: 394px;
+  }
+
+  &__empirical {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-end;
+    color: $text_primary;
+
+    & > hr {
+      margin: 0;
+      background-color: #bfbfbf;
+      color: #bfbfbf;
+      max-width: 740px;
+      width: 100%;
+      border: none;
+      height: 1px;
+    }
+  }
+
+  &__row1 {
+    margin: 0;
+    padding: 0 0 0 20px;
+    letter-spacing: -1px;
+    line-height: 20px;
+    max-width: 740px;
+  }
+
+  &__row2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__infoBlock {
+    max-width: 740px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    & > h4 {
+      margin: 0;
+      padding: 0;
+      letter-spacing: -1px;
+    }
+
+    & > div {
+      max-width: 400px;
+      width: 100%;
+      display: flex;
+      gap: 20px;
+
+      & > p {
+        margin: 0;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+
+    &_wrapper {
+      max-width: 1120px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .research {
+    &__wrapper {
+      & > span {
+        font-size: clamp(20px, 6vw, 75px);
+        line-height: clamp(20px, 6vw, 75px);
+        letter-spacing: -2px;
+      }
+    }
+
+    &__header {
+      height: clamp(520px, 65vw, 710px);
+    }
+
+    &__lastSpan {
+      max-width: 65vw;
+    }
+
+    &__underline > p {
+      font-size: clamp(8px, 1.3vw, 16px);
+    }
+
+    &__main_wrapper {
+      align-items: center;
+
+      & > div {
+        width: 100%;
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 540px;
+
+      & > p {
+        max-width: 540px;
+      }
+
+      & :nth-child(1) {
+        order: 0;
+      }
+
+      & :nth-child(2) {
+        order: 1;
+      }
+
+      & :nth-child(3) {
+        order: 2;
+      }
+    }
+
+    &__img1 {
+      display: block;
+      height: 0;
+      width: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .research {
+    &__header {
+      height: clamp(400px, 85vw, 520px);
+    }
+
+    &__content > img {
+      width: 100%;
+    }
+
+    &__block > span,
+    &__block > p {
+      font-size: clamp(10px, 2.5vw, 14px);
+    }
+
+    &__img1,
+    &__img2,
+    &__img3 {
+      height: auto;
+    }
+
+    &__row1 {
+      font-size: clamp(14px, 3.5vw, 20px);
+    }
+
+    &__infoBlock {
+      flex-direction: column;
+
+      & > h4 {
+        font-size: clamp(14px, 3.5vw, 16px);
+        line-height: clamp(14px, 3.5vw, 16px);
+      }
+
+      & > div {
+        & > p {
+          font-size: clamp(10px, 3vw, 14px);
+        }
+      }
+    }
+  }
+}
