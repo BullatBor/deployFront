@@ -1,5 +1,5 @@
 import styles from './AboutDesc.module.scss';
-import { Text } from '../../shared';
+import { Image, Text } from '../../shared';
 import { useTranslation } from 'react-i18next';
 
 export const AboutDesc = () => {
@@ -17,27 +17,15 @@ export const AboutDesc = () => {
               {t('aboutDesc.text')}
             </Text>
             <div>
-              <img
-                src='src/shared/ui/icon/assets/images/default.png'
-                alt='image'
-                className={styles['desc__leftImage']}
-              />
+              <Image image={'research3_1'} className={styles['desc__leftImage']} />
               <div className={styles['desc__bubble']}>
-                <img
-                  src='src/shared/ui/icon/assets/images/default.png'
-                  alt='image'
-                  className={styles['desc__rightImage']}
-                />
+                <Image image={'about2'} className={styles['desc__rightImage']} />
               </div>
             </div>
           </div>
         </div>
         <div className={styles['desc__rightBlock']}>
-          <img
-            src='src/shared/ui/icon/assets/images/default.png'
-            alt='image'
-            className={styles['desc__rightImage']}
-          />
+          <Image image={'about2'} className={styles['desc__rightImage']} />
         </div>
       </div>
     </div>

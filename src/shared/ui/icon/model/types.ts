@@ -21,7 +21,9 @@ export type TPngImageNames =
   | 'research2_2'
   | 'research2_3'
   | 'research3'
-  | 'research3_1';
+  | 'research3_1'
+  | 'about2'
+  | 'about3';
 export type TSvgImageNames = 'SP-University';
 export type TSvgIconNames =
   | 'news-icon'

@@ -1,5 +1,5 @@
 import styles from './AboutResearch.module.scss';
-import { Icon, SubHeading, Text } from '../../shared';
+import { Icon, SubHeading, Text, Image } from '../../shared';
 import { useTranslation } from 'react-i18next';
 
 export const AboutResearch = () => {
@@ -17,7 +17,7 @@ export const AboutResearch = () => {
           </div>
           <div className={styles['research__hero']}>
             <div className={styles['research__img']}>
-              <img src='src/shared/ui/icon/assets/images/default.png' alt='image' />
+              <Image image={'about3'} />
             </div>
             <div className={styles['research__content']}>
               {Array.from({ length: 4 }, () => '').map((_, i) => (
