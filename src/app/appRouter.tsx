@@ -2,8 +2,8 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { MainPage } from '@/pages';
 import { lazy } from 'react';
 import { MainLayout } from './layouts/MainLayout';
+import ErrorPage from '@/pages/errorPage/ErrorPage';
 
-const ErrorPage = lazy(() => import('../pages/errorPage/ErrorPage'));
 const PublicationsPage = lazy(() => import('../pages/publicationsPage/PublicationsPage'));
 const EducationPage = lazy(() => import('@/pages/educationPage/EducationPage'));
 const ResearchPage = lazy(() => import('@/pages/researchPage/ResearchPage'));
@@ -14,6 +14,9 @@ const Research1Page = lazy(() => import('@/pages/research1Page/Research1Page'));
 const Research2Page = lazy(() => import('@/pages/research2Page/Research2Page'));
 const Research3Page = lazy(() => import('@/pages/research3Page/Research3Page'));
 const PublicationsPanel = lazy(() => import('@/widgets/publicationsPanel/PublicationsPanel'));
+const PublicationsAdmin = lazy(() => import('@/features/publicationsAdmin/PublicationsAdmin'));
+const CreatePublication = lazy(() => import('@/features/createPublication/CreatePublication'));
+const EditPublication = lazy(() => import('@/features/editPublication/EditPublication'));
 const CreateCourse = lazy(() => import('@/features/createCourse/CreateCourse'));
 const EditCourse = lazy(() => import('@/features/editCourse/EditCourse'));
 const CoursesAdmin = lazy(() => import('@/features/coursesAdmin/CourseAdmin'));
@@ -80,7 +83,6 @@ export const appRouter = () =>
                 {
                   path: '/admin/courses/all',
                   element: <CoursesAdmin />,
-                  index: true,
                 },
                 {
                   path: '/admin/courses/createCourse',
@@ -95,6 +97,24 @@ export const appRouter = () =>
             {
               path: '/admin/publications',
               element: <PublicationsPanel />,
+              children: [
+                {
+                  index: true,
+                  element: <Navigate to='/admin/publications/all' replace />,
+                },
+                {
+                  path: '/admin/publications/all',
+                  element: <PublicationsAdmin />,
+                },
+                {
+                  path: '/admin/publications/createPublication',
+                  element: <CreatePublication />,
+                },
+                {
+                  path: '/admin/publications/editPublication/:id',
+                  element: <EditPublication />,
+                },
+              ],
             },
             {
               path: '/admin/news',

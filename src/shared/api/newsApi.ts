@@ -19,21 +19,23 @@ export const newsApi = createApi({
         method: 'GET',
       }),
     }),
-    createNew: builder.query<INewsDto, Prettify<Pick<INewsDto, 'title' | 'description'>>>({
+    createNew: builder.mutation<INewsDto, Prettify<Pick<INewsDto, 'title' | 'description'>>>({
       query: (body) => ({
         url: 'new',
         method: 'POST',
         body,
       }),
     }),
-    updateNew: builder.query<INewsDto, Prettify<Pick<INewsDto, 'id' | 'title' | 'description'>>>({
-      query: (body) => ({
-        url: 'new',
-        method: 'PUT',
-        body,
-      }),
-    }),
-    deleteNew: builder.query<string, number>({
+    updateNew: builder.mutation<INewsDto, Prettify<Pick<INewsDto, 'id' | 'title' | 'description'>>>(
+      {
+        query: (body) => ({
+          url: 'new',
+          method: 'PUT',
+          body,
+        }),
+      },
+    ),
+    deleteNew: builder.mutation<string, number>({
       query: (id) => ({
         url: `news/${id}`,
         method: 'DELETE',
@@ -45,7 +47,7 @@ export const newsApi = createApi({
 export const {
   useGetNewsQuery,
   useGetOneNewQuery,
-  useCreateNewQuery,
-  useDeleteNewQuery,
-  useUpdateNewQuery,
+  useCreateNewMutation,
+  useDeleteNewMutation,
+  useUpdateNewMutation,
 } = newsApi;

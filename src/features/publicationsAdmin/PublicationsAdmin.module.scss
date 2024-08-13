@@ -1,0 +1,66 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  &__header {
+    display: flex;
+    gap: 30px;
+
+    & > input {
+      line-height: 23px;
+      padding: 12px 24px;
+      font-size: map-get($font-size, S);
+      font-weight: map-get($font-weight, SB);
+      border: 0;
+      outline: 1px solid $bg-secondary;
+      border-radius: 30px;
+      color: $text_primary;
+      background-color: $bg-gray;
+      caret-color: $bg-secondary;
+
+      &::placeholder {
+        color: $text_primary;
+      }
+    }
+  }
+
+  &__publications {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: $text_primary;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    & > h3 {
+      margin: 0;
+      border-bottom: 2px solid $gray;
+    }
+
+    & > div {
+      cursor: pointer;
+      box-shadow:
+        $gray 1px 1px 5px,
+        $gray -1px -1px 5px;
+      border-radius: $borderRadiusM;
+      transition: box-shadow 0.2s ease-in-out;
+
+      &:hover {
+        box-shadow:
+          $gray 2px 2px 10px,
+          $gray -2px -2px 10px;
+      }
+
+      & > p {
+        margin: 0;
+        padding: 20px;
+        font-size: clamp(12px, 2.5vw, 16px);
+      }
+    }
+  }
+}

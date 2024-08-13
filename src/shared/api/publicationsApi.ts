@@ -1,5 +1,10 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
-import { IPublicationDto, IPublicationsDto, Prettify } from '../model';
+import {
+  IPublicationCreate,
+  IPublicationDto,
+  IPublicationsDto,
+  IPublicationUpdate,
+} from '../model';
 
 export const publicationsApi = createApi({
   reducerPath: 'publicationsApi',
@@ -19,31 +24,21 @@ export const publicationsApi = createApi({
         method: 'GET',
       }),
     }),
-    createPublication: builder.query<
-      IPublicationDto,
-      Prettify<
-        Omit<IPublicationDto, 'id' | 'createdAt' | 'updatedAt' | 'year_id' | 'publicationId'> & {
-          year: number;
-        }
-      >
-    >({
+    createPublication: builder.mutation<IPublicationDto, IPublicationCreate>({
       query: (body) => ({
         url: 'publication',
         method: 'POST',
         body,
       }),
     }),
-    updatePublication: builder.query<
-      IPublicationDto,
-      Prettify<Omit<IPublicationDto, 'createdAt' | 'updatedAt' | 'year_id' | 'publicationId'>>
-    >({
+    updatePublication: builder.mutation<IPublicationDto, IPublicationUpdate>({
       query: (body) => ({
         url: 'publication',
         method: 'PUT',
         body,
       }),
     }),
-    deletePublication: builder.query<string, number>({
+    deletePublication: builder.mutation<string, number>({
       query: (id) => ({
         url: `publications/${id}`,
         method: 'DELETE',
@@ -55,7 +50,7 @@ export const publicationsApi = createApi({
 export const {
   useGetPublicationsQuery,
   useGetOnePublicationQuery,
-  useCreatePublicationQuery,
-  useDeletePublicationQuery,
-  useUpdatePublicationQuery,
+  useCreatePublicationMutation,
+  useDeletePublicationMutation,
+  useUpdatePublicationMutation,
 } = publicationsApi;

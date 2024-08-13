@@ -53,6 +53,17 @@
       background-color: $gray;
     }
   }
+
+  &_red {
+    background-color: $text_alert;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $text_alert;
+      opacity: 1;
+    }
+  }
 }
 
 .btn-size {

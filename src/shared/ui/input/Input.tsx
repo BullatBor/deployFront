@@ -1,11 +1,12 @@
-import { FC } from 'react';
+import { FC, FocusEventHandler } from 'react';
 import styles from './Input.module.scss';
 import cn from 'classnames';
 import { Icon } from '../icon';
 
 interface INPUT_PROPS {
-  value: string;
+  value?: string | number;
   onChange: (value: string) => void;
+  onBlur: FocusEventHandler<HTMLInputElement>;
   size: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'ml' | 'xss' | 'sxs' | 'sm' | 'lsm' | 'xxs';
   weight?: 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
   placeholder?: string;
@@ -20,6 +21,7 @@ export const Input: FC<INPUT_PROPS> = (props) => {
   const {
     value,
     onChange,
+    onBlur,
     size = 's',
     weight = 'regular',
     placeholder,
@@ -44,6 +46,7 @@ export const Input: FC<INPUT_PROPS> = (props) => {
         type={type}
         value={value}
         onChange={inputHandle}
+        onBlur={onBlur}
         placeholder={placeholder}
         step={step}
         className={cn(

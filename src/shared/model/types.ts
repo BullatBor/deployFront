@@ -49,6 +49,16 @@ export interface IPublicationsDto {
   publications: IPublicationDto[];
 }
 
+export type IPublicationCreate = Prettify<
+  Omit<IPublicationDto, 'id' | 'createdAt' | 'updatedAt' | 'year_id' | 'publicationId'> & {
+    year: number;
+  }
+>;
+
+export type IPublicationUpdate = Prettify<
+  Omit<IPublicationDto, 'createdAt' | 'updatedAt' | 'year_id' | 'publicationId'>
+>;
+
 export interface INewsDto {
   id: number;
   title: string;
