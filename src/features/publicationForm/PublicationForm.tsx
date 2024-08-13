@@ -17,7 +17,7 @@ import {
 } from '@/shared/api/publicationsApi';
 
 interface IProps {
-  isCreatedMode: boolean;
+  isCreatedMode?: boolean;
 }
 
 export const PublicationForm: FC<IProps> = ({ isCreatedMode = false }) => {

@@ -54,11 +54,12 @@ export const CourseForm: FC<PROPS> = ({ isCreateType = true }) => {
               <Controller
                 name='courseName'
                 rules={{ required: true }}
-                render={({ field: { onChange, value } }) => (
+                render={({ field: { onChange, value, onBlur } }) => (
                   <>
                     <Input
                       value={value}
                       onChange={onChange}
+                      onBlur={onBlur}
                       placeholder='Введите название курса'
                       size='s'
                       isClearable
@@ -102,12 +103,13 @@ export const CourseForm: FC<PROPS> = ({ isCreateType = true }) => {
               <Controller
                 name='coursePrice'
                 rules={{ required: true }}
-                render={({ field: { onChange, value } }) => (
+                render={({ field: { onChange, value, onBlur } }) => (
                   <>
                     <Input
                       type='number'
                       value={value}
                       onChange={onChange}
+                      onBlur={onBlur}
                       placeholder='Введите цену за курс'
                       size='s'
                       step='0.001'

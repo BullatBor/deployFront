@@ -20,6 +20,10 @@ const EditPublication = lazy(() => import('@/features/editPublication/EditPublic
 const CreateCourse = lazy(() => import('@/features/createCourse/CreateCourse'));
 const EditCourse = lazy(() => import('@/features/editCourse/EditCourse'));
 const CoursesAdmin = lazy(() => import('@/features/coursesAdmin/CourseAdmin'));
+const NewsPanel = lazy(() => import('@/widgets/newsPanel/NewsPanel'));
+const NewsAdmin = lazy(() => import('@/features/newsAdmin/NewsAdmin'));
+const CreateNew = lazy(() => import('@/features/createNew/CreateNew'));
+const EditNew = lazy(() => import('@/features/editNew/EditNew'));
 
 export const appRouter = () =>
   createBrowserRouter([
@@ -118,7 +122,25 @@ export const appRouter = () =>
             },
             {
               path: '/admin/news',
-              element: <PublicationsPanel />,
+              element: <NewsPanel />,
+              children: [
+                {
+                  index: true,
+                  element: <Navigate to='/admin/news/all' replace />,
+                },
+                {
+                  path: '/admin/news/all',
+                  element: <NewsAdmin />,
+                },
+                {
+                  path: '/admin/news/createNew',
+                  element: <CreateNew />,
+                },
+                {
+                  path: '/admin/news/editNew/:id',
+                  element: <EditNew />,
+                },
+              ],
             },
           ],
         },

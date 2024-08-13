@@ -17,7 +17,7 @@ export const NewsBlock = () => {
             {NEWS_DATA.map((news) => (
               <NewsCard
                 key={news.id}
-                title={news.title}
+                title={news.title.toUpperCase()}
                 date={news.date}
                 description={news.description}
               />

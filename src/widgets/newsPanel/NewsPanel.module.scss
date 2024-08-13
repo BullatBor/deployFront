@@ -1,0 +1,12 @@
+.wrapper {
+  padding: 0 20px;
+  width: 100%;
+
+  &__content {
+    padding: 20px 0;
+  }
+
+  &__title {
+    border-bottom: 3px $text_primary solid;
+  }
+}

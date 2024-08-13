@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
-import { INewsDto, Prettify } from '../model';
+import { INewsCreate, INewsDto, INewsUpdate } from '../model';
 
 export const newsApi = createApi({
   reducerPath: 'newsApi',
@@ -19,22 +19,20 @@ export const newsApi = createApi({
         method: 'GET',
       }),
     }),
-    createNew: builder.mutation<INewsDto, Prettify<Pick<INewsDto, 'title' | 'description'>>>({
+    createNew: builder.mutation<INewsDto, INewsCreate>({
       query: (body) => ({
         url: 'new',
         method: 'POST',
         body,
       }),
     }),
-    updateNew: builder.mutation<INewsDto, Prettify<Pick<INewsDto, 'id' | 'title' | 'description'>>>(
-      {
-        query: (body) => ({
-          url: 'new',
-          method: 'PUT',
-          body,
-        }),
-      },
-    ),
+    updateNew: builder.mutation<INewsDto, INewsUpdate>({
+      query: (body) => ({
+        url: 'new',
+        method: 'PUT',
+        body,
+      }),
+    }),
     deleteNew: builder.mutation<string, number>({
       query: (id) => ({
         url: `news/${id}`,

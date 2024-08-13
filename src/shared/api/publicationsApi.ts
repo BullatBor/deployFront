@@ -40,7 +40,7 @@ export const publicationsApi = createApi({
     }),
     deletePublication: builder.mutation<string, number>({
       query: (id) => ({
-        url: `publications/${id}`,
+        url: `publication/${id}`,
         method: 'DELETE',
       }),
     }),

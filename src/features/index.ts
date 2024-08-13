@@ -8,3 +8,4 @@ export * from './createCourse';
 export * from './editCourse';
 export * from './courseCard';
 export * from './publicationForm';
+export * from './newsForm';

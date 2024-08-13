@@ -61,11 +61,16 @@ export type IPublicationUpdate = Prettify<
 
 export interface INewsDto {
   id: number;
+  date: string;
   title: string;
   description: string;
   createdAt: string;
   updatedAt: string;
 }
+
+export type INewsCreate = Prettify<Pick<INewsDto, 'title' | 'description' | 'date'>>;
+
+export type INewsUpdate = Prettify<Pick<INewsDto, 'id' | 'title' | 'description' | 'date'>>;
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
