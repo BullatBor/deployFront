@@ -23,6 +23,8 @@ import research3 from './assets/images/research3.png';
 import research3_1 from './assets/images/research3_1.png';
 import about2 from './assets/images/about2.png';
 import about3 from './assets/images/about3.png';
+import education1 from './assets/images/education1.png';
+import main1 from './assets/images/main1.png';
 
 export const SVGImages: TImages = {
   'SP-University': SPSULogo,
@@ -48,6 +50,8 @@ export const SVGImages: TImages = {
   research3_1: research3_1,
   about2: about2,
   about3: about3,
+  education1: education1,
+  main1: main1,
 };
 
 export const Image: FC<IImageProps> = (props) => {

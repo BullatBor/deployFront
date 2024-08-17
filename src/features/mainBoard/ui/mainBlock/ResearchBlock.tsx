@@ -18,13 +18,13 @@ export const ResearchBlock = () => {
           <div className={styles['researchImages']}>
             <div className={styles['research__visibleOn900']}>
               <Image
-                image='default'
+                image='research3_1'
                 width='150px'
                 height='90px'
                 classNames={styles['research__smallImage']}
               />
             </div>
-            <Image image='default' classNames={styles['research__bigImage']} />
+            <Image image='research1_main' classNames={styles['research__bigImage']} />
           </div>
 
           <div className={cn(styles['info_wrapper'])}>
@@ -35,7 +35,7 @@ export const ResearchBlock = () => {
             </Button>
           </div>
           <div className={styles['research__hideBlock']}>
-            <Image image='default' width='150px' height='90px' />
+            <Image image='research3_1' width='150px' height='90px' />
           </div>
         </div>
       </div>

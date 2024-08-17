@@ -1,32 +1,23 @@
-import { useTranslation } from 'react-i18next';
+import { Text } from '@/shared';
 import styles from '../../MainBoard.module.scss';
-import cn from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 export const LogoBlock = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
-    <div className='wrapper'>
-      <div className={styles['wrapper__main']}>
-        <div className={styles['wrapper__titles']}>
-          <div className={styles['wrapper__title']}>Molecular</div>
-          <div className={cn(styles['wrapper__title'], styles['wrapper__bottom_title'])}>
-            Systems Design &
-          </div>
-          <div className={cn(styles['wrapper__title'], styles['wrapper__bottom_title'])}>
-            Engineering Group
-          </div>
-        </div>
-        <div className={styles['row']}>
-          <div></div>
-          <div
-            className={cn(styles['wrapper__description'], {
-              [styles['ru_style']]: i18n.language === 'ru',
-            })}
-          >
+    <header className={styles['wrapper__header_main']}>
+      <div className={styles['wrapper__wrapper_main']}>
+        <span>{'Molecular'}</span>
+        <span>{'Systems Design & Engineering Group'}</span>
+      </div>
+      <div className={styles['wrapper__underline']}>
+        <hr />
+        <div>
+          <Text tag='span' size='xxs'>
             {t('main.description')}
-          </div>
+          </Text>
         </div>
       </div>
-    </div>
+    </header>
   );
 };

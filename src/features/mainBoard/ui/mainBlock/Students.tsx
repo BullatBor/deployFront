@@ -12,7 +12,12 @@ export const Students = () => {
       <div className={cn(styles['info_block'], styles['student_wrapper'])}>
         <div className={styles['row']}>
           <div className={styles['left_image_wrapper']}>
-            <Image image='default' width='190px' height='239px' classNames={styles['leftImage']} />
+            <Image
+              image='research3_main'
+              width='190px'
+              height='239px'
+              classNames={styles['leftImage']}
+            />
           </div>
           <div className={styles['student']}>
             <Text tag='span' size='sxs' weight='regular'>
@@ -61,8 +66,8 @@ export const Students = () => {
         <div className={styles['row']}>
           <div></div>
           <div className={styles['two_column']}>
-            <Button tName='writeUs' width='max'>
-              Write to us
+            <Button tName='writeUs' width='max' href={`mailto:msdegroup@gmail.com`}>
+              {'Написать нам'}
             </Button>
           </div>
         </div>

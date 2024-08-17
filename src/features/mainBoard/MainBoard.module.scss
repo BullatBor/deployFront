@@ -3,6 +3,93 @@
   flex-direction: column;
   width: 100%;
 
+  &__header {
+    height: 710px;
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.6)),
+      url('../../shared/ui/icon/assets/images/research2.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    &_main {
+      height: 710px;
+      background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.6)),
+        url('../../shared/ui/icon/assets/images/main1.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+
+      & > div {
+        max-width: 1120px;
+        width: 100%;
+        color: $text_white;
+        position: relative;
+        top: 80px;
+      }
+    }
+
+    & > div {
+      max-width: 1120px;
+      color: $text_white;
+      position: relative;
+      top: 80px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: 0 20px;
+
+    &_main {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      & > span {
+        padding-left: 35px;
+        font-size: 120px;
+        line-height: 120px;
+        letter-spacing: -5px;
+      }
+    }
+
+    & > span {
+      font-size: 120px;
+      line-height: 120px;
+      letter-spacing: -5px;
+    }
+  }
+
+  &__underline {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    & > hr {
+      width: 100%;
+    }
+
+    & > div {
+      max-width: 600px;
+      padding-left: 10px;
+    }
+  }
+
   &__main {
     background-color: $bg_primary;
     display: flex;
@@ -106,6 +193,7 @@
 }
 
 .leftImage {
+  object-fit: cover;
   width: 190px;
   height: 239px;
   position: absolute;
@@ -144,13 +232,19 @@
   }
 
   &__smallImage {
+    object-fit: cover;
     width: 150px;
     height: 90px;
   }
 
   &__bigImage {
+    object-fit: cover;
     width: 100%;
     height: 324px;
+  }
+
+  &__hideBlock > img {
+    object-fit: cover;
   }
 
   &__visibleOn900 {
@@ -174,6 +268,7 @@
 
 .education {
   &__bigImage {
+    object-fit: cover;
     width: 100%;
     height: 373px;
   }
@@ -345,7 +440,7 @@
   }
 
   .block_wrapper {
-    padding: 0 30px;
+    padding: 0 20px;
   }
   .research1 {
     &__leftPart {
@@ -381,7 +476,7 @@
     }
   }
   .block_wrapper {
-    padding: 0 30px;
+    padding: 0 20px;
   }
   .research {
     display: flex;
@@ -401,6 +496,7 @@
     }
 
     &__smallImage {
+      object-fit: cover;
       width: 60px;
       height: 77px;
     }
@@ -425,6 +521,7 @@
 
   .education {
     &__bigImage {
+      object-fit: cover;
       width: 100%;
       height: 142px;
     }
@@ -456,6 +553,62 @@
 
     &__hideElem {
       display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .wrapper {
+    &__wrapper {
+      & > span {
+        font-size: clamp(20px, 10vw, 120px);
+        line-height: clamp(20px, 10vw, 120px);
+        letter-spacing: -2px;
+      }
+
+      &_main {
+        & > span {
+          font-size: clamp(20px, 10vw, 120px);
+          line-height: clamp(20px, 10vw, 120px);
+          letter-spacing: -2px;
+        }
+      }
+    }
+
+    &__header {
+      height: clamp(520px, 65vw, 710px);
+
+      &_main {
+        height: clamp(520px, 65vw, 710px);
+      }
+    }
+
+    &__lastSpan {
+      max-width: 65vw;
+    }
+
+    &__underline > span {
+      font-size: clamp(10px, 1.3vw, 16px);
+    }
+
+    &__underline > div {
+      max-width: 80vw;
+      & > span {
+        font-size: clamp(8px, 1.3vw, 16px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    &__header {
+      height: clamp(400px, 85vw, 520px);
+
+      &_main {
+        gap: 0;
+        height: clamp(400px, 85vw, 520px);
+      }
     }
   }
 }
