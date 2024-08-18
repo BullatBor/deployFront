@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
-import { INewsCreate, INewsDto, INewsUpdate } from '../model';
+import { INewsCreate, INewsDto, INewsUpdate, URL } from '../model';
 
 export const newsApi = createApi({
   reducerPath: 'newsApi',
-  baseQuery: retry(fetchBaseQuery({ baseUrl: 'http://localhost:5173/api/' }), {
+  baseQuery: retry(fetchBaseQuery({ baseUrl: `${URL}/api/` }), {
     maxRetries: 3,
   }),
   endpoints: (builder) => ({

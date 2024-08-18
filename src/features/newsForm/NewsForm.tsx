@@ -25,8 +25,10 @@ export const NewsForm: FC<IProps> = ({ isCreatedMode = false }) => {
     mode: 'onTouched',
     defaultValues: {
       date: '',
-      title: '',
-      description: '',
+      title_ru: '',
+      title_en: '',
+      description_ru: '',
+      description_en: '',
     },
     resetOptions: { keepDirtyValues: true, keepErrors: true },
   });
@@ -89,11 +91,11 @@ export const NewsForm: FC<IProps> = ({ isCreatedMode = false }) => {
         </div>
         <div className={styles['wrapper__field']}>
           <Text tag='span' size='m' weight='medium'>
-            {'Заголовок новости ( рус // eng )'}
+            {'Заголовок новости ( рус )'}
           </Text>
           <Controller
             control={control}
-            name='title'
+            name='title_ru'
             rules={{
               required: 'Поле обязательно для заполнения',
               minLength: { value: 4, message: 'Минимально количество символов - 4' },
@@ -108,11 +110,49 @@ export const NewsForm: FC<IProps> = ({ isCreatedMode = false }) => {
         </div>
         <div className={styles['wrapper__field']}>
           <Text tag='span' size='m' weight='medium'>
-            {'Описание новости ( рус // eng )'}
+            {'Заголовок новости ( en )'}
           </Text>
           <Controller
             control={control}
-            name='description'
+            name='title_en'
+            rules={{
+              required: 'Поле обязательно для заполнения',
+              minLength: { value: 4, message: 'Минимально количество символов - 4' },
+            }}
+            render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
+              <>
+                <ReactTextareaAutosize value={value} onChange={onChange} onBlur={onBlur} rows={4} />
+                <ErrorMessage error={error} />
+              </>
+            )}
+          />
+        </div>
+        <div className={styles['wrapper__field']}>
+          <Text tag='span' size='m' weight='medium'>
+            {'Описание новости ( рус )'}
+          </Text>
+          <Controller
+            control={control}
+            name='description_ru'
+            rules={{
+              required: 'Поле обязательно для заполнения',
+              minLength: { value: 4, message: 'Минимально количество символов - 4' },
+            }}
+            render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
+              <>
+                <ReactTextareaAutosize value={value} onChange={onChange} onBlur={onBlur} rows={4} />
+                <ErrorMessage error={error} />
+              </>
+            )}
+          />
+        </div>
+        <div className={styles['wrapper__field']}>
+          <Text tag='span' size='m' weight='medium'>
+            {'Описание новости ( en )'}
+          </Text>
+          <Controller
+            control={control}
+            name='description_en'
             rules={{
               required: 'Поле обязательно для заполнения',
               minLength: { value: 4, message: 'Минимально количество символов - 4' },

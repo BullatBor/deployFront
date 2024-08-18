@@ -4,11 +4,12 @@ import {
   IPublicationDto,
   IPublicationsDto,
   IPublicationUpdate,
+  URL,
 } from '../model';
 
 export const publicationsApi = createApi({
   reducerPath: 'publicationsApi',
-  baseQuery: retry(fetchBaseQuery({ baseUrl: 'http://localhost:5173/api/' }), {
+  baseQuery: retry(fetchBaseQuery({ baseUrl: `${URL}/api/` }), {
     maxRetries: 3,
   }),
   endpoints: (builder) => ({

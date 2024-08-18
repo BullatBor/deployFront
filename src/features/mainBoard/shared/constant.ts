@@ -2,9 +2,11 @@ import { TAllImages } from '../../../shared';
 
 interface NEWS_PROPS {
   id: number;
-  title: string;
+  title_ru: string;
+  title_en: string;
   date: string;
-  description: string;
+  description_ru: string;
+  description_en: string;
 }
 
 interface CARD_TYPES {
@@ -16,19 +18,25 @@ interface CARD_TYPES {
 export const NEWS_DATA: NEWS_PROPS[] = [
   {
     id: 1,
-    title:
-      'На платформе Открытое образование вышел наш онлайн-курс по моделированию химических реакций // Our online course on modeling chemical reactions has been released on the Open Education platform',
+    title_ru:
+      'На платформе Открытое образование вышел наш онлайн-курс по моделированию химических реакций',
+    title_en:
+      'Our online course on modeling chemical reactions has been released on the Open Education platform',
     date: 'September 1, 2023',
-    description:
-      'Курс носит яркую практическую направленность и основан на проведении расчетов с использованием широко используемых квантово-химических программных пакетов ORCA и Molcas. В рамках данного 10-недельного курса обучающиеся научатся использовать методы квантовой химии и проводить расчеты свойств химических веществ и моделирование химических реакций, в том числе с использованием суперкомпьютеров. Курс носит яркую практическую направленность и основан на проведении расчетов с использованием широко используемых квантово-химических программных пакетов ORCA и Molcas // The course has a strong practical focus and is based on calculations using widely used quantum chemical software packages ORCA and Molcas. As part of this 10-week course, students will learn to use quantum chemistry methods and calculate the properties of chemical substances and simulate chemical reactions, including using supercomputers. The course has a strong practical focus and is based on calculations using widely used quantum chemical software packages ORCA and Molcas',
+    description_ru:
+      'Курс носит яркую практическую направленность и основан на проведении расчетов с использованием широко используемых квантово-химических программных пакетов ORCA и Molcas. В рамках данного 10-недельного курса обучающиеся научатся использовать методы квантовой химии и проводить расчеты свойств химических веществ и моделирование химических реакций, в том числе с использованием суперкомпьютеров. Курс носит яркую практическую направленность и основан на проведении расчетов с использованием широко используемых квантово-химических программных пакетов ORCA и Molcas',
+    description_en:
+      'The course has a strong practical focus and is based on calculations using widely used quantum chemical software packages ORCA and Molcas. As part of this 10-week course, students will learn to use quantum chemistry methods and calculate the properties of chemical substances and simulate chemical reactions, including using supercomputers. The course has a strong practical focus and is based on calculations using widely used quantum chemical software packages ORCA and Molcas',
   },
   {
     id: 2,
-    title:
-      'Вышла статья в сборнике Американского Биофизического Общества // An article was published in the collection of the American Biophysical Society',
+    title_ru: 'Вышла статья в сборнике Американского Биофизического Общества',
+    title_en: ' An article was published in the collection of the American Biophysical Society',
     date: 'February 10, 2023',
-    description:
-      'Вышла статья в сборнике конференции Американского Биофизического Общества, в соавторстве с Николаевым Дмитрием и Михаилом Рязанцевым // An article was published in the collection of the conference of the American Biophysical Society, co-authored with Dmitry Nikolaev and Mikhail Ryazantsev',
+    description_ru:
+      'Вышла статья в сборнике конференции Американского Биофизического Общества, в соавторстве с Николаевым Дмитрием и Михаилом Рязанцевым',
+    description_en:
+      'An article was published in the collection of the conference of the American Biophysical Society, co-authored with Dmitry Nikolaev and Mikhail Ryazantsev',
   },
 ];
 

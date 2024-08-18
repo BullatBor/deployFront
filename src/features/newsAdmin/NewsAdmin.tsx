@@ -2,9 +2,13 @@ import { Button, Text } from '@/shared';
 import { useNavigate } from 'react-router-dom';
 import styles from './NewsAdmin.module.scss';
 import { NEWS_DATA } from '../mainBoard/shared/constant';
+import { useTranslation } from 'react-i18next';
 
 const NewsAdmin = () => {
   const navigate = useNavigate();
+  const {
+    i18n: { language },
+  } = useTranslation();
 
   return (
     <div className={styles['wrapper']}>
@@ -18,10 +22,12 @@ const NewsAdmin = () => {
           <div className={styles['wrapper__block']} key={news.id}>
             <div onClick={() => navigate(`/admin/news/editNew/${news.id}`, { state: news })}>
               <Text tag='h3' weight='semibold'>
-                {news.title.toUpperCase()}
+                {language === 'ru' ? news.title_ru.toUpperCase() : news.title_en.toUpperCase()}
               </Text>
               <Text tag='p' weight='medium'>
-                {news.description}
+                {language === 'ru'
+                  ? news.description_ru.toUpperCase()
+                  : news.description_en.toUpperCase()}
               </Text>
               <Text tag='p' weight='medium'>
                 {news.date}

@@ -6,7 +6,10 @@ import { useTranslation } from 'react-i18next';
 import { SubHeading } from '@/shared';
 
 export const NewsBlock = () => {
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
   return (
     <div className={styles['block_wrapper']}>
       <SubHeading leftText={'c.'} rightText={t('main.news')} />
@@ -17,9 +20,15 @@ export const NewsBlock = () => {
             {NEWS_DATA.map((news) => (
               <NewsCard
                 key={news.id}
-                title={news.title.toUpperCase()}
+                title={
+                  language === 'ru' ? news.title_ru.toUpperCase() : news.title_en.toUpperCase()
+                }
                 date={news.date}
-                description={news.description}
+                description={
+                  language === 'ru'
+                    ? news.description_ru.toUpperCase()
+                    : news.description_en.toUpperCase()
+                }
               />
             ))}
           </div>
