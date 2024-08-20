@@ -3,7 +3,7 @@ import { INewsCreate, INewsDto, INewsUpdate, URL } from '../model';
 
 export const newsApi = createApi({
   reducerPath: 'newsApi',
-  baseQuery: retry(fetchBaseQuery({ baseUrl: `${URL}/api/` }), {
+  baseQuery: retry(fetchBaseQuery({ baseUrl: URL }), {
     maxRetries: 3,
   }),
   endpoints: (builder) => ({

@@ -3,6 +3,7 @@ import { MainPage } from '@/pages';
 import { lazy } from 'react';
 import { MainLayout } from './layouts/MainLayout';
 import ErrorPage from '@/pages/errorPage/ErrorPage';
+import { RequireAdmin, RequireAuth } from '@/shared';
 
 const PublicationsPage = lazy(() => import('../pages/publicationsPage/PublicationsPage'));
 const EducationPage = lazy(() => import('@/pages/educationPage/EducationPage'));
@@ -13,6 +14,7 @@ const AdminCoursePanel = lazy(() => import('@/widgets/adminCoursePanel/AdminCour
 const Research1Page = lazy(() => import('@/pages/research1Page/Research1Page'));
 const Research2Page = lazy(() => import('@/pages/research2Page/Research2Page'));
 const Research3Page = lazy(() => import('@/pages/research3Page/Research3Page'));
+const AuthForm = lazy(() => import('@/pages/authForm/AuthForm'));
 const PublicationsPanel = lazy(() => import('@/widgets/publicationsPanel/PublicationsPanel'));
 const PublicationsAdmin = lazy(() => import('@/features/publicationsAdmin/PublicationsAdmin'));
 const CreatePublication = lazy(() => import('@/features/createPublication/CreatePublication'));
@@ -69,8 +71,20 @@ export const appRouter = () =>
           element: <AboutPage />,
         },
         {
+          path: '/registration',
+          element: <AuthForm type={'registration'} />,
+        },
+        {
+          path: '/authorization',
+          element: <AuthForm type={'authorization'} />,
+        },
+        {
           path: '/admin',
-          element: <AdminPage />,
+          element: (
+            <RequireAdmin>
+              <AdminPage />
+            </RequireAdmin>
+          ),
           children: [
             {
               index: true,
@@ -143,6 +157,14 @@ export const appRouter = () =>
               ],
             },
           ],
+        },
+        {
+          path: '/courses',
+          element: (
+            <RequireAuth>
+              <div>COURSES!!!</div>
+            </RequireAuth>
+          ),
         },
       ],
     },

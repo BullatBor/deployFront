@@ -5,7 +5,7 @@
     "EDUCATION": "EDUCATION",
     "ABOUT US": "ABOUT US",
     "MORE": "MORE",
-    "ACCOUNT": "PERSONAL ACCOUNT",
+    "COURSES": "COURSES",
     "COLLABORATIONS": "COLLABORATIONS",
     "RESOURCES": "RESOURCES"
   },
@@ -161,6 +161,22 @@
     "disadvantages1": "Complexity arises for non-standard molecules - ligands, polymers, chromophores. They require methods that allow you to quickly and automatically select a force field.",
     "disadvantages2": "In our work, we develop methods for parameterizing force fields for systems of various sizes, from drug molecules to polymers."
   },
+  "registration": {
+    "header": "Registration",
+    "email": "Enter your email",
+    "password": "Create a password",
+    "submit": "Register",
+    "redirect": "Login",
+    "without": "Continue without registration"
+  },
+  "authorization": {
+    "header": "Authorization",
+    "email": "Enter your email",
+    "password": "Enter your password",
+    "submit": "Login",
+    "redirect": "Create",
+    "without": "Continue without registration"
+  },
   "footer": {
     "TEXT": "Write to us for any questions: ",
     "RIGHTS": "All rights reserved. 2024",
@@ -171,6 +187,6 @@
     "About": "About us",
     "Resources": "Resources",
     "Collaborations": "Collaborations",
-    "Personal Account": "Personal Account"
+    "Courses": "Courses"
   }
 }

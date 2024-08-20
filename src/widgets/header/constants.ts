@@ -23,7 +23,7 @@ export const HEADER_LINKS: HeaderProps[] = [
 ];
 
 export const NAV_LIST: HeaderProps[] = [
-  { title: 'ACCOUNT', link: 'account' },
+  { title: 'COURSES', link: 'courses' },
   { title: 'COLLABORATIONS', link: 'collaborations' },
   { title: 'RESOURCES', link: 'resources' },
 ];

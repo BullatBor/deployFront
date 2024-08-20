@@ -36,6 +36,7 @@ export const Header = () => {
   const handleLinkClick = useCallback(
     (item: HeaderProps) => {
       document.title = item.link;
+      navigate(`/${item.link}`);
       scrollTo({
         top: 0,
         left: 0,
@@ -43,7 +44,7 @@ export const Header = () => {
       });
       setIsOpen(false);
     },
-    [setIsOpen],
+    [navigate],
   );
 
   useEffect(() => {
@@ -60,11 +61,6 @@ export const Header = () => {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const accountHandle = () => {
-    document.title = 'personalAccount';
-    navigate('admin');
-  };
 
   return (
     <div
@@ -102,7 +98,7 @@ export const Header = () => {
                     <div
                       key={item.title}
                       className={styles['dropdown__item']}
-                      onClick={accountHandle}
+                      onClick={() => handleLinkClick(item)}
                     >
                       <div>{t(`header.${item.title}`)}</div>
                     </div>
@@ -138,6 +134,7 @@ export const Header = () => {
             {NAV_LIST.map((item) => (
               <NavLink
                 to={`/${item.link}`}
+                onClick={() => handleLinkClick(item)}
                 className={({ isActive }) =>
                   cn(styles['boxLinks__sublink'], {
                     [styles['boxLinks__sublink_active']]: isActive,

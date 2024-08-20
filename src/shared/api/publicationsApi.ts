@@ -9,7 +9,7 @@ import {
 
 export const publicationsApi = createApi({
   reducerPath: 'publicationsApi',
-  baseQuery: retry(fetchBaseQuery({ baseUrl: `${URL}/api/` }), {
+  baseQuery: retry(fetchBaseQuery({ baseUrl: URL }), {
     maxRetries: 3,
   }),
   endpoints: (builder) => ({

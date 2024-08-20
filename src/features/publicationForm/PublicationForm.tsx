@@ -4,17 +4,15 @@ import {
   Button,
   ErrorMessage,
   Input,
+  Text,
   IPublicationCreate,
   IPublicationUpdate,
-  Text,
-} from '@/shared';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { FC, useEffect } from 'react';
-import {
   useCreatePublicationMutation,
   useDeletePublicationMutation,
   useUpdatePublicationMutation,
-} from '@/shared/api/publicationsApi';
+} from '@/shared';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { FC, useEffect } from 'react';
 
 interface IProps {
   isCreatedMode?: boolean;
