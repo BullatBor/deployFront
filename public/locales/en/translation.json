@@ -167,7 +167,7 @@
     "password": "Create a password",
     "submit": "Register",
     "redirect": "Login",
-    "without": "Continue without registration"
+    "admin": "Login as admin"
   },
   "authorization": {
     "header": "Authorization",
@@ -175,7 +175,7 @@
     "password": "Enter your password",
     "submit": "Login",
     "redirect": "Create",
-    "without": "Continue without registration"
+    "admin": "Login as admin"
   },
   "footer": {
     "TEXT": "Write to us for any questions: ",

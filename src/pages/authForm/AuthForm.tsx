@@ -1,6 +1,6 @@
 import { FC, useRef } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styles from './AuthForm.module.scss';
 import {
@@ -26,6 +26,7 @@ interface IForm {
 const AuthForm: FC<IAuthType> = ({ type }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const [register] = useRegistrationMutation();
   const [auth] = useAuthorizationMutation();
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -63,7 +64,9 @@ const AuthForm: FC<IAuthType> = ({ type }) => {
 
   const onSubmit: SubmitHandler<IRequest> = async (data) => {
     try {
-      type === 'registration' ? register(data) : auth(data);
+      const response =
+        type === 'registration' ? await register(data).unwrap() : await auth(data).unwrap();
+      !!response.token && navigate(location.state.from);
     } catch (e) {
       if (typeof e === 'string') {
         alert(e.toUpperCase());
@@ -131,7 +134,7 @@ const AuthForm: FC<IAuthType> = ({ type }) => {
           >
             {t(`${type}.redirect`)}
           </span>
-          <span onClick={() => navigate('/main')}>{t(`${type}.without`)}</span>
+          <span onClick={() => navigate('/admin')}>{t(`${type}.admin`)}</span>
         </div>
       </main>
     </form>
