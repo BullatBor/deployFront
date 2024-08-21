@@ -16,7 +16,7 @@ const CourseAdmin = () => {
       </Button>
       <div className={styles['wrapper__courses']}>
         {MOCK_COURSES.map((course) => (
-          <CourseCard key={course.id} {...course} />
+          <CourseCard key={course.id} path={`/admin/courses/editCourse/${course.id}`} {...course} />
         ))}
       </div>
     </div>

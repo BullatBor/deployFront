@@ -1,0 +1,45 @@
+.userBlock {
+  position: relative;
+  cursor: pointer;
+  height: 37px;
+  width: 37px;
+  border-radius: 50%;
+  outline: 2px solid $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__dropdown {
+    color: $text-primary;
+    user-select: none;
+    padding: 18px 20px;
+    position: absolute;
+    z-index: 6000000;
+    min-width: 70px;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
+    border-radius: $borderRadiusM;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transform: translateX(-20%);
+    top: 55px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: solid transparent;
+      border-width: 10px;
+      right: 50%;
+      -webkit-transform: translateX(50%);
+      -ms-transform: translateX(50%);
+      transform: translateX(150%);
+      top: -20px;
+      border-bottom-color: #fff;
+    }
+  }
+}

@@ -87,6 +87,7 @@ export const Header = () => {
             <div
               className={styles['nav__link']}
               onMouseEnter={() => setVisible(true)}
+              onClick={() => setVisible(true)}
               onMouseLeave={() => setVisible(false)}
             >
               <Text tag='span' size='xxs' weight='semibold'>

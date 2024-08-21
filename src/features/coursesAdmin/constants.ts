@@ -1,6 +1,6 @@
 import { ICourseCard } from '@/shared';
 
-export const MOCK_COURSES: ICourseCard[] = [
+export const MOCK_COURSES: Omit<ICourseCard, 'path'>[] = [
   {
     id: 1,
     title: 'React',

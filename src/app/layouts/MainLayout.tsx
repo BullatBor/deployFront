@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Header, Footer } from '@/widgets';
 import { Suspense, useEffect, useState } from 'react';
 import { ScrollUpBtn, useAuthCheckMutation } from '@/shared';
@@ -7,6 +7,7 @@ import LoadingPage from '@/pages/loadingPage/LoadingPage';
 export const MainLayout = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [authCheck] = useAuthCheckMutation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,8 +27,8 @@ export const MainLayout = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     localStorage.removeItem('token');
-    !!token && authCheck(token);
-  });
+    token ? authCheck(token) : navigate('/main', { replace: true });
+  }, [authCheck, navigate]);
 
   return (
     <div>

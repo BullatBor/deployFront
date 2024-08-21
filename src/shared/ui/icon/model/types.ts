@@ -34,7 +34,10 @@ export type TSvgIconNames =
   | 'dna'
   | 'menu'
   | 'cross'
-  | 'clear';
+  | 'clear'
+  | 'logo'
+  | 'user'
+  | 'logout';
 
 export type TAllImages = TSvgImageNames | TPngImageNames;
 export type TIcons = Record<TSvgIconNames, string | SVGProps<SVGSVGElement>>;
