@@ -7,3 +7,4 @@ export * from './text';
 export * from './input';
 export * from './fileLoader';
 export * from './errorMessage';
+export * from './textController';

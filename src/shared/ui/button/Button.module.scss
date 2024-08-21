@@ -54,6 +54,13 @@
     }
   }
 
+  &_success {
+    background-color: $ctrl_status_success;
+    &:hover {
+      background-color: $gray;
+    }
+  }
+
   &_red {
     background-color: $text_alert;
     opacity: 0.5;
