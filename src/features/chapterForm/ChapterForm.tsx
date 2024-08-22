@@ -1,28 +1,22 @@
-import { Button, FileLoader, Image, Text, TextController } from '@/shared';
+import {
+  Button,
+  FileLoader,
+  IChapterFormProps,
+  IChapterFormValues,
+  Image,
+  Text,
+  TextController,
+} from '@/shared';
 import styles from './ChapterForm.module.scss';
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 import { useForm, Controller, SubmitHandler, FormProvider } from 'react-hook-form';
 import cn from 'classnames';
 
-interface FormValues {
-  courseId: string;
-  position: number;
-  title_ru?: string;
-  description_ru?: string;
-  title_en?: string;
-  description_en?: string;
-  isOpen: boolean;
-}
-
-interface Props extends FormValues {
-  isEditMode?: boolean;
-}
-
-export const ChapterForm: FC<Props> = (data) => {
+const Form: FC<IChapterFormProps> = ({ setBlocked, isBlocked, ...data }) => {
   const [isEdit, setIsEdit] = useState(data.isEditMode ? true : false);
 
-  const methods = useForm<FormValues>({
+  const methods = useForm<IChapterFormValues>({
     defaultValues: {
       title_ru: data.title_ru,
       title_en: data.title_en,
@@ -38,13 +32,25 @@ export const ChapterForm: FC<Props> = (data) => {
     },
   });
 
-  const onSubmitHandler: SubmitHandler<FormValues> = () => {
+  const { watch } = methods;
+
+  const title = watch('title_ru');
+
+  const onSubmitHandler: SubmitHandler<IChapterFormValues> = () => {
     setIsEdit(false);
+    setBlocked(false);
     return null;
   };
 
+  const changeEditMode = () => {
+    if (!isBlocked) {
+      setIsEdit(true);
+      setBlocked(true);
+    }
+  };
+
   return (
-    <div className={styles['wrapper']}>
+    <div className={cn(styles['wrapper'], { [styles['activeForm']]: isEdit })}>
       {isEdit ? (
         <div className={styles['wrapper__main']}>
           <FormProvider {...methods}>
@@ -60,7 +66,7 @@ export const ChapterForm: FC<Props> = (data) => {
               />
               <TextController
                 label='Название (en)'
-                required
+                required={false}
                 inputName='title_en'
                 placeholder='Введите название главы (en)'
               />
@@ -84,7 +90,7 @@ export const ChapterForm: FC<Props> = (data) => {
                 </Text>
                 <Controller
                   name='description_en'
-                  rules={{ required: true }}
+                  rules={{ required: false }}
                   render={({ field: { onChange, value } }) => (
                     <>
                       <ReactTextareaAutosize value={value} onChange={onChange} rows={4} />
@@ -97,11 +103,11 @@ export const ChapterForm: FC<Props> = (data) => {
                   Вложения
                 </Text>
                 <Controller
-                  name='courseImage'
-                  rules={{ required: true }}
+                  name='attachments'
+                  rules={{ required: false }}
                   render={({ field: { onChange, value } }) => (
                     <>
-                      <FileLoader image={value} onChange={onChange} />
+                      <FileLoader image={value} onChange={onChange} type='files' />
                     </>
                   )}
                 />
@@ -118,16 +124,14 @@ export const ChapterForm: FC<Props> = (data) => {
       ) : (
         <div className={styles['wrapper__preview']}>
           <Text tag='span' size='m' weight='medium'>
-            {`Название главы ${data.position}`}
+            {title}
           </Text>
-          <Image
-            width='24px'
-            height='24px'
-            image='default'
-            onClick={() => setIsEdit((prev) => !prev)}
-          />
+
+          <Image width='24px' height='24px' image='default' onClick={changeEditMode} />
         </div>
       )}
     </div>
   );
 };
+
+export const ChapterForm = memo(Form);

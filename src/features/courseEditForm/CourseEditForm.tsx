@@ -124,7 +124,7 @@ export const CourseEditForm: FC<FormValues> = (data) => {
                 rules={{ required: true }}
                 render={({ field: { onChange, value } }) => (
                   <>
-                    <FileLoader image={value} onChange={onChange} />
+                    <FileLoader image={value} onChange={onChange} type='img' />
                   </>
                 )}
               />

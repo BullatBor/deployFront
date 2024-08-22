@@ -1,11 +1,33 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  padding: 0 40px;
-  box-shadow:
-    rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
-    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+
   gap: 15px;
+
+  &__inner {
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  &__filesList {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__delete {
+    cursor: pointer;
+  }
+
+  &__listItem {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__filesType {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .file_dropzone {
@@ -15,6 +37,9 @@
   padding: 40px;
   align-items: center;
   justify-content: center;
+  box-shadow:
+    rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 
   &__isDrag {
     outline: 2px $primary dotted;

@@ -34,7 +34,9 @@ export type TSvgIconNames =
   | 'dna'
   | 'menu'
   | 'cross'
-  | 'clear';
+  | 'clear'
+  | 'attachment'
+  | 'delete';
 
 export type TAllImages = TSvgImageNames | TPngImageNames;
 export type TIcons = Record<TSvgIconNames, string | SVGProps<SVGSVGElement>>;
