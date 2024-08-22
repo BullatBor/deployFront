@@ -7,6 +7,9 @@ import DnaSVG from './assets/icons/dna.svg';
 import MenuSVG from './assets/icons/menu.svg';
 import CrossSVG from './assets/icons/cross.svg';
 import CloseSVG from './assets/icons/clear.svg';
+import LogoSVG from './assets/icons/logo.svg';
+import UserSVG from './assets/icons/user.svg';
+import logOutSVG from './assets/icons/log-out.svg';
 import AttachmentSVG from './assets/icons/attachment.svg';
 import deleteSVG from './assets/icons/close.svg';
 
@@ -18,6 +21,9 @@ export const SVGIcons: TIcons = {
   'menu': MenuSVG,
   'cross': CrossSVG,
   'clear': CloseSVG,
+  'logo': LogoSVG,
+  'user': UserSVG,
+  'logout': logOutSVG,
   'attachment': AttachmentSVG,
   'delete': deleteSVG,
 };

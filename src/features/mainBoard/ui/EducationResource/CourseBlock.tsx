@@ -49,7 +49,11 @@ export const CourseBlock: FC<EducationProps> = ({
         </div>
         <div className={styles['row']}>
           <div></div>
-          <Button theme='primary' tName='more'>
+          <Button
+            theme='primary'
+            tName='more'
+            href='https://openedu.ru/course/spbu/CHEMISTRY_MODELING/'
+          >
             Learn more
           </Button>
           <div></div>

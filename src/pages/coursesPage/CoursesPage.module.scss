@@ -1,0 +1,83 @@
+.courses {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background-color: $white;
+    box-shadow:
+      $gray 1px 1px 5px,
+      $gray -1px -1px 5px;
+    height: 40px;
+    padding: 20px 35px 20px 20px;
+  }
+
+  &__leftBlock {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    color: $text_primary;
+  }
+
+  &__search {
+    width: 30vw;
+    & > input {
+      width: 100%;
+      background-color: transparent;
+      line-height: 23px;
+      padding: 8px 16px;
+      font-size: map-get($font-size, S);
+      font-weight: map-get($font-weight, M);
+      border: 0;
+      outline: 1.5px solid $bg-secondary;
+      border-radius: $borderRadiusML;
+      color: $text_primary;
+      caret-color: $bg-secondary;
+
+      &::placeholder {
+        color: $text_primary;
+      }
+    }
+  }
+
+  &__open {
+    display: none;
+  }
+
+  &__main {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .courses {
+    &__logo > span {
+      font-size: clamp(14px, 2.5vw, 20px);
+    }
+
+    &__hide {
+      display: none;
+    }
+
+    &__open {
+      display: flex;
+      width: 100%;
+    }
+  }
+}

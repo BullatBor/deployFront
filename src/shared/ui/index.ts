@@ -7,4 +7,6 @@ export * from './text';
 export * from './input';
 export * from './fileLoader';
 export * from './errorMessage';
+export * from './requireAuth';
+export * from './requireAdmin';
 export * from './textController';

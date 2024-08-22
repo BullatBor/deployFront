@@ -34,7 +34,7 @@ export const Footer = () => {
           <ul>
             {FOOTER_LINKS.map((link) => (
               <Text tag='span' size='xs'>
-                <Link to={link.path} onClick={() => handleClick(link.path)}>
+                <Link to={`/${link.path}`} onClick={() => handleClick(link.path)}>
                   {t(`footer.${link.title}`)}
                 </Link>
               </Text>

@@ -1,5 +1,6 @@
 import { store } from '@/app/appStore';
 import { TAllImages } from '../ui';
+import { Key } from 'react';
 
 export interface EducationProps {
   img: TAllImages;
@@ -23,10 +24,11 @@ export interface IOtherStudies {
 }
 
 export interface ICourseCard {
-  id: number;
+  id?: Key | null;
   title: string;
   img: TAllImages;
   researchArea?: string;
+  path: string;
 }
 
 export interface IPublicationDto {

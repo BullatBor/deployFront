@@ -1,8 +1,10 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { MainPage } from '@/pages';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { MainLayout } from './layouts/MainLayout';
 import ErrorPage from '@/pages/errorPage/ErrorPage';
+import { RequireAdmin, RequireAuth } from '@/shared';
+import LoadingPage from '@/pages/loadingPage/LoadingPage';
 
 const PublicationsPage = lazy(() => import('../pages/publicationsPage/PublicationsPage'));
 const EducationPage = lazy(() => import('@/pages/educationPage/EducationPage'));
@@ -13,6 +15,7 @@ const AdminCoursePanel = lazy(() => import('@/widgets/adminCoursePanel/AdminCour
 const Research1Page = lazy(() => import('@/pages/research1Page/Research1Page'));
 const Research2Page = lazy(() => import('@/pages/research2Page/Research2Page'));
 const Research3Page = lazy(() => import('@/pages/research3Page/Research3Page'));
+const AuthForm = lazy(() => import('@/pages/authForm/AuthForm'));
 const PublicationsPanel = lazy(() => import('@/widgets/publicationsPanel/PublicationsPanel'));
 const PublicationsAdmin = lazy(() => import('@/features/publicationsAdmin/PublicationsAdmin'));
 const CreatePublication = lazy(() => import('@/features/createPublication/CreatePublication'));
@@ -24,6 +27,8 @@ const NewsPanel = lazy(() => import('@/widgets/newsPanel/NewsPanel'));
 const NewsAdmin = lazy(() => import('@/features/newsAdmin/NewsAdmin'));
 const CreateNew = lazy(() => import('@/features/createNew/CreateNew'));
 const EditNew = lazy(() => import('@/features/editNew/EditNew'));
+const CoursesPage = lazy(() => import('@/pages/coursesPage/CoursesPage'));
+const CoursePage = lazy(() => import('@/pages/coursePage/CoursePage'));
 
 export const appRouter = () =>
   createBrowserRouter([
@@ -69,8 +74,20 @@ export const appRouter = () =>
           element: <AboutPage />,
         },
         {
+          path: '/registration',
+          element: <AuthForm type={'registration'} />,
+        },
+        {
+          path: '/authorization',
+          element: <AuthForm type={'authorization'} />,
+        },
+        {
           path: '/admin',
-          element: <AdminPage />,
+          element: (
+            <RequireAdmin>
+              <AdminPage />
+            </RequireAdmin>
+          ),
           children: [
             {
               index: true,
@@ -145,5 +162,25 @@ export const appRouter = () =>
           ],
         },
       ],
+    },
+    {
+      path: '/courses',
+      element: (
+        <RequireAuth>
+          <Suspense fallback={<LoadingPage />}>
+            <CoursesPage />
+          </Suspense>
+        </RequireAuth>
+      ),
+    },
+    {
+      path: '/courses/:id',
+      element: (
+        <RequireAuth>
+          <Suspense fallback={<LoadingPage />}>
+            <CoursePage />
+          </Suspense>
+        </RequireAuth>
+      ),
     },
   ]);

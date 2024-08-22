@@ -35,6 +35,9 @@ export type TSvgIconNames =
   | 'menu'
   | 'cross'
   | 'clear'
+  | 'logo'
+  | 'user'
+  | 'logout'
   | 'attachment'
   | 'delete';
 

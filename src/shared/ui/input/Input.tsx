@@ -1,4 +1,4 @@
-import { FC, FocusEventHandler } from 'react';
+import { FC, FocusEventHandler, LegacyRef } from 'react';
 import styles from './Input.module.scss';
 import cn from 'classnames';
 import { Icon } from '../icon';
@@ -15,6 +15,7 @@ interface INPUT_PROPS {
   required?: boolean;
   type?: string;
   step?: string;
+  refs?: LegacyRef<HTMLInputElement> | null;
 }
 
 export const Input: FC<INPUT_PROPS> = (props) => {
@@ -30,6 +31,7 @@ export const Input: FC<INPUT_PROPS> = (props) => {
     required = false,
     type = 'text',
     step,
+    refs,
   } = props;
 
   const inputHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,6 +45,7 @@ export const Input: FC<INPUT_PROPS> = (props) => {
   return (
     <div className={cn(styles['wrapper'])}>
       <input
+        ref={refs}
         type={type}
         value={value}
         onChange={inputHandle}

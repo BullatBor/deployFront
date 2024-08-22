@@ -6,7 +6,7 @@ const ErrorPage = () => {
     <div className={styles.wrapper}>
       <Image image={'errorElement'} />
       <div className={styles.container}>
-        <Button href={'/'} width={'max'}>
+        <Button href={'/'} width={'max'} onClick={() => (document.title = 'MSDE Group')}>
           Вернуться на главную страницу
         </Button>
       </div>

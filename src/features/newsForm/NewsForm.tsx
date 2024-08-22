@@ -1,13 +1,18 @@
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import styles from './NewsForm.module.scss';
-import { Button, ErrorMessage, Input, INewsCreate, INewsUpdate, Text } from '@/shared';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { FC, useEffect } from 'react';
 import {
+  Button,
+  ErrorMessage,
+  Input,
+  Text,
+  INewsCreate,
+  INewsUpdate,
   useCreateNewMutation,
   useDeleteNewMutation,
   useUpdateNewMutation,
-} from '@/shared/api/newsApi';
+} from '@/shared';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { FC, useEffect } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 
 interface IProps {

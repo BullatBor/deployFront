@@ -3,10 +3,10 @@ import styles from './CourseCard.module.scss';
 import { ICourseCard, Image, Text } from '@/shared';
 import { useNavigate } from 'react-router-dom';
 
-export const CourseCard: FC<ICourseCard> = ({ id, title, img, researchArea }) => {
+export const CourseCard: FC<ICourseCard> = ({ title, img, researchArea, path }) => {
   const navigate = useNavigate();
   const cardHandler = () => {
-    navigate(`/admin/courses/editCourse/${id}`);
+    navigate(path);
   };
   return (
     <div className={styles['wrapper']} onClick={cardHandler}>
