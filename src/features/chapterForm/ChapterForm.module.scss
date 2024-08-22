@@ -36,6 +36,39 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  &__closeForm {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__editTitle {
+    cursor: pointer;
+    &:hover {
+      color: $text_action;
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__delete {
+    cursor: pointer;
+  }
+
+  &__moveBtns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
   }
 }
 

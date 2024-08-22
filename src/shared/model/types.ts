@@ -85,7 +85,7 @@ export type Prettify<T> = {
 } & {};
 
 export interface IChapterFormValues {
-  id: string;
+  id: string | null;
   courseId: string;
   position: number;
   isOpen: boolean;
@@ -96,8 +96,11 @@ export interface IChapterFormValues {
 }
 
 export interface IChapterFormProps extends IChapterFormValues {
-  setBlocked: (isBlocked: boolean) => void;
+  index: number;
   isBlocked: boolean;
   isEditPosition: boolean;
   isEditMode?: boolean;
+  moveUp: (index: number) => void;
+  moveDown: (index: number) => void;
+  setBlocked: (isBlocked: boolean) => void;
 }

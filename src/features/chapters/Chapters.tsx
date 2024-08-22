@@ -16,37 +16,39 @@ export const Chapters: FC<IChapters> = ({ chaptersData }) => {
     setIsBlocked(isBLocked);
   }, []);
 
-  const moveUp = (index: number) => {
-    if (index === 0) return;
+  const moveUp = useCallback(
+    (index: number) => {
+      if (index === 0) return;
 
-    const newItems = [...chapters];
-    [newItems[index], newItems[index - 1]] = [newItems[index - 1], newItems[index]];
-    setChapters(newItems);
-  };
+      const newItems = [...chapters];
+      [newItems[index], newItems[index - 1]] = [newItems[index - 1], newItems[index]];
+      setChapters(newItems);
+    },
+    [chapters],
+  );
 
-  const moveDown = (index: number) => {
-    if (index === chapters.length - 1) return;
-    const newItems = [...chapters];
-    [newItems[index], newItems[index + 1]] = [newItems[index + 1], newItems[index]];
-    setChapters(newItems);
-  };
-
-  const deleteForm = (indexForm: number) => {
-    const newForms = chapters.filter((_item, index) => index !== indexForm);
-    setChapters(newForms);
-  };
+  const moveDown = useCallback(
+    (index: number) => {
+      if (index === chapters.length - 1) return;
+      const newItems = [...chapters];
+      [newItems[index], newItems[index + 1]] = [newItems[index + 1], newItems[index]];
+      setChapters(newItems);
+    },
+    [chapters],
+  );
 
   const addChapter = () => {
-    setIsBlocked(true);
+    setBlocked(true);
     setChapters((prev) => [
       ...prev,
       {
-        id: String(new Date().getTime()),
+        id: null,
         isOpen: true,
-        title_ru: 'Новый чаптер',
+        title_ru: 'Нужно отредактировать',
         courseId: '12',
         position: chapters.length,
         setBlocked,
+        isEditMode: true,
       },
     ]);
   };
@@ -84,24 +86,21 @@ export const Chapters: FC<IChapters> = ({ chaptersData }) => {
                 return (
                   <div className={styles['wrapper__chapter']}>
                     <ChapterForm
-                      setBlocked={setBlocked}
-                      isEditPosition={isEditPosition}
                       key={chapter.id}
+                      isEditPosition={isEditPosition}
                       {...chapter}
+                      index={index}
                       isBlocked={isBlocked}
+                      moveUp={() => moveUp(index)}
+                      moveDown={() => moveDown(index)}
+                      setBlocked={setBlocked}
                     />
-                    {isEditPosition && (
-                      <div>
-                        <div onClick={() => moveUp(index)}>Up</div>
-                        <div onClick={() => moveDown(index)}>Down</div>
-                        <div onClick={() => deleteForm(index)}>Delete</div>
-                      </div>
-                    )}
                   </div>
                 );
               })
             : 'Глав нет'}
         </div>
+
         <Button disabled={isBlocked} onClick={() => addChapter()}>
           Добавить
         </Button>

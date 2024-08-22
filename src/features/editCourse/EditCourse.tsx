@@ -12,6 +12,7 @@ const EditCourse = () => {
     {
       id: '1',
       title_ru: 'Первый чаптер',
+      description_ru: 'sdsdfsf',
       position: 1,
       courseId: '1',
       isOpen: true,
@@ -19,6 +20,7 @@ const EditCourse = () => {
     {
       id: '2',
       title_ru: 'Второй чаптер',
+      description_ru: 'sdsdfsf',
       position: 2,
       courseId: '1',
       isOpen: true,

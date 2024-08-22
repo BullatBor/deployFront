@@ -3,9 +3,9 @@ import {
   FileLoader,
   IChapterFormProps,
   IChapterFormValues,
-  Image,
   Text,
   TextController,
+  Icon,
 } from '@/shared';
 import styles from './ChapterForm.module.scss';
 import { FC, memo, useState } from 'react';
@@ -13,7 +13,9 @@ import ReactTextareaAutosize from 'react-textarea-autosize';
 import { useForm, Controller, SubmitHandler, FormProvider } from 'react-hook-form';
 import cn from 'classnames';
 
-const Form: FC<IChapterFormProps> = ({ setBlocked, isBlocked, ...data }) => {
+const Form: FC<IChapterFormProps> = (props) => {
+  const { setBlocked, isBlocked, isEditPosition, moveUp, moveDown, index, id, ...data } = props;
+
   const [isEdit, setIsEdit] = useState(data.isEditMode ? true : false);
 
   const methods = useForm<IChapterFormValues>({
@@ -32,21 +34,25 @@ const Form: FC<IChapterFormProps> = ({ setBlocked, isBlocked, ...data }) => {
     },
   });
 
-  const { watch } = methods;
-
-  const title = watch('title_ru');
-
   const onSubmitHandler: SubmitHandler<IChapterFormValues> = () => {
-    setIsEdit(false);
-    setBlocked(false);
+    closeFrom();
     return null;
   };
 
-  const changeEditMode = () => {
+  const closeFrom = () => {
+    setIsEdit(false);
+    setBlocked(false);
+  };
+
+  const openForm = () => {
     if (!isBlocked) {
       setIsEdit(true);
       setBlocked(true);
     }
+  };
+
+  const deleteForm = () => {
+    // TODO: API
   };
 
   return (
@@ -58,6 +64,11 @@ const Form: FC<IChapterFormProps> = ({ setBlocked, isBlocked, ...data }) => {
               className={styles['wrapper__form']}
               onSubmit={methods.handleSubmit(onSubmitHandler)}
             >
+              <div className={styles['wrapper__closeForm']}>
+                <Button size='xs' theme={'red'} width='content' onClick={closeFrom} disabled={!id}>
+                  Закрыть
+                </Button>
+              </div>
               <TextController
                 label='Название (ru)'
                 required
@@ -124,10 +135,43 @@ const Form: FC<IChapterFormProps> = ({ setBlocked, isBlocked, ...data }) => {
       ) : (
         <div className={styles['wrapper__preview']}>
           <Text tag='span' size='m' weight='medium'>
-            {title}
+            {data.title_ru}
           </Text>
-
-          <Image width='24px' height='24px' image='default' onClick={changeEditMode} />
+          {isEditPosition ? (
+            <div className={styles['wrapper__buttons']}>
+              <div className={styles['wrapper__moveBtns']}>
+                <Button
+                  size='xs'
+                  width='content'
+                  onClick={() => moveUp(index)}
+                  disabled={isBlocked}
+                >
+                  Вверх
+                </Button>
+                <Button
+                  size='xs'
+                  width='content'
+                  onClick={() => moveDown(index)}
+                  disabled={isBlocked}
+                >
+                  Вниз
+                </Button>
+              </div>
+              <Icon
+                width='24px'
+                height='24px'
+                icon='delete'
+                className={styles['wrapper__delete']}
+                onClick={() => deleteForm()}
+              />
+            </div>
+          ) : (
+            <div onClick={openForm}>
+              <Text tag='span' size='s' weight='regular' className={styles['wrapper__editTitle']}>
+                Редактировать
+              </Text>
+            </div>
+          )}
         </div>
       )}
     </div>
