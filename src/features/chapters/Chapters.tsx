@@ -84,7 +84,7 @@ export const Chapters: FC<IChapters> = ({ chaptersData }) => {
           {chapters.length > 0
             ? chapters.map((chapter, index) => {
                 return (
-                  <div className={styles['wrapper__chapter']}>
+                  <div className={styles['wrapper__chapter']} key={chapter.id}>
                     <ChapterForm
                       key={chapter.id}
                       isEditPosition={isEditPosition}

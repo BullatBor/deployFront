@@ -1,12 +1,18 @@
-export const CHAPTER_DATA_MOCK = [
-  {
-    id: null,
-    question_ru: '',
-    answers: [
-      { answer: 'Первый', isCorrect: false },
-      { answer: 'Второй', isCorrect: false },
-      { answer: 'Трейтий', isCorrect: true },
-      { answer: 'Четвертый', isCorrect: false },
-    ],
-  },
-];
+import { IChapterData } from '@/shared';
+
+export const CHAPTER_DATA_MOCK: IChapterData = {
+  id: null,
+  question_ru: '',
+  type: 'text',
+  answers: [
+    { answer_ru: '', isCorrect: false },
+    { answer_ru: '', isCorrect: false },
+    { answer_ru: '', isCorrect: false },
+    { answer_ru: '', isCorrect: false },
+  ],
+};
+
+export const DocFileType = {
+  'application/pdf': ['.pdf'],
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
+};

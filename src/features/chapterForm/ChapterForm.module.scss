@@ -49,6 +49,7 @@
     cursor: pointer;
     &:hover {
       color: $text_action;
+      text-decoration: underline;
     }
   }
 

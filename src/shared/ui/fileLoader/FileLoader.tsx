@@ -13,9 +13,12 @@ interface PROPS {
   image: IFile | IFile[] | undefined;
   onChange: (value: File | IFile[] | undefined) => void;
   type: 'img' | 'files';
+  acceptedFileTypes?: {
+    [key: string]: string[];
+  };
 }
 
-export const FileLoader: FC<PROPS> = ({ image, onChange, type = 'files' }) => {
+export const FileLoader: FC<PROPS> = ({ image, onChange, type = 'files', acceptedFileTypes }) => {
   const onDrop = (acceptedFile: File[]) => {
     let files: IFile | IFile[] | undefined;
     if (type === 'img') {
@@ -41,20 +44,10 @@ export const FileLoader: FC<PROPS> = ({ image, onChange, type = 'files' }) => {
     }
   };
 
-  const ImageFileType = {
-    'image/jpeg': ['.jpeg', '.jpg'],
-    'image/png': ['.png'],
-  };
-
-  const DocFileType = {
-    'application/pdf': ['.pdf'],
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
-  };
-
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     multiple: false,
-    accept: type === 'img' ? ImageFileType : DocFileType,
+    accept: acceptedFileTypes,
   });
 
   const isImageType = type === 'img' && !Array.isArray(image) && image;
@@ -97,7 +90,7 @@ export const FileLoader: FC<PROPS> = ({ image, onChange, type = 'files' }) => {
         Array.isArray(image) && (
           <div className={styles['wrapper__filesList']}>
             {image.map((item) => (
-              <div className={styles['wrapper__listItem']}>
+              <div className={styles['wrapper__listItem']} key={item.name}>
                 <Text tag='span' size='xs' weight='regular'>
                   {item.name}
                 </Text>

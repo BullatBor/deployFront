@@ -4,27 +4,30 @@ import cn from 'classnames';
 import { FC } from 'react';
 
 interface PROPS {
+  leftLabel: string;
+  rightLabel: string;
   value: 1 | 2;
-  onChange: (value: 1 | 2) => void;
+  size?: 's' | 'xs';
+  onChange: () => void;
 }
 
-export const Switcher: FC<PROPS> = ({ value, onChange }) => {
+export const Switcher: FC<PROPS> = ({ value, leftLabel, rightLabel, size = 's', onChange }) => {
   return (
     <div className={styles['wrapper']}>
       <div
         className={cn(styles['wrapper__item'], { [styles['activeFirst']]: value === 1 })}
-        onClick={() => onChange(1)}
+        onClick={onChange}
       >
-        <Text tag='span' size='s' weight='medium'>
-          обычно
+        <Text tag='span' size={size} weight='medium'>
+          {leftLabel}
         </Text>
       </div>
       <div
         className={cn(styles['wrapper__item'], { [styles['activeSecond']]: value === 2 })}
-        onClick={() => onChange(2)}
+        onClick={onChange}
       >
-        <Text tag='span' size='s' weight='medium'>
-          тесты
+        <Text tag='span' size={size} weight='medium'>
+          {rightLabel}
         </Text>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Button, FileLoader, Input, Text } from '@/shared';
+import { Button, FileLoader, Input, Text, ImageFileType } from '@/shared';
 import styles from './CourseEditForm.module.scss';
 import { FC } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
@@ -124,7 +124,12 @@ export const CourseEditForm: FC<FormValues> = (data) => {
                 rules={{ required: true }}
                 render={({ field: { onChange, value } }) => (
                   <>
-                    <FileLoader image={value} onChange={onChange} type='img' />
+                    <FileLoader
+                      image={value}
+                      onChange={onChange}
+                      type='img'
+                      acceptedFileTypes={ImageFileType}
+                    />
                   </>
                 )}
               />

@@ -13,13 +13,20 @@
 .variants {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
 .variant {
   display: flex;
   width: 100%;
   gap: 20px;
+}
+
+.variant_inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .hide {
@@ -33,4 +40,23 @@
 
 .form {
   max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.underline {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.btns {
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }

@@ -14,7 +14,7 @@ import ReactTextareaAutosize from 'react-textarea-autosize';
 import { useForm, Controller, SubmitHandler, FormProvider, useFieldArray } from 'react-hook-form';
 import cn from 'classnames';
 import { ChapterData } from '../chapterData';
-import { CHAPTER_DATA_MOCK } from './constant';
+import { CHAPTER_DATA_MOCK, DocFileType } from './constant';
 
 const Form: FC<IChapterFormProps> = (props) => {
   const { setBlocked, isBlocked, isEditPosition, moveUp, moveDown, index, id, ...data } = props;
@@ -49,6 +49,14 @@ const Form: FC<IChapterFormProps> = (props) => {
     debugger;
     closeFrom();
     return null;
+  };
+
+  const typeHandler = () => {
+    if (dataMode === 1) {
+      setDataMode(2);
+    } else {
+      setDataMode(1);
+    }
   };
 
   const closeFrom = () => {
@@ -121,7 +129,12 @@ const Form: FC<IChapterFormProps> = (props) => {
                   )}
                 />
               </div>
-              <Switcher value={dataMode} onChange={setDataMode} />
+              <Switcher
+                value={dataMode}
+                onChange={typeHandler}
+                leftLabel='Материалы'
+                rightLabel='Вопросы'
+              />
 
               {dataMode === 1 ? (
                 <div className={styles['wrapper__field']}>
@@ -133,7 +146,12 @@ const Form: FC<IChapterFormProps> = (props) => {
                     rules={{ required: false }}
                     render={({ field: { onChange, value } }) => (
                       <>
-                        <FileLoader image={value} onChange={onChange} type='files' />
+                        <FileLoader
+                          image={value}
+                          onChange={onChange}
+                          type='files'
+                          acceptedFileTypes={DocFileType}
+                        />
                       </>
                     )}
                   />

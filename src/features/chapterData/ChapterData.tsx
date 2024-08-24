@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import styles from './ChapterData.module.scss';
-import { Text, TextController } from '@/shared';
+import { FileLoader, Icon, Switcher, Text, TextController } from '@/shared';
 import { Controller, useFormContext } from 'react-hook-form';
 import cn from 'classnames';
 
@@ -11,30 +11,51 @@ interface Props {
 const arrayMock = Array.from({ length: 4 });
 
 export const ChapterData: FC<Props> = ({ index, deleteHandler }) => {
-  const { control, watch } = useFormContext();
+  const { control, watch, setValue } = useFormContext();
   const [isHide, setHide] = useState(true);
+  const [type, setType] = useState<1 | 2>(1);
   const hideHandler = () => {
     setHide((prev) => !prev);
   };
   const id = watch(`chapterData.${index}.id`);
+
   const removeHandler = () => {
     if (id) {
       deleteHandler(index);
       //TODO: delete endpoint
     } else deleteHandler(index);
   };
+
+  const typeHandler = (stateName: string) => {
+    if (type === 1) {
+      setType(2);
+      setValue(stateName, 'img');
+    } else {
+      setType(1);
+      setValue(stateName, 'text');
+    }
+  };
+
   return (
     <div>
       <div className={styles['header']}>
         <Text tag='p' size='s' weight='semibold'>
           {`Вопрос №${index + 1}`}
         </Text>
-        <div onClick={hideHandler}>
-          <Text tag='p' size='xs' weight='regular'>
-            {isHide ? 'Раскрыть' : `Скрыть`}
-          </Text>
+        <div className={styles['btns']}>
+          <div onClick={hideHandler} className={cn(styles['pointer'], styles['underline'])}>
+            <Text tag='p' size='xs' weight='regular'>
+              {isHide ? 'Раскрыть' : `Скрыть`}
+            </Text>
+          </div>
+          <Icon
+            width='16px'
+            height='16px'
+            icon='delete'
+            className={styles['pointer']}
+            onClick={removeHandler}
+          />
         </div>
-        <
       </div>
       <div className={cn(styles['form'], { [styles['hide']]: isHide })}>
         <div className={styles['inputs']}>
@@ -44,14 +65,21 @@ export const ChapterData: FC<Props> = ({ index, deleteHandler }) => {
             placeholder='Введите вопрос (ru)'
           />
           <TextController
-            required
+            required={false}
             inputName={`chapterData.${index}.question_en`}
             placeholder='Введите вопрос (en)'
           />
         </div>
-        <Text tag='p' size='xs' weight='semibold'>
+        <Text tag='span' size='xs' weight='semibold'>
           Варианты ответов
         </Text>
+        <Switcher
+          value={type}
+          onChange={() => typeHandler(`chapterData.${index}.type`)}
+          leftLabel='Текст'
+          rightLabel='Картинки'
+          size='xs'
+        />
         <div className={styles['variants']}>
           {arrayMock.map((_, indexAnswer) => (
             <div className={styles['variant']}>
@@ -62,11 +90,30 @@ export const ChapterData: FC<Props> = ({ index, deleteHandler }) => {
                   <input type='checkbox' checked={value} onChange={onChange} />
                 )}
               />
-              <TextController
-                required
-                inputName={`chapterData.${index}.answers[${indexAnswer}].answer`}
-                placeholder='первый вариант'
-              />
+              {type === 1 ? (
+                <div className={styles['variant_inputs']}>
+                  <TextController
+                    required
+                    inputName={`chapterData.${index}.answers[${indexAnswer}].answer_ru`}
+                    placeholder='первый вариант (ru)'
+                  />
+                  <TextController
+                    required={false}
+                    inputName={`chapterData.${index}.answers[${indexAnswer}].answer_en`}
+                    placeholder='первый вариант (en)'
+                  />
+                </div>
+              ) : (
+                <Controller
+                  name={`chapterData.${index}.answers[${indexAnswer}].img`}
+                  rules={{ required: false }}
+                  render={({ field: { onChange, value } }) => (
+                    <>
+                      <FileLoader image={value} onChange={onChange} type='files' />
+                    </>
+                  )}
+                />
+              )}
             </div>
           ))}
         </div>
