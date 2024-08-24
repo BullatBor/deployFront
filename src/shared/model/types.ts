@@ -84,6 +84,13 @@ export type Prettify<T> = {
   // eslint-disable-next-line @typescript-eslint/ban-types
 } & {};
 
+interface IChapterData {
+  id: string | null;
+  question_ru: string;
+  question_en?: string;
+  answers: { answer: string; isCorrect: boolean }[];
+}
+
 export interface IChapterFormValues {
   id: string | null;
   courseId: string;
@@ -93,6 +100,7 @@ export interface IChapterFormValues {
   description_ru?: string;
   title_en?: string;
   description_en?: string;
+  chapterData: IChapterData[];
 }
 
 export interface IChapterFormProps extends IChapterFormValues {

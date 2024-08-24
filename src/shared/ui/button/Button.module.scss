@@ -71,7 +71,7 @@
       opacity: 1;
     }
     &:disabled {
-      background-color: $text_alert; // Оставляем оригинальный цвет фона
+      background-color: $text_alert;
       &:hover {
         opacity: 0.5;
       }

@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.variants {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.variant {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.hide {
+  text-align: left;
+  transition: max-height 1s ease;
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: 10px;
+  max-height: 0px !important;
+}
+
+.form {
+  max-height: 100vh;
+}

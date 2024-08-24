@@ -10,3 +10,4 @@ export * from './errorMessage';
 export * from './requireAuth';
 export * from './requireAdmin';
 export * from './textController';
+export * from './switcher';

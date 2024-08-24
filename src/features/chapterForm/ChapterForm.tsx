@@ -6,17 +6,21 @@ import {
   Text,
   TextController,
   Icon,
+  Switcher,
 } from '@/shared';
 import styles from './ChapterForm.module.scss';
 import { FC, memo, useState } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
-import { useForm, Controller, SubmitHandler, FormProvider } from 'react-hook-form';
+import { useForm, Controller, SubmitHandler, FormProvider, useFieldArray } from 'react-hook-form';
 import cn from 'classnames';
+import { ChapterData } from '../chapterData';
+import { CHAPTER_DATA_MOCK } from './constant';
 
 const Form: FC<IChapterFormProps> = (props) => {
   const { setBlocked, isBlocked, isEditPosition, moveUp, moveDown, index, id, ...data } = props;
 
   const [isEdit, setIsEdit] = useState(data.isEditMode ? true : false);
+  const [dataMode, setDataMode] = useState<1 | 2>(1);
 
   const methods = useForm<IChapterFormValues>({
     defaultValues: {
@@ -34,7 +38,15 @@ const Form: FC<IChapterFormProps> = (props) => {
     },
   });
 
-  const onSubmitHandler: SubmitHandler<IChapterFormValues> = () => {
+  const { control } = methods;
+
+  const { fields, append, remove } = useFieldArray({
+    name: 'chapterData',
+    control,
+  });
+
+  const onSubmitHandler: SubmitHandler<IChapterFormValues> = (data) => {
+    debugger;
     closeFrom();
     return null;
   };
@@ -109,20 +121,41 @@ const Form: FC<IChapterFormProps> = (props) => {
                   )}
                 />
               </div>
-              <div className={styles['wrapper__field']}>
-                <Text tag='span' size='m' weight='medium'>
-                  Вложения
-                </Text>
-                <Controller
-                  name='attachments'
-                  rules={{ required: false }}
-                  render={({ field: { onChange, value } }) => (
-                    <>
-                      <FileLoader image={value} onChange={onChange} type='files' />
-                    </>
-                  )}
-                />
-              </div>
+              <Switcher value={dataMode} onChange={setDataMode} />
+
+              {dataMode === 1 ? (
+                <div className={styles['wrapper__field']}>
+                  <Text tag='span' size='m' weight='medium'>
+                    Вложения
+                  </Text>
+                  <Controller
+                    name='attachments'
+                    rules={{ required: false }}
+                    render={({ field: { onChange, value } }) => (
+                      <>
+                        <FileLoader image={value} onChange={onChange} type='files' />
+                      </>
+                    )}
+                  />
+                </div>
+              ) : (
+                <div className={styles['wrapper__field']}>
+                  <Text tag='span' size='m' weight='medium'>
+                    Вопросы
+                  </Text>
+                  {fields.map((item, index) => (
+                    <ChapterData key={item.id} index={index} deleteHandler={remove} />
+                  ))}
+                  <Button
+                    className={styles['wrapper__addBtn']}
+                    type='submit'
+                    onClick={() => append(CHAPTER_DATA_MOCK)}
+                  >
+                    Добавить
+                  </Button>
+                </div>
+              )}
+
               <div className={styles['wrapper__btns']}>
                 <div></div>
                 <Button type='submit' disabled={!methods.formState.isValid}>
