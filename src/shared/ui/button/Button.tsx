@@ -10,7 +10,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'xs' | 's' | 'm' | 'l';
   type?: 'button' | 'submit' | 'reset';
   href?: string;
-  theme?: 'primary' | 'icon' | 'secondary' | 'tertiary' | 'third' | 'red';
+  theme?: 'primary' | 'icon' | 'secondary' | 'tertiary' | 'third' | 'red' | 'success';
   disabled?: boolean;
   showDisabledClass?: boolean;
   className?: string;

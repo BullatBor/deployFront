@@ -30,6 +30,11 @@
   }
 }
 
+.bottom_border {
+  padding-bottom: 30px;
+  border-bottom: 3px $text_primary solid;
+}
+
 textarea {
   resize: none;
   border-radius: $borderRadiusM;

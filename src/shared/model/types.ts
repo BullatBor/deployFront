@@ -83,3 +83,33 @@ export type Prettify<T> = {
   [K in keyof T]: T[K];
   // eslint-disable-next-line @typescript-eslint/ban-types
 } & {};
+
+export interface IChapterData {
+  id: string | null;
+  type: 'text' | 'img';
+  question_ru: string;
+  question_en?: string;
+  answers: { answer_ru: string; isCorrect: boolean; answer_en?: string; img?: File }[];
+}
+
+export interface IChapterFormValues {
+  id: string | null;
+  courseId: string;
+  position: number;
+  isOpen: boolean;
+  title_ru?: string;
+  description_ru?: string;
+  title_en?: string;
+  description_en?: string;
+  chapterData?: IChapterData[];
+}
+
+export interface IChapterFormProps extends IChapterFormValues {
+  index: number;
+  isBlocked: boolean;
+  isEditPosition: boolean;
+  isEditMode?: boolean;
+  moveUp: (index: number) => void;
+  moveDown: (index: number) => void;
+  setBlocked: (isBlocked: boolean) => void;
+}

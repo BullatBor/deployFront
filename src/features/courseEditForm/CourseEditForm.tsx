@@ -1,39 +1,34 @@
-import { Button, FileLoader, Input, Text } from '@/shared';
-import styles from './CourseForm.module.scss';
+import { Button, FileLoader, Input, Text, ImageFileType } from '@/shared';
+import styles from './CourseEditForm.module.scss';
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 import { useForm, Controller, SubmitHandler, FormProvider } from 'react-hook-form';
-
-interface PROPS {
-  isCreateType?: boolean;
-}
+import cn from 'classnames';
 
 interface FormValues {
-  courseName: string;
-  courseDescription: string;
-  courseImage: string;
-  coursePrice: string;
+  title_ru: string;
+  title_en?: string;
+  description_ru?: string;
+  description_en?: string;
+  imageUrl?: string;
+  isOpen?: boolean;
 }
 
-export const CourseForm: FC<PROPS> = ({ isCreateType = true }) => {
-  const navigate = useNavigate();
+export const CourseEditForm: FC<FormValues> = (data) => {
   const methods = useForm<FormValues>({
     defaultValues: {
-      courseName: '',
-      courseDescription: '',
-      courseImage: '',
-      coursePrice: '',
+      title_ru: data.title_ru,
+      title_en: data.title_en,
+      description_ru: data.description_ru,
+      description_en: data.description_en,
+      imageUrl: data.imageUrl,
+      isOpen: data.isOpen,
     },
     mode: 'onTouched',
     resetOptions: {
       keepErrors: false,
     },
   });
-
-  const backHangler = () => {
-    navigate(-1);
-  };
 
   const onSubmitHandler: SubmitHandler<FormValues> = () => {
     return null;
@@ -47,12 +42,36 @@ export const CourseForm: FC<PROPS> = ({ isCreateType = true }) => {
             className={styles['wrapper__form']}
             onSubmit={methods.handleSubmit(onSubmitHandler)}
           >
+            <Text tag='span' size='l' weight='medium'>
+              Общая информация
+            </Text>
             <div className={styles['wrapper__field']}>
               <Text tag='span' size='m' weight='medium'>
-                Название курса
+                {'Название курса ( ru )'}
               </Text>
               <Controller
-                name='courseName'
+                name='title_ru'
+                rules={{ required: true }}
+                render={({ field: { onChange, value, onBlur } }) => (
+                  <>
+                    <Input
+                      value={value}
+                      onChange={onChange}
+                      onBlur={onBlur}
+                      placeholder='Введите название курса'
+                      size='s'
+                      isClearable
+                    />
+                  </>
+                )}
+              />
+            </div>
+            <div className={cn(styles['wrapper__field'], styles['bottom_border'])}>
+              <Text tag='span' size='m' weight='medium'>
+                Название курса ( en )
+              </Text>
+              <Controller
+                name='title_en'
                 rules={{ required: true }}
                 render={({ field: { onChange, value, onBlur } }) => (
                   <>
@@ -70,10 +89,24 @@ export const CourseForm: FC<PROPS> = ({ isCreateType = true }) => {
             </div>
             <div className={styles['wrapper__field']}>
               <Text tag='span' size='m' weight='medium'>
-                Описание курса
+                Описание курса ( ru )
               </Text>
               <Controller
-                name='courseDescription'
+                name='description_ru'
+                rules={{ required: true }}
+                render={({ field: { onChange, value } }) => (
+                  <>
+                    <ReactTextareaAutosize value={value} onChange={onChange} rows={4} />
+                  </>
+                )}
+              />
+            </div>
+            <div className={cn(styles['wrapper__field'], styles['bottom_border'])}>
+              <Text tag='span' size='m' weight='medium'>
+                Описание курса ( en )
+              </Text>
+              <Controller
+                name='description_en'
                 rules={{ required: true }}
                 render={({ field: { onChange, value } }) => (
                   <>
@@ -91,38 +124,20 @@ export const CourseForm: FC<PROPS> = ({ isCreateType = true }) => {
                 rules={{ required: true }}
                 render={({ field: { onChange, value } }) => (
                   <>
-                    <FileLoader image={value} onChange={onChange} />
-                  </>
-                )}
-              />
-            </div>
-            <div className={styles['wrapper__field']}>
-              <Text tag='span' size='m' weight='medium'>
-                Цена курса
-              </Text>
-              <Controller
-                name='coursePrice'
-                rules={{ required: true }}
-                render={({ field: { onChange, value, onBlur } }) => (
-                  <>
-                    <Input
-                      type='number'
-                      value={value}
+                    <FileLoader
+                      image={value}
                       onChange={onChange}
-                      onBlur={onBlur}
-                      placeholder='Введите цену за курс'
-                      size='s'
-                      step='0.001'
-                      isClearable
+                      type='img'
+                      acceptedFileTypes={ImageFileType}
                     />
                   </>
                 )}
               />
             </div>
             <div className={styles['wrapper__btns']}>
-              <Button onClick={backHangler}>Назад</Button>
+              <div></div>
               <Button type='submit' disabled={!methods.formState.isValid}>
-                {isCreateType ? 'Создать' : 'Сохранить'}
+                Сохранить
               </Button>
             </div>
           </form>
