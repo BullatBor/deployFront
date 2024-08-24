@@ -2,12 +2,12 @@ import { Text } from '@/shared';
 import styles from './EditCourse.module.scss';
 import { CourseEditForm } from '..';
 import { Chapters } from '../chapters';
+import { useParams } from 'react-router-dom';
 
 const EditCourse = () => {
   // Получить данные курса data, chapters
-  const data = {
-    title_ru: 'нвоый',
-  };
+  const { id } = useParams();
+  if (!id) return null;
   const chapterData = [
     {
       id: '1',
@@ -31,7 +31,7 @@ const EditCourse = () => {
       <Text tag='span' size='l' weight='semibold'>
         Редактирование курса
       </Text>
-      <CourseEditForm {...data} />
+      <CourseEditForm courseId={id} />
       <Chapters chaptersData={chapterData} />
     </div>
   );

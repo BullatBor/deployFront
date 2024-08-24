@@ -72,6 +72,23 @@ export interface INewsDto {
   updatedAt: string;
 }
 
+export interface IСourseDto {
+  id: number;
+  title_ru: string;
+  title_en: string;
+  description_ru: string;
+  description_en: string;
+  isOpen: boolean;
+  imageUrl: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ICourseGet {
+  courseId: string;
+  userId: string;
+}
+
 export type INewsCreate = Prettify<Omit<INewsDto, 'createdAt' | 'updatedAt' | 'id'>>;
 
 export type INewsUpdate = Prettify<Omit<INewsDto, 'createdAt' | 'updatedAt'>>;

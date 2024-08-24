@@ -1,4 +1,4 @@
-import { Button, Input, Text } from '@/shared';
+import { Button, Input, Text, useCreateCourseMutation } from '@/shared';
 import styles from './CourseForm.module.scss';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +14,7 @@ interface FormValues {
 
 export const CourseCreateForm: FC<PROPS> = ({ isCreateType = true }) => {
   const navigate = useNavigate();
+  const [createCourse] = useCreateCourseMutation();
   const methods = useForm<FormValues>({
     defaultValues: {
       title_ru: '',
@@ -28,13 +29,11 @@ export const CourseCreateForm: FC<PROPS> = ({ isCreateType = true }) => {
     navigate(-1);
   };
 
-  const onSubmitHandler: SubmitHandler<FormValues> = async () => {
-    /*
-    const courseInfo = await fetch('POST', {
-      body: data.title_ru,
-    });
-    */
-    navigate(`/admin/courses/editCourse/1`);
+  const onSubmitHandler: SubmitHandler<FormValues> = async ({ title_ru }) => {
+    const { data } = await createCourse({ title_ru });
+    if (data) {
+      navigate(`/admin/courses/editCourse/${data.id}`);
+    }
   };
 
   return (

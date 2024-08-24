@@ -1,4 +1,4 @@
-import { Button, FileLoader, Input, Text, ImageFileType } from '@/shared';
+import { Button, FileLoader, Input, Text, ImageFileType, useGetCourseInfoQuery } from '@/shared';
 import styles from './CourseEditForm.module.scss';
 import { FC } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
@@ -14,15 +14,24 @@ interface FormValues {
   isOpen?: boolean;
 }
 
-export const CourseEditForm: FC<FormValues> = (data) => {
+interface Props {
+  courseId: string;
+}
+
+export const CourseEditForm: FC<Props> = ({ courseId }) => {
+  const { data } = useGetCourseInfoQuery({
+    courseId,
+    userId: 'c30b5204-0ad9-4620-b9b0-089c63ce404c',
+  });
+
   const methods = useForm<FormValues>({
     defaultValues: {
-      title_ru: data.title_ru,
-      title_en: data.title_en,
-      description_ru: data.description_ru,
-      description_en: data.description_en,
-      imageUrl: data.imageUrl,
-      isOpen: data.isOpen,
+      title_ru: data?.title_ru || 'test',
+      title_en: data?.title_en || '',
+      description_ru: data?.description_ru || '',
+      description_en: data?.description_en || '',
+      imageUrl: data?.imageUrl || '',
+      isOpen: data?.isOpen || true,
     },
     mode: 'onTouched',
     resetOptions: {
