@@ -1,14 +1,26 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
 import { UserBlock } from '@/widgets';
 import { MOCK_COURSES } from '@/features/coursesAdmin/constants';
-import { Icon, Text } from '@/shared';
+import { Icon, ICourseCard, Text } from '@/shared';
 import { MOCKED_VALUES } from './constants';
 import styles from './CoursePage.module.scss';
+import { useCallback, useState } from 'react';
+import classNames from 'classnames';
 
 const CoursePage = () => {
   const navigate = useNavigate();
-  const id = useParams().id as string;
+  const id = useParams().id as unknown as Pick<ICourseCard, 'id'>;
   const course = MOCK_COURSES.find((course) => course.id === +id);
+  const [isOpen, setOpen] = useState<boolean>(false);
+
+  const handleLinkClick = useCallback(() => {
+    scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+    setOpen(false);
+  }, []);
 
   return (
     <div className={styles['course']}>
@@ -24,7 +36,12 @@ const CoursePage = () => {
         </div>
         <ul className={styles['course__list']}>
           {MOCKED_VALUES.map((chapter) => (
-            <li className={styles['course__row']}>
+            <li
+              key={chapter.order}
+              className={styles['course__row']}
+              onClick={() => navigate(`/courses/${id}/${chapter.order}`)}
+            >
+              <Icon icon='course' widthAndHeight='14px' />
               <Text tag={'span'} size='xs' weight='medium'>
                 {chapter.title}
               </Text>
@@ -34,17 +51,42 @@ const CoursePage = () => {
       </aside>
       <main className={styles['course__main']}>
         <header className={styles['course__header']}>
-          <div>
-            <Icon icon={'logout'} widthAndHeight='15px' />
-            <div onClick={() => navigate('/courses')}>
-              <Text tag='span' weight='medium' size='xs'>
-                {'Back to courses'}
-              </Text>
-            </div>
+          <div onClick={() => setOpen((prev) => !prev)} className={styles['course__visible']}>
+            <Icon icon={isOpen ? 'cross' : 'menu'} />
           </div>
-          <UserBlock />
+          <div className={styles['course__back']}>
+            <div onClick={() => navigate('/courses')}>
+              <Icon icon={'logout'} widthAndHeight='15px' />
+              <div>
+                <Text tag='span' weight='medium' size='xs'>
+                  {'Back to courses'}
+                </Text>
+              </div>
+            </div>
+            <UserBlock />
+          </div>
         </header>
+        <div className={styles['course__outlet']}>
+          <Outlet />
+        </div>
       </main>
+      <nav className={classNames(styles['boxLinks'], { [styles['boxLinks__active']]: isOpen })}>
+        <ul className={styles['boxLinks__list']}>
+          {MOCKED_VALUES.map((chapter) => (
+            <NavLink
+              to={`./${chapter.order}`}
+              onClick={handleLinkClick}
+              className={({ isActive }) =>
+                classNames(styles['boxLinks__link'], {
+                  [styles['boxLinks__link_active']]: isActive,
+                })
+              }
+            >
+              {chapter.title}
+            </NavLink>
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 };

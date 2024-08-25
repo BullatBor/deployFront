@@ -29,6 +29,8 @@ const CreateNew = lazy(() => import('@/features/createNew/CreateNew'));
 const EditNew = lazy(() => import('@/features/editNew/EditNew'));
 const CoursesPage = lazy(() => import('@/pages/coursesPage/CoursesPage'));
 const CoursePage = lazy(() => import('@/pages/coursePage/CoursePage'));
+const DescriptionPage = lazy(() => import('@/pages/descriptionPage/DescriptionPage'));
+const ChapterPage = lazy(() => import('@/pages/chapterPage/ChapterPage'));
 
 export const appRouter = () =>
   createBrowserRouter([
@@ -182,5 +184,16 @@ export const appRouter = () =>
           </Suspense>
         </RequireAuth>
       ),
+      children: [
+        {
+          index: true,
+          element: <Navigate to='./description' replace />,
+        },
+        {
+          path: '/courses/:id/description',
+          element: <DescriptionPage />,
+        },
+        { path: '/courses/:id/:chapter', element: <ChapterPage /> },
+      ],
     },
   ]);

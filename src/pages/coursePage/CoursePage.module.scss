@@ -31,6 +31,7 @@
 
   &__list {
     height: calc(100vh - 148px);
+    border-bottom: 1px solid $gray;
     overflow-y: auto;
     margin: 0;
     padding: 0;
@@ -38,6 +39,9 @@
   }
 
   &__row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
     cursor: pointer;
     color: $text_grey;
     padding: 20px;
@@ -45,12 +49,18 @@
     transition:
       color 0.3s ease-in-out,
       background-color 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out;
+      box-shadow 0.3s ease-in-out,
+      stroke 0.3s ease-in-out;
 
     &:hover {
-      color: $black;
+      color: $text_primary;
       background-color: $white;
       box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+
+      & > svg {
+        transition: stroke 0.3s ease-in-out;
+        stroke: $bg-secondary;
+      }
     }
   }
 
@@ -64,6 +74,12 @@
     border-bottom: 1px solid $gray;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__back {
+    display: flex;
     align-items: center;
     gap: 20px;
 
@@ -81,10 +97,92 @@
         color 0.3s ease-in-out;
 
       &:hover {
-        color: $black;
+        color: $text_primary;
         box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
         background-color: $white;
       }
+    }
+  }
+
+  &__visible {
+    display: none;
+
+    & > svg,
+    & > svg > path {
+      stroke: transparent;
+      fill: $bg-secondary;
+    }
+  }
+
+  &__outlet {
+    max-height: calc(100vh - 91px);
+    overflow: auto;
+  }
+
+  .boxLinks {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10vh 0;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    opacity: 0;
+    transition:
+      transform 0.4s ease,
+      opacity 0.4s ease;
+    transform: translateX(-140%);
+    opacity: 0;
+    z-index: 10;
+
+    &__active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    &__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__link {
+      text-align: center;
+      color: $black;
+      text-decoration: none;
+      letter-spacing: 0.07em;
+      font-size: 4vh;
+      line-height: 12vh;
+      width: 100%;
+      transition:
+        color 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+
+      &_active {
+        font-weight: 500 !important;
+        opacity: 0.7;
+        color: $text_primary;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .course {
+    &__aside {
+      display: none;
+    }
+
+    &__header {
+      justify-content: space-between;
+    }
+
+    &__visible {
+      display: block;
     }
   }
 }

@@ -63,7 +63,7 @@ const CoursesPage = () => {
           {MOCK_COURSES.filter((course) =>
             course.title.toLowerCase().includes(value.toLowerCase()),
           ).map((course) => (
-            <CourseCard key={course.id} path={`/courses/${course.id}`} {...course} />
+            <CourseCard key={course.id} path={`/courses/${course.id}/description`} {...course} />
           ))}
         </div>
       </main>

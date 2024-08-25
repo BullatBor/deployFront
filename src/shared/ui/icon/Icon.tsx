@@ -10,6 +10,7 @@ import CloseSVG from './assets/icons/clear.svg';
 import LogoSVG from './assets/icons/logo.svg';
 import UserSVG from './assets/icons/user.svg';
 import logOutSVG from './assets/icons/log-out.svg';
+import CourseSVG from './assets/icons/course.svg';
 
 export const SVGIcons: TIcons = {
   'news-icon': NewIconSVG,
@@ -22,6 +23,7 @@ export const SVGIcons: TIcons = {
   'logo': LogoSVG,
   'user': UserSVG,
   'logout': logOutSVG,
+  'course': CourseSVG,
 };
 
 export const Icon: FC<IIconProps> = (props) => {

@@ -24,11 +24,12 @@ export interface IOtherStudies {
 }
 
 export interface ICourseCard {
-  id?: Key | null;
+  id: Key | null;
   title: string;
   img: TAllImages;
   researchArea?: string;
   path: string;
+  description: string;
 }
 
 export interface IPublicationDto {
