@@ -3,6 +3,7 @@ import styles from './EditCourse.module.scss';
 import { CourseEditForm } from '..';
 import { Chapters } from '../chapters';
 import { useParams } from 'react-router-dom';
+import { ParticipantsForm } from '../participantsForm';
 
 const EditCourse = () => {
   // Получить данные курса data, chapters
@@ -33,6 +34,7 @@ const EditCourse = () => {
       </Text>
       <CourseEditForm courseId={id} />
       <Chapters chaptersData={chapterData} />
+      <ParticipantsForm courseId={id} />
     </div>
   );
 };

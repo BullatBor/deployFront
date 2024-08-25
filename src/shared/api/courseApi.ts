@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
-import { INewsDto, IСourseDto, ICourseGet, URL } from '../model';
+import { INewsDto, IСourseDto, ICourseGet, URL, IParticipant } from '../model';
 
 const token =
   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzMGI1MjA0LTBhZDktNDYyMC1iOWIwLTA4OWM2M2NlNDA0YyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI0NTExMDU2LCJleHAiOjE3MjQ1OTc0NTZ9.es9bqVsFpwDS3E6IgSuTWKs1SfxOxTFhKlo3ovfjb2c';
@@ -42,6 +42,18 @@ export const courseApi = createApi({
         body,
       }),
     }),
+    searchUsers: builder.query<IParticipant[], { email: string }>({
+      query: ({ email }) => ({
+        url: `users?email=${email}`,
+        method: 'GET',
+      }),
+    }),
+    getParticipants: builder.query<IParticipant[], { courseId: string }>({
+      query: (data) => ({
+        url: `course/${data.courseId}/getParticipants`,
+        method: 'GET',
+      }),
+    }),
     deleteNew: builder.mutation<string, number>({
       query: (id) => ({
         url: `news/${id}`,
@@ -51,5 +63,10 @@ export const courseApi = createApi({
   }),
 });
 
-export const { useCreateCourseMutation, useGetCourseInfoQuery, useUpdateСourseMutation } =
-  courseApi;
+export const {
+  useCreateCourseMutation,
+  useGetCourseInfoQuery,
+  useUpdateСourseMutation,
+  useGetParticipantsQuery,
+  useLazySearchUsersQuery,
+} = courseApi;
