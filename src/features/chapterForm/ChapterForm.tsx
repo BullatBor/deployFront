@@ -10,6 +10,7 @@ import {
   useCreateChapterMutation,
   useDeleteAttachmentMutation,
   useUpdateChapterMutation,
+  useDeleteChapterMutation,
 } from '@/shared';
 import styles from './ChapterForm.module.scss';
 import { FC, memo, useState } from 'react';
@@ -49,6 +50,7 @@ const Form: FC<IChapterFormProps> = (props) => {
   const [createChapter] = useCreateChapterMutation();
   const [deleteAttachment] = useDeleteAttachmentMutation();
   const [updateChapter] = useUpdateChapterMutation();
+  const [deleteChapter] = useDeleteChapterMutation();
 
   const { fields, append, remove } = useFieldArray({
     name: 'chapterData',
@@ -107,7 +109,11 @@ const Form: FC<IChapterFormProps> = (props) => {
     }
   };
 
-  const deleteForm = () => {};
+  const deleteForm = () => {
+    if (id) {
+      deleteChapter(id);
+    }
+  };
 
   const removeAttachment = () => {
     if (attachments && attachments[0].id) {
