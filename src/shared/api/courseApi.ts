@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 import { INewsDto, IСourseDto, ICourseGet, URL } from '../model';
 
 const token =
-  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzMGI1MjA0LTBhZDktNDYyMC1iOWIwLTA4OWM2M2NlNDA0YyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI0NTc5ODgyLCJleHAiOjE3MjQ2NjYyODJ9.P9uAI30Jtb3VFgTIof6qyri_Gde7raz9mu4nFOZDb5g';
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzMGI1MjA0LTBhZDktNDYyMC1iOWIwLTA4OWM2M2NlNDA0YyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI0NjA4NjM3LCJleHAiOjE3MjQ2OTUwMzd9.RCp9mTWJLm0y0OS4NAOuOpnK4xEoaVSvTxvnJD6MmgY';
 
 export const courseApi = createApi({
   reducerPath: 'courseApi',
@@ -52,11 +52,15 @@ export const courseApi = createApi({
       }),
       invalidatesTags: ['courses'],
     }),
-    deleteNew: builder.mutation<string, number>({
+    deleteCourse: builder.mutation<string, string>({
       query: (id) => ({
-        url: `news/${id}`,
+        url: `course/${id}`,
         method: 'DELETE',
+        headers: {
+          'Authorization': token,
+        },
       }),
+      invalidatesTags: ['courses'],
     }),
   }),
 });
@@ -66,4 +70,5 @@ export const {
   useGetCourseInfoQuery,
   useUpdateСourseMutation,
   useGetCoursesQuery,
+  useDeleteCourseMutation,
 } = courseApi;
