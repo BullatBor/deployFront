@@ -16,6 +16,12 @@ export const courseApi = createApi({
         method: 'GET',
       }),
     }),
+    getCourses: builder.query<IСourseDto[], void>({
+      query: () => ({
+        url: `courses`,
+        method: 'GET',
+      }),
+    }),
     getCourseInfo: builder.query<IСourseDto, ICourseGet>({
       query: (data) => ({
         url: `course?courseId=${data.courseId}&userId=${data.userId}`,
@@ -69,4 +75,5 @@ export const {
   useUpdateСourseMutation,
   useGetParticipantsQuery,
   useLazySearchUsersQuery,
+  useGetCoursesQuery,
 } = courseApi;

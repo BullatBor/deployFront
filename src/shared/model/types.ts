@@ -25,10 +25,12 @@ export interface IOtherStudies {
 
 export interface ICourseCard {
   id?: Key | null;
-  title: string;
-  img: TAllImages;
-  researchArea?: string;
-  path: string;
+  title_ru: string;
+  description_ru: string;
+  title_en?: string;
+  description_en: string;
+  imageUrl: TAllImages;
+  category?: string;
 }
 
 export interface IPublicationDto {
