@@ -120,7 +120,7 @@ const Form: FC<IChapterFormProps> = (props) => {
 
   const deleteForm = () => {
     if (id) {
-      deleteChapter(id);
+      deleteChapter({ id, courseId: data.courseId });
     }
   };
 

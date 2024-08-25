@@ -9,6 +9,7 @@ export const courseApi = createApi({
   baseQuery: retry(fetchBaseQuery({ baseUrl: URL }), {
     maxRetries: 3,
   }),
+  tagTypes: ['courses'],
   endpoints: (builder) => ({
     getNews: builder.query<INewsDto[], void>({
       query: () => ({
@@ -21,6 +22,7 @@ export const courseApi = createApi({
         url: `courses`,
         method: 'GET',
       }),
+      providesTags: ['courses'],
     }),
     getCourseInfo: builder.query<IСourseDto, ICourseGet>({
       query: (data) => ({
@@ -37,6 +39,7 @@ export const courseApi = createApi({
         },
         body,
       }),
+      invalidatesTags: ['courses'],
     }),
     updateСourse: builder.mutation<INewsDto, FormData>({
       query: (body) => ({
@@ -47,6 +50,7 @@ export const courseApi = createApi({
         },
         body,
       }),
+      invalidatesTags: ['courses'],
     }),
     deleteNew: builder.mutation<string, number>({
       query: (id) => ({

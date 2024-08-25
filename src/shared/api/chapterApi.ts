@@ -63,9 +63,9 @@ export const chapterApi = createApi({
         },
       }),
     }),
-    deleteChapter: builder.mutation<string, string>({
-      query: (id) => ({
-        url: `course/chapter/${id}`,
+    deleteChapter: builder.mutation<string, { id: string; courseId: string }>({
+      query: ({ id, courseId }) => ({
+        url: `course/chapter/delete?id=${id}&courseId=${courseId}`,
         method: 'DELETE',
         headers: {
           'Authorization': token,

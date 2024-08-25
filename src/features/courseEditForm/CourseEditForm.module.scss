@@ -28,6 +28,18 @@
     display: flex;
     justify-content: space-between;
   }
+
+  &__isOpen {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+
+    input {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 .bottom_border {

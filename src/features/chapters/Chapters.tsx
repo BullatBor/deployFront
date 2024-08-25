@@ -129,7 +129,7 @@ export const Chapters: FC<IChapters> = ({ courseId }) => {
             : 'Глав нет'}
         </div>
 
-        <Button disabled={isBlocked} onClick={() => addChapter()}>
+        <Button disabled={isBlocked || isEditPosition} onClick={() => addChapter()}>
           Добавить
         </Button>
       </div>

@@ -19,7 +19,7 @@ interface FormValues {
   description_ru: string;
   description_en: string;
   imageUrl?: string;
-  isOpen: boolean;
+  isPublished: boolean;
 }
 
 interface Props {
@@ -41,7 +41,7 @@ export const CourseEditForm: FC<Props> = ({ courseId }) => {
       description_ru: data?.description_ru || '',
       description_en: data?.description_en || '',
       imageUrl: data?.imageUrl || '',
-      isOpen: data?.isOpen || true,
+      isPublished: data?.isOpen || true,
     },
     mode: 'onTouched',
     resetOptions: {
@@ -62,7 +62,7 @@ export const CourseEditForm: FC<Props> = ({ courseId }) => {
     formData.append('title_en', data.title_en);
     formData.append('description_ru', data.description_ru);
     formData.append('description_en', data.description_en);
-    formData.append('isOpen', data.isOpen ? 'true' : 'false');
+    formData.append('isPublished', data.isPublished ? 'true' : 'false');
     if (data.imageUrl && typeof data.imageUrl !== 'string') {
       formData.append('img', data.imageUrl);
     }
@@ -137,7 +137,7 @@ export const CourseEditForm: FC<Props> = ({ courseId }) => {
                 )}
               />
             </div>
-            <div className={cn(styles['wrapper__field'], styles['bottom_border'])}>
+            <div className={styles['wrapper__field']}>
               <Text tag='span' size='m' weight='medium'>
                 Описание курса ( en )
               </Text>
@@ -147,6 +147,26 @@ export const CourseEditForm: FC<Props> = ({ courseId }) => {
                 render={({ field: { onChange, value } }) => (
                   <>
                     <ReactTextareaAutosize value={value} onChange={onChange} rows={4} />
+                  </>
+                )}
+              />
+            </div>
+            <div
+              className={cn(
+                styles['wrapper__field'],
+                styles['bottom_border'],
+                styles['wrapper__isOpen'],
+              )}
+            >
+              <Text tag='span' size='m' weight='medium'>
+                Курс будет опубликован?
+              </Text>
+              <Controller
+                name='isPublished'
+                rules={{ required: true }}
+                render={({ field: { onChange, value } }) => (
+                  <>
+                    <input type='checkbox' checked={value} onChange={onChange} />
                   </>
                 )}
               />
@@ -173,7 +193,7 @@ export const CourseEditForm: FC<Props> = ({ courseId }) => {
             <div className={styles['wrapper__btns']}>
               <div></div>
               <Button type='submit' disabled={!methods.formState.isValid}>
-                Сохранить
+                Обновить
               </Button>
             </div>
           </form>
