@@ -6,7 +6,8 @@ import { Icon } from '../icon';
 interface INPUT_PROPS {
   value?: string | number;
   onChange: (value: string) => void;
-  onBlur: FocusEventHandler<HTMLInputElement>;
+  onFocus?: FocusEventHandler<HTMLInputElement>;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
   size: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'ml' | 'xss' | 'sxs' | 'sm' | 'lsm' | 'xxs';
   weight?: 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
   placeholder?: string;
@@ -23,6 +24,7 @@ export const Input: FC<INPUT_PROPS> = (props) => {
     value,
     onChange,
     onBlur,
+    onFocus,
     size = 's',
     weight = 'regular',
     placeholder,
@@ -50,6 +52,7 @@ export const Input: FC<INPUT_PROPS> = (props) => {
         value={value}
         onChange={inputHandle}
         onBlur={onBlur}
+        onFocus={onFocus}
         placeholder={placeholder}
         step={step}
         className={cn(

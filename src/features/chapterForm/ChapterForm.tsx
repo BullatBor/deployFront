@@ -7,6 +7,11 @@ import {
   TextController,
   Icon,
   Switcher,
+  useCreateChapterMutation,
+  useDeleteAttachmentMutation,
+  useUpdateChapterMutation,
+  useDeleteChapterMutation,
+  useDeleteChapterDataMutation,
 } from '@/shared';
 import styles from './ChapterForm.module.scss';
 import { FC, memo, useState } from 'react';
@@ -20,7 +25,8 @@ const Form: FC<IChapterFormProps> = (props) => {
   const { setBlocked, isBlocked, isEditPosition, moveUp, moveDown, index, id, ...data } = props;
 
   const [isEdit, setIsEdit] = useState(data.isEditMode ? true : false);
-  const [dataMode, setDataMode] = useState<1 | 2>(1);
+
+  const [dataMode, setDataMode] = useState<1 | 2>(data.type);
 
   const methods = useForm<IChapterFormValues>({
     defaultValues: {
@@ -30,7 +36,10 @@ const Form: FC<IChapterFormProps> = (props) => {
       description_ru: data.description_ru,
       description_en: data.description_en,
       courseId: data.courseId,
+      type: data.type,
       isOpen: data.isOpen,
+      chapterData: data.chapterData,
+      attachments: data.attachments,
     },
     mode: 'onTouched',
     resetOptions: {
@@ -38,15 +47,53 @@ const Form: FC<IChapterFormProps> = (props) => {
     },
   });
 
-  const { control } = methods;
+  const { control, watch, setValue } = methods;
+  const [createChapter] = useCreateChapterMutation();
+  const [deleteAttachment] = useDeleteAttachmentMutation();
+  const [updateChapter] = useUpdateChapterMutation();
+  const [deleteChapter] = useDeleteChapterMutation();
+  const [deleteChapterData] = useDeleteChapterDataMutation();
 
   const { fields, append, remove } = useFieldArray({
     name: 'chapterData',
     control,
   });
 
+  const chapterDataDeleted = (index: number, chapterDataId?: string) => {
+    if (chapterDataId) {
+      deleteChapterData(chapterDataId);
+    }
+    remove(index);
+  };
+
+  const attachments = watch('attachments');
+
   const onSubmitHandler: SubmitHandler<IChapterFormValues> = (data) => {
-    debugger;
+    const formData = new FormData();
+    formData.append('courseId', data.courseId);
+    formData.append('title_ru', data.title_ru);
+    formData.append('title_en', data.title_en);
+    formData.append('description_ru', data.description_ru);
+    formData.append('description_en', data.description_en);
+    formData.append('isOpen', data.isOpen ? 'true' : 'false');
+    formData.append('position', String(data.position));
+    formData.append('type', String(dataMode));
+    if (data.chapterData && dataMode === 2) {
+      data.chapterData.forEach((item) => {
+        const newData = JSON.stringify(item);
+        formData.append('data', newData);
+      });
+    }
+    if (data.files && dataMode === 1) {
+      formData.append('files', data.files);
+    }
+    if (id) {
+      formData.append('id', id);
+      updateChapter(formData);
+    } else {
+      createChapter(formData);
+    }
+
     closeFrom();
     return null;
   };
@@ -72,7 +119,18 @@ const Form: FC<IChapterFormProps> = (props) => {
   };
 
   const deleteForm = () => {
-    // TODO: API
+    if (id) {
+      deleteChapter({ id, courseId: data.courseId });
+    }
+  };
+
+  const removeAttachment = () => {
+    if (attachments && attachments[0].id) {
+      deleteAttachment(attachments[0].id);
+      setValue('attachments', undefined);
+    } else {
+      setValue('attachments', undefined);
+    }
   };
 
   return (
@@ -121,7 +179,7 @@ const Form: FC<IChapterFormProps> = (props) => {
                 </Text>
                 <Controller
                   name='description_en'
-                  rules={{ required: false }}
+                  rules={{ required: true }}
                   render={({ field: { onChange, value } }) => (
                     <>
                       <ReactTextareaAutosize value={value} onChange={onChange} rows={4} />
@@ -141,20 +199,34 @@ const Form: FC<IChapterFormProps> = (props) => {
                   <Text tag='span' size='m' weight='medium'>
                     Вложения
                   </Text>
-                  <Controller
-                    name='attachments'
-                    rules={{ required: false }}
-                    render={({ field: { onChange, value } }) => (
-                      <>
-                        <FileLoader
-                          image={value}
-                          onChange={onChange}
-                          type='files'
-                          acceptedFileTypes={DocFileType}
-                        />
-                      </>
-                    )}
-                  />
+                  <div className={styles['wrapper__filesLoad']}>
+                    <Controller
+                      name='files'
+                      rules={{ required: true }}
+                      render={({ field: { onChange, value } }) => (
+                        <>
+                          <FileLoader
+                            image={value}
+                            onChange={onChange}
+                            type='files'
+                            acceptedFileTypes={DocFileType}
+                          />
+                        </>
+                      )}
+                    />
+                    <div className={styles['wrapper__files']}>
+                      {attachments && attachments.length > 0 && (
+                        <div className={styles['wrapper__listItem']} key={attachments[0].name}>
+                          <Text tag='span' size='xs' weight='regular'>
+                            {attachments[0].name}
+                          </Text>
+                          <div className={styles['wrapper__delete']} onClick={removeAttachment}>
+                            <Icon width='14px' height='14px' icon='delete' />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div className={styles['wrapper__field']}>
@@ -162,7 +234,7 @@ const Form: FC<IChapterFormProps> = (props) => {
                     Вопросы
                   </Text>
                   {fields.map((item, index) => (
-                    <ChapterData key={item.id} index={index} deleteHandler={remove} />
+                    <ChapterData key={item.id} index={index} deleteHandler={chapterDataDeleted} />
                   ))}
                   <Button
                     className={styles['wrapper__addBtn']}
@@ -177,7 +249,7 @@ const Form: FC<IChapterFormProps> = (props) => {
               <div className={styles['wrapper__btns']}>
                 <div></div>
                 <Button type='submit' disabled={!methods.formState.isValid}>
-                  Сохранить
+                  {id ? 'Обновить' : 'Сохранить'}
                 </Button>
               </div>
             </form>

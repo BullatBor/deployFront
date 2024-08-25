@@ -1,38 +1,41 @@
-import { Text } from '@/shared';
+import { Text, useDeleteCourseMutation, Icon } from '@/shared';
 import styles from './EditCourse.module.scss';
 import { CourseEditForm } from '..';
 import { Chapters } from '../chapters';
+import { useNavigate, useParams } from 'react-router-dom';
+import { ParticipantsForm } from '../participantsForm';
 
 const EditCourse = () => {
   // Получить данные курса data, chapters
-  const data = {
-    title_ru: 'нвоый',
+  const { id } = useParams();
+  const [deleteCourse] = useDeleteCourseMutation();
+  const navigate = useNavigate();
+  if (!id) return null;
+
+  const deleteHandler = async () => {
+    if (id) {
+      await deleteCourse(id);
+      navigate('/admin/courses/all');
+    }
   };
-  const chapterData = [
-    {
-      id: '1',
-      title_ru: 'Первый чаптер',
-      description_ru: 'sdsdfsf',
-      position: 1,
-      courseId: '1',
-      isOpen: true,
-    },
-    {
-      id: '2',
-      title_ru: 'Второй чаптер',
-      description_ru: 'sdsdfsf',
-      position: 2,
-      courseId: '1',
-      isOpen: true,
-    },
-  ];
+
   return (
     <div className={styles['wrapper']}>
-      <Text tag='span' size='l' weight='semibold'>
-        Редактирование курса
-      </Text>
-      <CourseEditForm {...data} />
-      <Chapters chaptersData={chapterData} />
+      <div className={styles['header']}>
+        <Text tag='span' size='l' weight='semibold'>
+          Редактирование курса
+        </Text>
+        <Icon
+          width='24px'
+          height='24px'
+          icon='delete'
+          className={styles['delete']}
+          onClick={deleteHandler}
+        />
+      </div>
+      <CourseEditForm courseId={id} />
+      <Chapters courseId={id} />
+      <ParticipantsForm courseId={id} />
     </div>
   );
 };

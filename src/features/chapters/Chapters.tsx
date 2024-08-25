@@ -1,16 +1,31 @@
-import { Button, Text, IChapterFormValues } from '@/shared';
+import {
+  Button,
+  Text,
+  IChapterFormValues,
+  useGetChaptersQuery,
+  useUpdatePositionsMutation,
+} from '@/shared';
 import styles from './Chapters.module.scss';
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useState, useEffect } from 'react';
 import { ChapterForm } from '../chapterForm';
 
 interface IChapters {
-  chaptersData: IChapterFormValues[];
+  courseId: string;
 }
 
-export const Chapters: FC<IChapters> = ({ chaptersData }) => {
-  const [chapters, setChapters] = useState<IChapterFormValues[]>(chaptersData);
+export const Chapters: FC<IChapters> = ({ courseId }) => {
+  const [chapters, setChapters] = useState<IChapterFormValues[]>([]);
   const [isEditPosition, setIsEditPosition] = useState<boolean>(false);
   const [isBlocked, setIsBlocked] = useState<boolean>(false);
+
+  const { data } = useGetChaptersQuery({ courseId });
+  const [updatePositions] = useUpdatePositionsMutation();
+
+  useEffect(() => {
+    if (data) {
+      setChapters(data);
+    }
+  }, [data]);
 
   const setBlocked = useCallback((isBLocked: boolean) => {
     setIsBlocked(isBLocked);
@@ -22,6 +37,7 @@ export const Chapters: FC<IChapters> = ({ chaptersData }) => {
 
       const newItems = [...chapters];
       [newItems[index], newItems[index - 1]] = [newItems[index - 1], newItems[index]];
+
       setChapters(newItems);
     },
     [chapters],
@@ -45,17 +61,29 @@ export const Chapters: FC<IChapters> = ({ chaptersData }) => {
         id: null,
         isOpen: true,
         title_ru: 'Нужно отредактировать',
-        courseId: '12',
+        title_en: '',
+        description_ru: '',
+        description_en: '',
+        courseId: courseId,
         position: chapters.length,
         setBlocked,
         isEditMode: true,
+        type: 1,
       },
     ]);
   };
 
   const changePosition = () => {
     if (isEditPosition) {
-      // TODO: API
+      const updatedChapters = chapters.map((chapter, index) => ({
+        id: chapter.id,
+        position: index + 1,
+      }));
+
+      updatePositions({
+        courseId,
+        chapters: updatedChapters,
+      });
       setIsEditPosition(false);
     } else {
       setIsEditPosition(true);
@@ -101,7 +129,7 @@ export const Chapters: FC<IChapters> = ({ chaptersData }) => {
             : 'Глав нет'}
         </div>
 
-        <Button disabled={isBlocked} onClick={() => addChapter()}>
+        <Button disabled={isBlocked || isEditPosition} onClick={() => addChapter()}>
           Добавить
         </Button>
       </div>

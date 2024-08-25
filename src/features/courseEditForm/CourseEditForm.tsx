@@ -1,28 +1,47 @@
-import { Button, FileLoader, Input, Text, ImageFileType } from '@/shared';
+import {
+  Button,
+  FileLoader,
+  Input,
+  Text,
+  ImageFileType,
+  useGetCourseInfoQuery,
+  useUpdateСourseMutation,
+} from '@/shared';
 import styles from './CourseEditForm.module.scss';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 import { useForm, Controller, SubmitHandler, FormProvider } from 'react-hook-form';
 import cn from 'classnames';
 
 interface FormValues {
   title_ru: string;
-  title_en?: string;
-  description_ru?: string;
-  description_en?: string;
+  title_en: string;
+  description_ru: string;
+  description_en: string;
   imageUrl?: string;
-  isOpen?: boolean;
+  isPublished: boolean;
 }
 
-export const CourseEditForm: FC<FormValues> = (data) => {
+interface Props {
+  courseId: string;
+}
+
+export const CourseEditForm: FC<Props> = ({ courseId }) => {
+  const { data } = useGetCourseInfoQuery({
+    courseId,
+    userId: 'c30b5204-0ad9-4620-b9b0-089c63ce404c',
+  });
+
+  const [update] = useUpdateСourseMutation();
+
   const methods = useForm<FormValues>({
     defaultValues: {
-      title_ru: data.title_ru,
-      title_en: data.title_en,
-      description_ru: data.description_ru,
-      description_en: data.description_en,
-      imageUrl: data.imageUrl,
-      isOpen: data.isOpen,
+      title_ru: data?.title_ru || 'test',
+      title_en: data?.title_en || '',
+      description_ru: data?.description_ru || '',
+      description_en: data?.description_en || '',
+      imageUrl: data?.imageUrl || '',
+      isPublished: data?.isOpen || true,
     },
     mode: 'onTouched',
     resetOptions: {
@@ -30,8 +49,25 @@ export const CourseEditForm: FC<FormValues> = (data) => {
     },
   });
 
-  const onSubmitHandler: SubmitHandler<FormValues> = () => {
-    return null;
+  const { reset } = methods;
+
+  useEffect(() => {
+    if (data) reset(data);
+  }, [data, reset]);
+
+  const onSubmitHandler: SubmitHandler<FormValues> = (data) => {
+    const formData = new FormData();
+    formData.append('id', courseId);
+    formData.append('title_ru', data.title_ru);
+    formData.append('title_en', data.title_en);
+    formData.append('description_ru', data.description_ru);
+    formData.append('description_en', data.description_en);
+    formData.append('isPublished', data.isPublished ? 'true' : 'false');
+    if (data.imageUrl && typeof data.imageUrl !== 'string') {
+      formData.append('img', data.imageUrl);
+    }
+
+    update(formData);
   };
 
   return (
@@ -101,7 +137,7 @@ export const CourseEditForm: FC<FormValues> = (data) => {
                 )}
               />
             </div>
-            <div className={cn(styles['wrapper__field'], styles['bottom_border'])}>
+            <div className={styles['wrapper__field']}>
               <Text tag='span' size='m' weight='medium'>
                 Описание курса ( en )
               </Text>
@@ -115,12 +151,32 @@ export const CourseEditForm: FC<FormValues> = (data) => {
                 )}
               />
             </div>
+            <div
+              className={cn(
+                styles['wrapper__field'],
+                styles['bottom_border'],
+                styles['wrapper__isOpen'],
+              )}
+            >
+              <Text tag='span' size='m' weight='medium'>
+                Курс будет опубликован?
+              </Text>
+              <Controller
+                name='isPublished'
+                rules={{ required: true }}
+                render={({ field: { onChange, value } }) => (
+                  <>
+                    <input type='checkbox' checked={value} onChange={onChange} />
+                  </>
+                )}
+              />
+            </div>
             <div className={styles['wrapper__field']}>
               <Text tag='span' size='m' weight='medium'>
                 Загрузка изображения
               </Text>
               <Controller
-                name='courseImage'
+                name='imageUrl'
                 rules={{ required: true }}
                 render={({ field: { onChange, value } }) => (
                   <>
@@ -137,7 +193,7 @@ export const CourseEditForm: FC<FormValues> = (data) => {
             <div className={styles['wrapper__btns']}>
               <div></div>
               <Button type='submit' disabled={!methods.formState.isValid}>
-                Сохранить
+                Обновить
               </Button>
             </div>
           </form>

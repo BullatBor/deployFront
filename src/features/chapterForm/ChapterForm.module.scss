@@ -61,6 +61,28 @@
     gap: 20px;
   }
 
+  &__filesLoad {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__files {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__filesList {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__listItem {
+    display: flex;
+    gap: 10px;
+  }
+
   &__delete {
     cursor: pointer;
   }

@@ -1,6 +1,5 @@
-import { Button } from '@/shared';
+import { Button, useGetCoursesQuery } from '@/shared';
 import { useNavigate } from 'react-router-dom';
-import { MOCK_COURSES } from './constants';
 import { CourseCard } from '../courseCard';
 import styles from './CourseAdmin.module.scss';
 
@@ -9,15 +8,15 @@ const CourseAdmin = () => {
   const handleCreateCourse = () => {
     navigate('/admin/courses/createCourse');
   };
+  const { data } = useGetCoursesQuery();
+
   return (
     <div className={styles['wrapper']}>
       <Button size='m' width='content' onClick={handleCreateCourse}>
         Создать курс
       </Button>
       <div className={styles['wrapper__courses']}>
-        {MOCK_COURSES.map((course) => (
-          <CourseCard key={course.id} path={`/admin/courses/editCourse/${course.id}`} {...course} />
-        ))}
+        {data && data.map((course) => <CourseCard key={course.id} {...course} />)}
       </div>
     </div>
   );

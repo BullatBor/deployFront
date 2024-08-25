@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  box-shadow:
+    rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 5px 12px;
+  border-radius: 10px;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.5s;
+  width: fit-content;
+  height: auto !important;
+}
+
+.delete {
+  cursor: pointer;
+}
