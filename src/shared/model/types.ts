@@ -122,7 +122,7 @@ export interface IChapterData {
 }
 
 export interface IChapterAttachment {
-  id: string;
+  id: string | null;
   name: string;
   url: string;
 }
@@ -138,7 +138,8 @@ export interface IChapterFormValues {
   description_en: string;
   type: 1 | 2;
   chapterData?: IChapterData[];
-  attachments?: IChapterAttachment[] | File[];
+  attachments?: IChapterAttachment[];
+  files?: File;
 }
 
 export interface IChapterFormProps extends IChapterFormValues {

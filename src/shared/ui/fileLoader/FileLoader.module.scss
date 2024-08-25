@@ -9,21 +9,6 @@
     cursor: pointer;
   }
 
-  &__filesList {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  &__delete {
-    cursor: pointer;
-  }
-
-  &__listItem {
-    display: flex;
-    gap: 10px;
-  }
-
   &__filesType {
     display: flex;
     flex-direction: row;

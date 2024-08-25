@@ -43,13 +43,15 @@ const Form: FC<IChapterFormProps> = (props) => {
     },
   });
 
-  const { control } = methods;
+  const { control, watch } = methods;
   const [createChapter] = useCreateChapterMutation();
 
   const { fields, append, remove } = useFieldArray({
     name: 'chapterData',
     control,
   });
+
+  const attachments = watch('attachments');
 
   const onSubmitHandler: SubmitHandler<IChapterFormValues> = (data) => {
     const formData = new FormData();
@@ -67,10 +69,8 @@ const Form: FC<IChapterFormProps> = (props) => {
         formData.append('data', newData);
       });
     }
-    if (data.attachments && dataMode === 1) {
-      data.attachments.forEach((item) => {
-        formData.append('attachments', item);
-      });
+    if (data.files && dataMode === 1) {
+      formData.append('files', data.files);
     }
 
     createChapter(formData);
@@ -168,20 +168,37 @@ const Form: FC<IChapterFormProps> = (props) => {
                   <Text tag='span' size='m' weight='medium'>
                     Вложения
                   </Text>
-                  <Controller
-                    name='attachments'
-                    rules={{ required: false }}
-                    render={({ field: { onChange, value } }) => (
-                      <>
-                        <FileLoader
-                          image={value}
-                          onChange={onChange}
-                          type='files'
-                          acceptedFileTypes={DocFileType}
-                        />
-                      </>
-                    )}
-                  />
+                  <div className={styles['wrapper__filesLoad']}>
+                    <Controller
+                      name='files'
+                      rules={{ required: false }}
+                      render={({ field: { onChange, value } }) => (
+                        <>
+                          <FileLoader
+                            image={value}
+                            onChange={onChange}
+                            type='files'
+                            acceptedFileTypes={DocFileType}
+                          />
+                        </>
+                      )}
+                    />
+                    <div className={styles['wrapper__files']}>
+                      {attachments && (
+                        <div className={styles['wrapper__listItem']} key={attachments[0].name}>
+                          <Text tag='span' size='xs' weight='regular'>
+                            {attachments[0].name}
+                          </Text>
+                          <div
+                            className={styles['wrapper__delete']}
+                            // onClick={() => removeAttachment(index)}
+                          >
+                            <Icon width='14px' height='14px' icon='delete' />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div className={styles['wrapper__field']}>

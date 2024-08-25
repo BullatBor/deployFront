@@ -4,14 +4,14 @@ import cn from 'classnames';
 import styles from './FileLoader.module.scss';
 import { Text } from '../text';
 import { Icon } from '../icon';
-import { IChapterAttachment } from '@/shared';
+import { useFormContext } from 'react-hook-form';
 
 interface IFile extends File {
   preview: string;
 }
 
 interface PROPS {
-  image: IFile | IFile[] | IChapterAttachment | undefined;
+  image: IFile | undefined;
   onChange: (value: File | IFile[] | undefined) => void;
   type: 'img' | 'files';
   acceptedFileTypes?: {
@@ -20,6 +20,7 @@ interface PROPS {
 }
 
 export const FileLoader: FC<PROPS> = ({ image, onChange, type = 'files', acceptedFileTypes }) => {
+  const { setValue } = useFormContext();
   const onDrop = (acceptedFile: File[]) => {
     let files: IFile | IFile[] | undefined;
     if (type === 'img') {
@@ -31,17 +32,20 @@ export const FileLoader: FC<PROPS> = ({ image, onChange, type = 'files', accepte
       files = Object.assign(acceptedFile[0], {
         preview: URL.createObjectURL(acceptedFile[0]),
       });
+      /*
       if (Array.isArray(image)) {
         onChange([...image, files]);
       } else {
         onChange([files]);
-      }
-    }
-  };
-
-  const deleteFile = (name: string) => {
-    if (Array.isArray(image)) {
-      onChange(image.filter((item) => item.name !== name));
+      }*/
+      onChange(files);
+      setValue('attachments', [
+        {
+          id: null,
+          name: files.name,
+          url: 'undefined',
+        },
+      ]);
     }
   };
 
@@ -76,7 +80,7 @@ export const FileLoader: FC<PROPS> = ({ image, onChange, type = 'files', accepte
           <Icon width='24px' height='24px' icon='attachment' />
         )}
       </div>
-      {isImageType ? (
+      {isImageType && (
         <div className={styles['preview']}>
           <div className={styles['preview__inner']}>
             <img
@@ -87,21 +91,6 @@ export const FileLoader: FC<PROPS> = ({ image, onChange, type = 'files', accepte
             />
           </div>
         </div>
-      ) : (
-        Array.isArray(image) && (
-          <div className={styles['wrapper__filesList']}>
-            {image.map((item) => (
-              <div className={styles['wrapper__listItem']} key={item.name}>
-                <Text tag='span' size='xs' weight='regular'>
-                  {item.name}
-                </Text>
-                <div className={styles['wrapper__delete']} onClick={() => deleteFile(item.name)}>
-                  <Icon width='14px' height='14px' icon='delete' />
-                </div>
-              </div>
-            ))}
-          </div>
-        )
       )}
     </div>
   );
