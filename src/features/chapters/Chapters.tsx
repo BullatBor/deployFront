@@ -1,4 +1,10 @@
-import { Button, Text, IChapterFormValues, useGetChaptersQuery } from '@/shared';
+import {
+  Button,
+  Text,
+  IChapterFormValues,
+  useGetChaptersQuery,
+  useUpdatePositionsMutation,
+} from '@/shared';
 import styles from './Chapters.module.scss';
 import { FC, useCallback, useState, useEffect } from 'react';
 import { ChapterForm } from '../chapterForm';
@@ -13,6 +19,7 @@ export const Chapters: FC<IChapters> = ({ courseId }) => {
   const [isBlocked, setIsBlocked] = useState<boolean>(false);
 
   const { data } = useGetChaptersQuery({ courseId });
+  const [updatePositions] = useUpdatePositionsMutation();
 
   useEffect(() => {
     if (data) {
@@ -30,6 +37,7 @@ export const Chapters: FC<IChapters> = ({ courseId }) => {
 
       const newItems = [...chapters];
       [newItems[index], newItems[index - 1]] = [newItems[index - 1], newItems[index]];
+
       setChapters(newItems);
     },
     [chapters],
@@ -67,7 +75,15 @@ export const Chapters: FC<IChapters> = ({ courseId }) => {
 
   const changePosition = () => {
     if (isEditPosition) {
-      // TODO: API
+      const updatedChapters = chapters.map((chapter, index) => ({
+        id: chapter.id,
+        position: index + 1,
+      }));
+
+      updatePositions({
+        courseId,
+        chapters: updatedChapters,
+      });
       setIsEditPosition(false);
     } else {
       setIsEditPosition(true);

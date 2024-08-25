@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
-import { URL, IChapterFormValues } from '../model';
+import { URL, IChapterFormValues, IChapterUpdate } from '../model';
 
 const token =
   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzMGI1MjA0LTBhZDktNDYyMC1iOWIwLTA4OWM2M2NlNDA0YyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI0NTc5ODgyLCJleHAiOjE3MjQ2NjYyODJ9.P9uAI30Jtb3VFgTIof6qyri_Gde7raz9mu4nFOZDb5g';
@@ -25,6 +25,17 @@ export const chapterApi = createApi({
     updateChapter: builder.mutation<string, FormData>({
       query: (body) => ({
         url: 'course/chapter/update',
+        method: 'PUT',
+        headers: {
+          'Authorization': token,
+        },
+        body,
+      }),
+      invalidatesTags: ['chapters'],
+    }),
+    updatePositions: builder.mutation<string, IChapterUpdate>({
+      query: (body) => ({
+        url: 'course/chapter/updatePositions',
         method: 'PUT',
         headers: {
           'Authorization': token,
@@ -61,4 +72,5 @@ export const {
   useCreateChapterMutation,
   useDeleteAttachmentMutation,
   useUpdateChapterMutation,
+  useUpdatePositionsMutation,
 } = chapterApi;

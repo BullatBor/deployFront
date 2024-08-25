@@ -142,6 +142,16 @@ export interface IChapterFormValues {
   files?: File;
 }
 
+interface IChapters {
+  id: string | null;
+  position: number;
+}
+
+export interface IChapterUpdate {
+  courseId: string;
+  chapters: IChapters[];
+}
+
 export interface IChapterFormProps extends IChapterFormValues {
   index: number;
   isBlocked: boolean;
