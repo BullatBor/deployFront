@@ -7,6 +7,7 @@ import {
   TextController,
   Icon,
   Switcher,
+  useCreateChapterMutation,
 } from '@/shared';
 import styles from './ChapterForm.module.scss';
 import { FC, memo, useState } from 'react';
@@ -20,7 +21,8 @@ const Form: FC<IChapterFormProps> = (props) => {
   const { setBlocked, isBlocked, isEditPosition, moveUp, moveDown, index, id, ...data } = props;
 
   const [isEdit, setIsEdit] = useState(data.isEditMode ? true : false);
-  const [dataMode, setDataMode] = useState<1 | 2>(1);
+
+  const [dataMode, setDataMode] = useState<1 | 2>(data.type);
 
   const methods = useForm<IChapterFormValues>({
     defaultValues: {
@@ -30,7 +32,10 @@ const Form: FC<IChapterFormProps> = (props) => {
       description_ru: data.description_ru,
       description_en: data.description_en,
       courseId: data.courseId,
+      type: data.type,
       isOpen: data.isOpen,
+      chapterData: data.chapterData,
+      attachments: data.attachments,
     },
     mode: 'onTouched',
     resetOptions: {
@@ -39,6 +44,7 @@ const Form: FC<IChapterFormProps> = (props) => {
   });
 
   const { control } = methods;
+  const [createChapter] = useCreateChapterMutation();
 
   const { fields, append, remove } = useFieldArray({
     name: 'chapterData',
@@ -46,7 +52,28 @@ const Form: FC<IChapterFormProps> = (props) => {
   });
 
   const onSubmitHandler: SubmitHandler<IChapterFormValues> = (data) => {
-    debugger;
+    const formData = new FormData();
+    formData.append('courseId', data.courseId);
+    formData.append('title_ru', data.title_ru);
+    formData.append('title_en', data.title_en);
+    formData.append('description_ru', data.description_ru);
+    formData.append('description_en', data.description_en);
+    formData.append('isOpen', data.isOpen ? 'true' : 'false');
+    formData.append('position', String(data.position));
+    formData.append('type', String(dataMode));
+    if (data.chapterData && dataMode === 2) {
+      data.chapterData.forEach((item) => {
+        const newData = JSON.stringify(item);
+        formData.append('data', newData);
+      });
+    }
+    if (data.attachments && dataMode === 1) {
+      data.attachments.forEach((item) => {
+        formData.append('attachments', item);
+      });
+    }
+
+    createChapter(formData);
     closeFrom();
     return null;
   };
@@ -177,7 +204,7 @@ const Form: FC<IChapterFormProps> = (props) => {
               <div className={styles['wrapper__btns']}>
                 <div></div>
                 <Button type='submit' disabled={!methods.formState.isValid}>
-                  Сохранить
+                  {id ? 'Обновить' : 'Сохранить'}
                 </Button>
               </div>
             </form>

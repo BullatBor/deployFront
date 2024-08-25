@@ -121,16 +121,24 @@ export interface IChapterData {
   answers: { answer_ru: string; isCorrect: boolean; answer_en?: string; img?: File }[];
 }
 
+export interface IChapterAttachment {
+  id: string;
+  name: string;
+  url: string;
+}
+
 export interface IChapterFormValues {
   id: string | null;
   courseId: string;
   position: number;
   isOpen: boolean;
-  title_ru?: string;
-  description_ru?: string;
-  title_en?: string;
-  description_en?: string;
+  title_ru: string;
+  description_ru: string;
+  title_en: string;
+  description_en: string;
+  type: 1 | 2;
   chapterData?: IChapterData[];
+  attachments?: IChapterAttachment[] | File[];
 }
 
 export interface IChapterFormProps extends IChapterFormValues {

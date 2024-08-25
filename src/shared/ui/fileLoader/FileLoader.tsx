@@ -4,13 +4,14 @@ import cn from 'classnames';
 import styles from './FileLoader.module.scss';
 import { Text } from '../text';
 import { Icon } from '../icon';
+import { IChapterAttachment } from '@/shared';
 
 interface IFile extends File {
   preview: string;
 }
 
 interface PROPS {
-  image: IFile | IFile[] | undefined;
+  image: IFile | IFile[] | IChapterAttachment | undefined;
   onChange: (value: File | IFile[] | undefined) => void;
   type: 'img' | 'files';
   acceptedFileTypes?: {

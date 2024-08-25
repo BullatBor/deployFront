@@ -33,7 +33,7 @@ const EditCourse = () => {
         Редактирование курса
       </Text>
       <CourseEditForm courseId={id} />
-      <Chapters chaptersData={chapterData} />
+      <Chapters courseId={id} chaptersData={chapterData} />
       <ParticipantsForm courseId={id} />
     </div>
   );

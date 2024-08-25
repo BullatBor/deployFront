@@ -13,7 +13,8 @@ const arrayMock = Array.from({ length: 4 });
 export const ChapterData: FC<Props> = ({ index, deleteHandler }) => {
   const { control, watch, setValue } = useFormContext();
   const [isHide, setHide] = useState(true);
-  const [type, setType] = useState<1 | 2>(1);
+  const typeData = watch(`chapterData.${index}.type`);
+  const [type, setType] = useState<1 | 2>(typeData === 'img' ? 2 : 1);
   const hideHandler = () => {
     setHide((prev) => !prev);
   };
