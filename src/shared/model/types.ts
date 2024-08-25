@@ -75,13 +75,11 @@ export interface INewsDto {
 export interface IСourseDto {
   id: number;
   title_ru: string;
-  title_en: string;
   description_ru: string;
-  description_en: string;
+  title_en?: string;
+  description_en?: string;
   isOpen: boolean;
-  imageUrl: string;
-  createdAt: string;
-  updatedAt: string;
+  imageUrl?: string;
 }
 
 export interface ICourseGet {

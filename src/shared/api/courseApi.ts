@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
-import { INewsDto, INewsUpdate, IСourseDto, ICourseGet, URL } from '../model';
+import { INewsDto, IСourseDto, ICourseGet, URL } from '../model';
 
 const token =
   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzMGI1MjA0LTBhZDktNDYyMC1iOWIwLTA4OWM2M2NlNDA0YyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI0NTExMDU2LCJleHAiOjE3MjQ1OTc0NTZ9.es9bqVsFpwDS3E6IgSuTWKs1SfxOxTFhKlo3ovfjb2c';
@@ -32,10 +32,13 @@ export const courseApi = createApi({
         body,
       }),
     }),
-    updateNew: builder.mutation<INewsDto, INewsUpdate>({
+    updateСourse: builder.mutation<INewsDto, FormData>({
       query: (body) => ({
-        url: 'new',
+        url: 'course/update',
         method: 'PUT',
+        headers: {
+          'Authorization': token,
+        },
         body,
       }),
     }),
@@ -48,4 +51,5 @@ export const courseApi = createApi({
   }),
 });
 
-export const { useCreateCourseMutation, useGetCourseInfoQuery } = courseApi;
+export const { useCreateCourseMutation, useGetCourseInfoQuery, useUpdateСourseMutation } =
+  courseApi;
