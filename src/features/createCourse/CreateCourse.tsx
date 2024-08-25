@@ -1,6 +1,6 @@
 import { Text } from '@/shared';
 import styles from './CreateCourse.module.scss';
-import { CourseForm } from '@/features';
+import { CourseCreateForm } from '@/features';
 
 const CreateCourse = () => {
   return (
@@ -8,7 +8,7 @@ const CreateCourse = () => {
       <Text tag='span' size='l' weight='semibold'>
         Создание курса
       </Text>
-      <CourseForm />
+      <CourseCreateForm />
     </div>
   );
 };

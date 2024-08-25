@@ -27,7 +27,7 @@ const CoursePage = () => {
       <aside className={styles['course__aside']}>
         <div className={styles['course__heading']}>
           <Text tag='p' weight='bold' size='s'>
-            {course?.title}
+            {course?.title_ru}
           </Text>
           <progress max={100} value={20} />
           <Text tag='span' weight='semibold' size='xs'>

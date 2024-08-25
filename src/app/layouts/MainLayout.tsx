@@ -23,13 +23,13 @@ export const MainLayout = () => {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+  /*
   useEffect(() => {
     const token = localStorage.getItem('token');
     localStorage.removeItem('token');
     token ? authCheck(token) : navigate('/main', { replace: true });
   }, [authCheck, navigate]);
-
+*/
   return (
     <div>
       <Header />

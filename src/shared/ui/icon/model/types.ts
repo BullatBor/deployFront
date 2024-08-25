@@ -38,7 +38,9 @@ export type TSvgIconNames =
   | 'logo'
   | 'user'
   | 'logout'
-  | 'course';
+  | 'course'
+  | 'attachment'
+  | 'delete';
 
 export type TAllImages = TSvgImageNames | TPngImageNames;
 export type TIcons = Record<TSvgIconNames, string | SVGProps<SVGSVGElement>>;

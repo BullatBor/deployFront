@@ -54,6 +54,13 @@
     }
   }
 
+  &_success {
+    background-color: $ctrl_status_success;
+    &:hover {
+      background-color: $ctrl_Liberty;
+    }
+  }
+
   &_red {
     background-color: $text_alert;
     opacity: 0.5;
@@ -62,6 +69,12 @@
     &:hover {
       background-color: $text_alert;
       opacity: 1;
+    }
+    &:disabled {
+      background-color: $text_alert;
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
 }

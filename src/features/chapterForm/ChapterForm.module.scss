@@ -1,0 +1,109 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $borderRadiusM;
+  box-shadow:
+    rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 20px 50px;
+  position: relative;
+  width: 100%;
+  &__main {
+    width: 100%;
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__preview {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__closeForm {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__editTitle {
+    cursor: pointer;
+    &:hover {
+      color: $text_action;
+      text-decoration: underline;
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__filesLoad {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__files {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__filesList {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__listItem {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__delete {
+    cursor: pointer;
+  }
+
+  &__moveBtns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__addBtn {
+    margin-top: 15px;
+  }
+}
+
+.activeForm {
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.bottom_border {
+  padding-bottom: 30px;
+  border-bottom: 3px $text_primary solid;
+}

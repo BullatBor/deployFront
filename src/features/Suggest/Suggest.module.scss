@@ -1,0 +1,38 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  background-color: $bg-gray;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  z-index: 10;
+  transition: all 2s;
+}
+
+.list {
+  padding: 10px 8px 0 8px;
+  overflow-x: hidden !important;
+}
+
+.list::-webkit-scrollbar {
+  width: 5px;
+}
+.list::-webkit-scrollbar-track {
+  background: blue;
+}
+.list::-webkit-scrollbar-thumb {
+  background-color: green;
+  border-radius: 20px;
+}
+
+.preloader {
+  height: 50px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyTitle {
+  font-size: 18px !important;
+}
