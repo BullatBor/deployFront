@@ -1,4 +1,11 @@
-import { authApi, listenerMiddleware, newsApi, publicationsApi, courseApi } from '@/shared';
+import {
+  authApi,
+  listenerMiddleware,
+  newsApi,
+  publicationsApi,
+  courseApi,
+  usersApi,
+} from '@/shared';
 import authSlice from '@/shared/api/authSlice';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
@@ -7,6 +14,7 @@ const rootReducer = combineReducers({
   [newsApi.reducerPath]: newsApi.reducer,
   [authApi.reducerPath]: authApi.reducer,
   [courseApi.reducerPath]: courseApi.reducer,
+  [usersApi.reducerPath]: usersApi.reducer,
   auth: authSlice,
 });
 
@@ -19,6 +27,7 @@ export const store = configureStore({
         publicationsApi.middleware,
         newsApi.middleware,
         courseApi.middleware,
+        usersApi.middleware,
       )
       .prepend(listenerMiddleware.middleware),
 });

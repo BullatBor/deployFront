@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
-import { INewsDto, IСourseDto, ICourseGet, URL, IParticipant } from '../model';
+import { INewsDto, IСourseDto, ICourseGet, URL } from '../model';
 
 const token =
-  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzMGI1MjA0LTBhZDktNDYyMC1iOWIwLTA4OWM2M2NlNDA0YyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI0NTExMDU2LCJleHAiOjE3MjQ1OTc0NTZ9.es9bqVsFpwDS3E6IgSuTWKs1SfxOxTFhKlo3ovfjb2c';
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzMGI1MjA0LTBhZDktNDYyMC1iOWIwLTA4OWM2M2NlNDA0YyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI0NTc5ODgyLCJleHAiOjE3MjQ2NjYyODJ9.P9uAI30Jtb3VFgTIof6qyri_Gde7raz9mu4nFOZDb5g';
 
 export const courseApi = createApi({
   reducerPath: 'courseApi',
@@ -48,18 +48,6 @@ export const courseApi = createApi({
         body,
       }),
     }),
-    searchUsers: builder.query<IParticipant[], { email: string }>({
-      query: ({ email }) => ({
-        url: `users?email=${email}`,
-        method: 'GET',
-      }),
-    }),
-    getParticipants: builder.query<IParticipant[], { courseId: string }>({
-      query: (data) => ({
-        url: `course/${data.courseId}/getParticipants`,
-        method: 'GET',
-      }),
-    }),
     deleteNew: builder.mutation<string, number>({
       query: (id) => ({
         url: `news/${id}`,
@@ -73,7 +61,5 @@ export const {
   useCreateCourseMutation,
   useGetCourseInfoQuery,
   useUpdateСourseMutation,
-  useGetParticipantsQuery,
-  useLazySearchUsersQuery,
   useGetCoursesQuery,
 } = courseApi;

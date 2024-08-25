@@ -33,3 +33,10 @@
 .suggest {
   position: relative;
 }
+
+.chipters {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}

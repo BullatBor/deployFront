@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
-import { Icon, IParticipant, Text } from '@/shared';
+import { Icon, IParticipant, IUsers, Text } from '@/shared';
 import s from './Chipter.module.scss';
 import cn from 'classnames';
 
-interface IChipterProps extends IParticipant {
+interface IChipterProps extends IUsers {
+  courseId: string;
   style?: React.CSSProperties;
   addParticipant?: (data: IParticipant) => void;
   index?: number;
@@ -13,19 +14,19 @@ interface IChipterProps extends IParticipant {
 export const Chipter: FC<IChipterProps> = ({
   email,
   courseId,
-  userId,
+  id,
   style,
   addParticipant,
   index,
   deleteParticipant,
 }) => {
   const itemHandler = () => {
-    if (addParticipant) addParticipant({ email, courseId, userId });
+    if (addParticipant) addParticipant({ email, courseId, userId: id });
   };
 
   const deleteHandler = () => {
     if (deleteParticipant && (index || index === 0)) {
-      deleteParticipant(index, userId);
+      deleteParticipant(index, id);
     }
   };
 

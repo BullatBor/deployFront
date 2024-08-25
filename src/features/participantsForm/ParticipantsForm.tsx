@@ -1,7 +1,16 @@
-import { FormProvider, useForm, useFieldArray } from 'react-hook-form';
+import { FormProvider, useForm, useFieldArray, SubmitHandler } from 'react-hook-form';
 import styles from './ParticipantsForm.module.scss';
-import { Text, Input, Button, useDebounce, IParticipant } from '@/shared';
-import { FC } from 'react';
+import {
+  Text,
+  Input,
+  Button,
+  useDebounce,
+  IParticipant,
+  useGetParticipantsQuery,
+  useAddParticipantsMutation,
+  useBlockedUsersMutation,
+} from '@/shared';
+import { FC, useEffect } from 'react';
 import { Suggest } from '../Suggest';
 import cn from 'classnames';
 import { Chipter } from '../Chipter';
@@ -15,15 +24,12 @@ interface FormValues {
 }
 
 export const ParticipantsForm: FC<PROPS> = ({ courseId }) => {
+  const { data } = useGetParticipantsQuery({ courseId });
+  const [addParticipants] = useAddParticipantsMutation();
+  const [blockedUsers] = useBlockedUsersMutation();
   const methods = useForm<FormValues>({
     defaultValues: {
-      participants: [
-        {
-          courseId: 'sdfsdfsdf',
-          userId: 'sdfsdfsdf',
-          email: 'sdfsdfsdf.gmail.com',
-        },
-      ],
+      participants: data,
     },
     mode: 'onTouched',
     resetOptions: {
@@ -31,7 +37,11 @@ export const ParticipantsForm: FC<PROPS> = ({ courseId }) => {
     },
   });
 
-  const { control } = methods;
+  const { control, reset } = methods;
+
+  useEffect(() => {
+    if (data) reset({ participants: data });
+  }, [data, reset]);
 
   const { fields, append, remove } = useFieldArray({
     name: 'participants',
@@ -40,6 +50,7 @@ export const ParticipantsForm: FC<PROPS> = ({ courseId }) => {
 
   const chipterHandler = (index: number, userId: string) => {
     remove(index);
+    blockedUsers({ userId, courseId });
     //TODO API
   };
 
@@ -51,9 +62,11 @@ export const ParticipantsForm: FC<PROPS> = ({ courseId }) => {
     currentData,
     suggestRef,
     onSearchFocus,
-  } = useDebounce(courseId);
+  } = useDebounce();
 
-  const onSubmitHandler = () => {};
+  const onSubmitHandler: SubmitHandler<FormValues> = (data) => {
+    addParticipants(data);
+  };
 
   return (
     <div className={styles['wrapper']}>
@@ -78,15 +91,21 @@ export const ParticipantsForm: FC<PROPS> = ({ courseId }) => {
               />
               <div className={styles['suggest']}>
                 {isSuggestVisible && (
-                  <Suggest data={currentData} suggestRef={suggestRef} addParticipant={append} />
+                  <Suggest
+                    data={currentData}
+                    courseId={courseId}
+                    suggestRef={suggestRef}
+                    addParticipant={append}
+                  />
                 )}
               </div>
             </div>
-            <div>
+            <div className={styles['chipters']}>
               {fields.map((item, index) => (
                 <Chipter
                   key={item.userId}
                   {...item}
+                  id={item.userId}
                   index={index}
                   deleteParticipant={chipterHandler}
                 />

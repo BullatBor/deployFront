@@ -93,6 +93,12 @@ export interface IParticipant {
   courseId: string;
   userId: string;
   email: string;
+  id?: string;
+}
+
+export interface IUsers {
+  id: string;
+  email: string;
 }
 
 export type INewsCreate = Prettify<Omit<INewsDto, 'createdAt' | 'updatedAt' | 'id'>>;
