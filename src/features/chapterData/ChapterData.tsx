@@ -6,7 +6,7 @@ import cn from 'classnames';
 
 interface Props {
   index: number;
-  deleteHandler: (index: number) => void;
+  deleteHandler: (index: number, id?: string) => void;
 }
 const arrayMock = Array.from({ length: 4 });
 
@@ -21,10 +21,7 @@ export const ChapterData: FC<Props> = ({ index, deleteHandler }) => {
   const id = watch(`chapterData.${index}.id`);
 
   const removeHandler = () => {
-    if (id) {
-      deleteHandler(index);
-      //TODO: delete endpoint
-    } else deleteHandler(index);
+    deleteHandler(index, id);
   };
 
   const typeHandler = (stateName: string) => {

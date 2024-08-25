@@ -11,6 +11,7 @@ import {
   useDeleteAttachmentMutation,
   useUpdateChapterMutation,
   useDeleteChapterMutation,
+  useDeleteChapterDataMutation,
 } from '@/shared';
 import styles from './ChapterForm.module.scss';
 import { FC, memo, useState } from 'react';
@@ -51,11 +52,19 @@ const Form: FC<IChapterFormProps> = (props) => {
   const [deleteAttachment] = useDeleteAttachmentMutation();
   const [updateChapter] = useUpdateChapterMutation();
   const [deleteChapter] = useDeleteChapterMutation();
+  const [deleteChapterData] = useDeleteChapterDataMutation();
 
   const { fields, append, remove } = useFieldArray({
     name: 'chapterData',
     control,
   });
+
+  const chapterDataDeleted = (index: number, chapterDataId?: string) => {
+    if (chapterDataId) {
+      deleteChapterData(chapterDataId);
+    }
+    remove(index);
+  };
 
   const attachments = watch('attachments');
 
@@ -225,7 +234,7 @@ const Form: FC<IChapterFormProps> = (props) => {
                     Вопросы
                   </Text>
                   {fields.map((item, index) => (
-                    <ChapterData key={item.id} index={index} deleteHandler={remove} />
+                    <ChapterData key={item.id} index={index} deleteHandler={chapterDataDeleted} />
                   ))}
                   <Button
                     className={styles['wrapper__addBtn']}
