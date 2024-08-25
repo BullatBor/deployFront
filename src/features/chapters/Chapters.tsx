@@ -4,7 +4,6 @@ import { FC, useCallback, useState, useEffect } from 'react';
 import { ChapterForm } from '../chapterForm';
 
 interface IChapters {
-  chaptersData: IChapterFormValues[];
   courseId: string;
 }
 

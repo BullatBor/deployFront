@@ -8,6 +8,7 @@ import {
   Icon,
   Switcher,
   useCreateChapterMutation,
+  useDeleteAttachmentMutation,
 } from '@/shared';
 import styles from './ChapterForm.module.scss';
 import { FC, memo, useState } from 'react';
@@ -43,8 +44,9 @@ const Form: FC<IChapterFormProps> = (props) => {
     },
   });
 
-  const { control, watch } = methods;
+  const { control, watch, setValue } = methods;
   const [createChapter] = useCreateChapterMutation();
+  const [deleteAttachment] = useDeleteAttachmentMutation();
 
   const { fields, append, remove } = useFieldArray({
     name: 'chapterData',
@@ -98,8 +100,15 @@ const Form: FC<IChapterFormProps> = (props) => {
     }
   };
 
-  const deleteForm = () => {
-    // TODO: API
+  const deleteForm = () => {};
+
+  const removeAttachment = () => {
+    if (attachments && attachments[0].id) {
+      deleteAttachment(attachments[0].id);
+      setValue('attachments', undefined);
+    } else {
+      setValue('attachments', undefined);
+    }
   };
 
   return (
@@ -189,10 +198,7 @@ const Form: FC<IChapterFormProps> = (props) => {
                           <Text tag='span' size='xs' weight='regular'>
                             {attachments[0].name}
                           </Text>
-                          <div
-                            className={styles['wrapper__delete']}
-                            // onClick={() => removeAttachment(index)}
-                          >
+                          <div className={styles['wrapper__delete']} onClick={removeAttachment}>
                             <Icon width='14px' height='14px' icon='delete' />
                           </div>
                         </div>

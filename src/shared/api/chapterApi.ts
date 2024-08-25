@@ -32,7 +32,18 @@ export const chapterApi = createApi({
       }),
       providesTags: ['chapters'],
     }),
+    deleteAttachment: builder.mutation<string, string>({
+      query: (id) => ({
+        url: `chapterAtachment/${id}`,
+        method: 'DELETE',
+        headers: {
+          'Authorization': token,
+        },
+      }),
+      invalidatesTags: ['chapters'],
+    }),
   }),
 });
 
-export const { useGetChaptersQuery, useCreateChapterMutation } = chapterApi;
+export const { useGetChaptersQuery, useCreateChapterMutation, useDeleteAttachmentMutation } =
+  chapterApi;
