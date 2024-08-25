@@ -9,6 +9,7 @@ import {
   Switcher,
   useCreateChapterMutation,
   useDeleteAttachmentMutation,
+  useUpdateChapterMutation,
 } from '@/shared';
 import styles from './ChapterForm.module.scss';
 import { FC, memo, useState } from 'react';
@@ -47,6 +48,7 @@ const Form: FC<IChapterFormProps> = (props) => {
   const { control, watch, setValue } = methods;
   const [createChapter] = useCreateChapterMutation();
   const [deleteAttachment] = useDeleteAttachmentMutation();
+  const [updateChapter] = useUpdateChapterMutation();
 
   const { fields, append, remove } = useFieldArray({
     name: 'chapterData',
@@ -74,8 +76,13 @@ const Form: FC<IChapterFormProps> = (props) => {
     if (data.files && dataMode === 1) {
       formData.append('files', data.files);
     }
+    if (id) {
+      formData.append('id', id);
+      updateChapter(formData);
+    } else {
+      createChapter(formData);
+    }
 
-    createChapter(formData);
     closeFrom();
     return null;
   };
@@ -157,7 +164,7 @@ const Form: FC<IChapterFormProps> = (props) => {
                 </Text>
                 <Controller
                   name='description_en'
-                  rules={{ required: false }}
+                  rules={{ required: true }}
                   render={({ field: { onChange, value } }) => (
                     <>
                       <ReactTextareaAutosize value={value} onChange={onChange} rows={4} />
@@ -180,7 +187,7 @@ const Form: FC<IChapterFormProps> = (props) => {
                   <div className={styles['wrapper__filesLoad']}>
                     <Controller
                       name='files'
-                      rules={{ required: false }}
+                      rules={{ required: true }}
                       render={({ field: { onChange, value } }) => (
                         <>
                           <FileLoader
@@ -193,7 +200,7 @@ const Form: FC<IChapterFormProps> = (props) => {
                       )}
                     />
                     <div className={styles['wrapper__files']}>
-                      {attachments && (
+                      {attachments && attachments.length > 0 && (
                         <div className={styles['wrapper__listItem']} key={attachments[0].name}>
                           <Text tag='span' size='xs' weight='regular'>
                             {attachments[0].name}

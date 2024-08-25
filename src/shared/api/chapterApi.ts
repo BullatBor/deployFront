@@ -22,6 +22,17 @@ export const chapterApi = createApi({
       }),
       invalidatesTags: ['chapters'],
     }),
+    updateChapter: builder.mutation<string, FormData>({
+      query: (body) => ({
+        url: 'course/chapter/update',
+        method: 'PUT',
+        headers: {
+          'Authorization': token,
+        },
+        body,
+      }),
+      invalidatesTags: ['chapters'],
+    }),
     getChapters: builder.query<IChapterFormValues[], { courseId: string }>({
       query: (data) => ({
         url: `course/${data.courseId}/chapters`,
@@ -45,5 +56,9 @@ export const chapterApi = createApi({
   }),
 });
 
-export const { useGetChaptersQuery, useCreateChapterMutation, useDeleteAttachmentMutation } =
-  chapterApi;
+export const {
+  useGetChaptersQuery,
+  useCreateChapterMutation,
+  useDeleteAttachmentMutation,
+  useUpdateChapterMutation,
+} = chapterApi;
