@@ -16,7 +16,7 @@ const CourseAdmin = () => {
         Создать курс
       </Button>
       <div className={styles['wrapper__courses']}>
-        {data && data.map((course) => <CourseCard key={course.id} {...course} />)}
+        {data && data.map((course) => <CourseCard key={course.id} {...course} path={`/admin/courses/editCourse/${course.id}`}/>)}
       </div>
     </div>
   );
